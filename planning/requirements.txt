@@ -1,0 +1,98 @@
+// Launch School - Assessment 299 - Trello Clone
+// Requirements and Features
+
+1. Layout
+  - Header
+    - Search bar
+      - Events:
+        - Click
+          - Expand hang-over search pane
+        - Keypress
+          - Automatic search results
+          - Reveals buttons with cards to click
+  - Board
+  - Menu (slide out)
+
+2. Board
+  - Board title (upper left)
+    - Events:
+      - Click
+        - Expands a single input form
+          - On save, board title is changed
+          - On "X", form closes
+  - Existing lists
+    - Display titles, cards, add card option (see below)
+    - Events:
+      - Click / drag
+        - On drag (from header bar), they may be moved into list slots
+        - Lists snap into place at new slots, re-ordering the existing lists
+        - Lists may not simply be dropped anywhere
+  - Add a list field
+    - Events:
+      - Click
+        - Expands a single input form
+          - On save, a new list is added
+          - On "X", form closes
+  - Menu button
+    - Events:
+      - Click
+        - Expands menu frame from right side
+
+3. List
+  - Cards
+    - Core information displayed about each card
+      - Title, labels, due date, number comments, checklist items, members
+    - Edit icon (pencil)
+      - Events:
+        - Click
+          - Card title becomes an input field with current value
+            - Single input form
+              - On save, title is changed
+              - On click outside, form closes (withot save of any changes)
+    - Body
+      - Events:
+        - Click
+          - Card info modal appears with a full-screen overlay behind it
+        - Click / drag
+          - On drag (from anywhere on card), cards may be re-ordered in the 
+            same list, or moved onto a different list.
+  - New card button
+    - Events:
+      - Click
+        - Expands a single input form
+          - On save, a new card with the provided title is added
+          - On "X', form closes
+
+4. Card (info modal)
+  - Title heading
+    - Events:
+      - Click
+        - Turns into an input field to change title
+        - On click outside info field, title is saved as current input value
+  - Description
+    - Events:
+      - Click
+        - (or click on "edit" button)
+        - Expands a single input form
+          - On save, a description is added to the card
+          - On "X", form closes
+  - Comment
+    - Events:
+      - Click
+        - Allows text entry
+      - Keypress
+        - Checks if comment has a value, and if so, activates save button
+      - Submit (save)
+        - Adds comment below "activity" section
+
+5. Menu
+  - Activity list
+    - Desciption of comments, changes, etc
+  - Close "X"
+    - Events:
+      - Click
+        - Menu bar slides back out
+
+6. Persistence
+  - Data is saved to some data store
+  - On refresh, data is retained
