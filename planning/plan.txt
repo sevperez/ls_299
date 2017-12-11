@@ -2,20 +2,19 @@
 // Development Plan
 
 1. Identify Feature Requirements
-  - List core app features
-    - Display
-    - Events
-    - User interaction
+  X List core app features
+    X Display
+    X Events
+    X User interaction
   - List non-core app features
-    - Repeat specifics
 
 2. Data Relationships
-  - Identify core elements of structure
-    - Describe "fields" in each element
-  - Describe hierarchy of core elements
-  - Describe relationship between core elements (1:1; 1:M; M:M)
-  - Determine appropriate data structure
-  - Build dummy data
+  X Identify core elements of structure
+    X Describe "fields" in each element
+  X Describe hierarchy of core elements
+  X Describe relationship between core elements (1:1; 1:M; M:M)
+  X Determine appropriate data structure
+  X Build dummy data
 
 3. Identify Tool Stack
   - Consider core features and data relationships
