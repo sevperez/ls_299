@@ -76,6 +76,17 @@
         - Expands a single input form
           - On save, a description is added to the card
           - On "X", form closes
+  - Checklists
+    - Hidden unless populated
+    - Events
+      - Click (add button)
+        - Expands a single input form
+          - On save, a checklist with no items is added
+          - On "X", form closes
+      - Submit (add item input)
+        - Adds item to checklist
+      - Click (checkbox next to item)
+        - Toggles complete status (and css styles)
   - Comment
     - Events:
       - Click

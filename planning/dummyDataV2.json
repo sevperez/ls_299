@@ -31,7 +31,8 @@
             "assigned_users": [],
             "list_id": 1
           }
-        ]
+        ],
+        "checklists": [1]
       }, {
         "id": 2,
         "title": "List Two",
@@ -69,7 +70,8 @@
             "assigned_users": [1],
             "list_id": 2
           }
-        ]
+        ],
+        "checklists": [2, 3]
       }, {
         "id": 3,
         "title": "List Three",
@@ -87,7 +89,8 @@
             "assigned_users": [1],
             "list_id": 3
           }
-        ]
+        ],
+        "checklists": []
       }
     ]
   },
@@ -138,6 +141,51 @@
       "id": 5,
       "user_id": 1,
       "content": "See, cards aren't just for work!"
+    }
+  ],
+  "checklists": [
+    {
+      "id": 1,
+      "title": "First Checklist",
+      "items": [
+        {
+          "id": 1,
+          "title": "Task one",
+          "complete": true
+        }, {
+          "id": 2,
+          "title": "Task two",
+          "complete": true
+        }, {
+          "id": 3,
+          "title": "Task three",
+          "complete": false
+        }
+      ]
+    }, {
+      "id": 2,
+      "title": "Second Checklist",
+      "items": [
+        {
+          "id": 4,
+          "title": "Just one task here",
+          "complete": true
+        }
+      ]
+    }, {
+      "id": 3,
+      "title": "Third Checklist",
+      "items": [
+        {
+          "id": 5,
+          "title": "A silly task",
+          "complete": false
+        }, {
+          "id": 6,
+          "title": "An even sillier task",
+          "complete": false
+        }
+      ]
     }
   ]
 }
