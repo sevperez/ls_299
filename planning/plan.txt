@@ -17,15 +17,15 @@
   X Build dummy data
 
 3. Identify Tool Stack
-  - Consider core features and data relationships
-  - Describe the role of each tool
-    - ex. server-side routing; client-side routing; etc.
-  - Identify gaps in tool stack
-    - What tasks are not covered in stack plan?
-  - Fill gaps in tool stack
-    - Identify options
-    - Evaluate options
-    - Select appropriate tools
+  X Consider core features and data relationships
+  X Describe the role of each tool
+    X ex. server-side routing; client-side routing; etc.
+  X Identify gaps in tool stack
+    X What tasks are not covered in stack plan?
+  X Fill gaps in tool stack
+    X Identify options
+    X Evaluate options
+    X Select appropriate tools
 
 4. Setup Development Environment
 
