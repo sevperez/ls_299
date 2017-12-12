@@ -13,10 +13,11 @@ body
   background-color: colors.default
 body
   font: 14px fonts.default, Arial, Helvetica, sans-serif
+  color: colors.txt.main
 header
   height: 40px
-  padding: distances.minor
-  background: colors.shading.minorDark
+  padding: 7px
+  background: colors.shaded.lowBlk
   text-align: center
   div
     display: inline-block
@@ -32,26 +33,93 @@ header
     h2
       font: 24px fonts.logo, cursive
       font-weight: bold
-      color: colors.shading.medLight
+      color: colors.shaded.medWht
       &:hover
-        color: colors.shading.highLight
+        color: colors.shaded.highWht
   #userIcon
     height: 26px
     width: 26px
     padding-top: 4px
     text-align: center
     font-weight: bold
-    background-color: #d6dadc
+    background-color: colors.bg.tertiary
     border-radius: 100%
 
 #board
-  padding: distances.minor
-#brd-header
+  padding: 7px 10px
+#brdHeader
   height: 40px
-#brd-title
   h3
-    font-size: 24px
+    font-size: 20px
     font-weight: bold
+    color: colors.txt.secondary
+  a
+    color: #ffffff
+    text-decoration: underline
+    span
+      padding-right: 5px
+
+#lists
+  display: inline-block
+  vertical-align: top
+  .list
+    vertical-align: top
+    width: 275px
+    display: inline-block
+    margin-right: 10px
+    border-radius: 5px
+    background-color: colors.bg.secondary
+    h4
+      margin: 10px
+      cursor: pointer
+    .cardList
+      .card
+        height: 75px
+        padding: 8px
+        margin: 10px
+        border-radius: 5px
+        background-color: #ffffff
+        cursor: pointer
+        &:hover
+          background-color: colors.shaded.medWht
+        .labels
+          margin-bottom: 5px
+          li
+            display: inline-block
+            height: 8px
+            width: 40px
+            margin-right: 5px
+            border-radius: 3px
+        .icons
+          margin-top: 8px
+          li
+            display: inline-block
+            margin-right: 20px
+            vertical-align: top
+            color: colors.shaded.medBlk
+            span
+              padding-right: 5px
+    a
+      display: block
+      padding: 10px
+      color: colors.shaded.medBlk
+      &:hover
+        background-color: colors.shaded.vLowBlk
+        color: colors.shaded.highBlk
+        text-decoration: underline
+#addList
+  display: inline-block
+  height: 40px
+  width: 275px
+  padding: 10px
+  border-radius: 5px
+  color: colors.shaded.medWht
+  background-color: colors.shaded.lowBlk
+  cursor:  pointer
+  &:hover
+    background-color: colors.shaded.medBlk
+    color: colors.shaded.highWht
+  
 
 .left
   float: left
@@ -59,3 +127,20 @@ header
   float: right
 .clear
   clear: both
+
+.green
+  background: colors.bg.green
+.yellow
+  background: colors.bg.yellow
+.orange
+  background: colors.bg.orange
+.red
+  background: colors.bg.red
+.purple
+  background: colors.bg.purple
+.blue
+  background: colors.bg.blue
+.sky
+  background: colors.bg.sky
+
+  

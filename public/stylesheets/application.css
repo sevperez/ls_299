@@ -10,6 +10,7 @@ body {
 }
 body {
   font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #333;
 }
 header {
   height: 40px;
@@ -50,14 +51,95 @@ header #userIcon {
   border-radius: 100%;
 }
 #board {
-  padding: 7px;
+  padding: 7px 10px;
 }
-#brd-header {
+#brdHeader {
   height: 40px;
 }
-#brd-title h3 {
-  font-size: 24px;
+#brdHeader h3 {
+  font-size: 20px;
   font-weight: bold;
+  color: #f6f6f6;
+}
+#brdHeader a {
+  color: #fff;
+  text-decoration: underline;
+}
+#brdHeader a span {
+  padding-right: 5px;
+}
+#lists {
+  display: inline-block;
+  vertical-align: top;
+}
+#lists .list {
+  vertical-align: top;
+  width: 275px;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #e2e4e6;
+}
+#lists .list h4 {
+  margin: 10px;
+  cursor: pointer;
+}
+#lists .list .cardList .card {
+  height: 75px;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+#lists .list .cardList .card:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+#lists .list .cardList .card .labels {
+  margin-bottom: 5px;
+}
+#lists .list .cardList .card .labels li {
+  display: inline-block;
+  height: 8px;
+  width: 40px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+#lists .list .cardList .card .icons {
+  margin-top: 8px;
+}
+#lists .list .cardList .card .icons li {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+  color: rgba(0,0,0,0.4);
+}
+#lists .list .cardList .card .icons li span {
+  padding-right: 5px;
+}
+#lists .list a {
+  display: block;
+  padding: 10px;
+  color: rgba(0,0,0,0.4);
+}
+#lists .list a:hover {
+  background-color: rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.85);
+  text-decoration: underline;
+}
+#addList {
+  display: inline-block;
+  height: 40px;
+  width: 275px;
+  padding: 10px;
+  border-radius: 5px;
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+#addList:hover {
+  background-color: rgba(0,0,0,0.4);
+  color: rgba(255,255,255,0.85);
 }
 .left {
   float: left;
@@ -67,4 +149,25 @@ header #userIcon {
 }
 .clear {
   clear: both;
+}
+.green {
+  background: #61bd4f;
+}
+.yellow {
+  background: #f2d600;
+}
+.orange {
+  background: #ffab4a;
+}
+.red {
+  background: #eb5a46;
+}
+.purple {
+  background: #c377de;
+}
+.blue {
+  background: #0079bf;
+}
+.sky {
+  background: #00c2e0;
 }

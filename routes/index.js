@@ -8,11 +8,10 @@ var Board = require(path.resolve(path.dirname(__dirname), "modules/boardCRUD"));
 module.exports = function(router) {
   router.get("/", function(req, res, next) {
     res.render("index", { 
-      title: "Trello Clone"
+      // load data and send to index view
+      title: "Trello Clone",
+      data: Board.get()
     });
+    
   });
-  // router.route("/board").get(function(req, res, next) {
-  //   res.json(Board.get());
-  //   // res.send("hello world");
-  // });
 };

@@ -103,16 +103,20 @@
   "labels": [
     {
       "id": 1,
-      "title": "work"
+      "title": "work",
+      "color": "blue"
     }, {
       "id": 2,
-      "title": "coding"
+      "title": "coding",
+      "color": "red"
     }, {
       "id": 3,
-      "title": "fun"
+      "title": "fun",
+      "color": "sky"
     }, {
       "id": 4,
-      "title": "sad"
+      "title": "sad",
+      "color": "orange"
     }
   ],
   "menu": {

@@ -8,5 +8,11 @@ html
     link(href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet")
     +stylesheetLinkTag("application")
     +javascriptIncludeTag("vendor/all")
+    +javascriptIncludeTag("handlebarsTemplates")
   body
     block content
+    
+    +javascriptIncludeTag("application")
+    script(type="text/javascript").
+      App.init(!{JSON.stringify(data)});
+
