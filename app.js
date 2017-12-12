@@ -1,3 +1,6 @@
+// EXPRESS - MAIN ENTRY POINT - app.js
+
+// dependencies
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');

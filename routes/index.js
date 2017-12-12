@@ -1,4 +1,4 @@
-// EXPRESS - ROUTES - COMBINED - all.js
+// EXPRESS - ROUTES - index.js
 
 var path = require("path");
 var fs = require("fs");
