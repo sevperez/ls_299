@@ -1,0 +1,9 @@
+// PUG - mixins.pug
+
+mixin stylesheetLinkTag(src)
+  link(href="/stylesheets/" + src + ".css", rel="stylesheet")
+
+mixin javascriptIncludeTag(src, ...rest)
+  script(src="/javascripts/" + src + ".js", type="text/javascript")
+  each file in rest
+    script(src="/javascripts/" + file + ".js", type="text/javascript")

@@ -28,6 +28,16 @@
     X Select appropriate tools
 
 4. Setup Development Environment
+  - Initialize Express app
+  - Install nodemon
+  - Install Express dependencies
+  - Install modules
+  - Setup Bower
+  - Setup Grunt
+  - Install Grunt plugins
+  - Adjust default Express files
+  - Install Stylus
+  - Build file structure
 
 5. Setup Testing Environment
 

@@ -1,0 +1,10 @@
+include /mixins
+
+doctype html
+html
+  head
+    title= title
+    +stylesheetLinkTag("application")
+    +javascriptIncludeTag("vendor/all")
+  body
+    block content
