@@ -7,7 +7,7 @@ var path = require("path");
 var router = express.Router();
 
 // array of route files
-var routeFiles = ["index"];
+var routeFiles = ["index", "board"];
 
 for (var i = 0; i < routeFiles.length; i += 1) {
   // require each route file, passing in the router

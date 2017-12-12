@@ -1,5 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header
+    div.left
+      input(id="search_bar")
+      span.fa.fa-search
+    div.right
+      #userIcon LS
+    #logo
+      h2
+        i.fa.fa-trello
+        |  Trello Clone
+      
+  #board.clear
+    #brd-header
+      #brd-title.brd-container
+        h3 Board Title
+    

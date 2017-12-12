@@ -1,7 +1,9 @@
 // EXPRESS - ROUTES - index.js
 
 var path = require("path");
-var fs = require("fs");
+
+// include board module
+var Board = require(path.resolve(path.dirname(__dirname), "modules/boardCRUD"));
 
 module.exports = function(router) {
   router.get("/", function(req, res, next) {
@@ -9,4 +11,8 @@ module.exports = function(router) {
       title: "Trello Clone"
     });
   });
+  // router.route("/board").get(function(req, res, next) {
+  //   res.json(Board.get());
+  //   // res.send("hello world");
+  // });
 };

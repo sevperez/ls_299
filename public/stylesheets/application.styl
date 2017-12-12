@@ -2,3 +2,60 @@
 
 @import "whitespace-reset.css"
 @import "mixins"
+
+*,
+*:before,
+*:after
+  box-sizing: border-box
+
+html,
+body
+  background-color: colors.default
+body
+  font: 14px fonts.default, Arial, Helvetica, sans-serif
+header
+  height: 40px
+  padding: distances.minor
+  background: colors.shading.minorDark
+  text-align: center
+  div
+    display: inline-block
+    height: 100%
+    input
+      height: 100%
+      width: 180px
+      & + span
+        position: relative
+        right: 15px
+  #logo
+    margin-left: -90px
+    h2
+      font: 24px fonts.logo, cursive
+      font-weight: bold
+      color: colors.shading.medLight
+      &:hover
+        color: colors.shading.highLight
+  #userIcon
+    height: 26px
+    width: 26px
+    padding-top: 4px
+    text-align: center
+    font-weight: bold
+    background-color: #d6dadc
+    border-radius: 100%
+
+#board
+  padding: distances.minor
+#brd-header
+  height: 40px
+#brd-title
+  h3
+    font-size: 24px
+    font-weight: bold
+
+.left
+  float: left
+.right
+  float: right
+.clear
+  clear: both

@@ -28,18 +28,21 @@
     X Select appropriate tools
 
 4. Setup Development Environment
-  - Initialize Express app
-  - Install nodemon
-  - Install Express dependencies
-  - Install modules
-  - Setup Bower
-  - Setup Grunt
-  - Install Grunt plugins
-  - Adjust default Express files
-  - Install Stylus
-  - Build file structure
+  X Initialize Express app
+  X Install nodemon
+  X Install Express dependencies
+  X Install modules
+  X Setup Bower
+  X Setup Grunt
+  X Install Grunt plugins
+  X Adjust default Express files
+  X Install Stylus
+  X Build file structure
 
 5. Setup Testing Environment
+  X Install jasmine-node
+  X Setup Express route spec
+  X Setup Jasmine spec runner
 
 6. HTML/CSS Skeleton
   - Prepare core HTML/CSS skeleton using a static example page
