@@ -11,12 +11,16 @@ var ListView = Backbone.View.extend({
   
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
-    this.$parent.append(this.$el);
+    
+    return this;
+  },
+  
+  bindEvents: function() {
+    this.listenTo(this.model, "all", this.render);
   },
   
   initialize: function() {
     this.$el.data("id", this.model.id);
-    this.$parent = $("#lists");
-    this.render();
+    this.bindEvents();
   },
 });

@@ -14,8 +14,8 @@ html
     
     +javascriptIncludeTag("application")
     +javascriptIncludeTag("models/board", "models/card", "models/list")
-    +javascriptIncludeTag("collections/cards")
-    +javascriptIncludeTag("views/boardHeader", "views/list")
+    +javascriptIncludeTag("collections/cards", "collections/lists")
+    +javascriptIncludeTag("views/boardHeader", "views/list", "views/lists")
     script(type="text/javascript").
       App.init(!{JSON.stringify(data)});
 

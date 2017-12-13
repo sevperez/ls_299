@@ -12,15 +12,12 @@ var App = {
   setupLists: function() {
     var self = this;
     
-    // create new list models and add to App.lists array
-    this.lists = [];
+    // create new lists collection and view
+    this.lists = new Lists([], { comparator: "position" });
+    this.listsView = new ListsView({ collection: this.lists });
     this.board.toJSON().lists.forEach(function(listId) {
-      self.lists.push(new List({ id: listId }));
+      self.lists.add(new List({ id: listId }));
     });
-  },
-  
-  createListView: function(listModel) {
-    new ListView({ model: listModel });
   },
   
   bindEvents: function() {
