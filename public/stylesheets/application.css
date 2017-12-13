@@ -25,10 +25,14 @@ header div {
 header div input {
   height: 100%;
   width: 180px;
+  padding: 5px;
+  border-radius: 5px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #333;
 }
 header div input + span {
   position: relative;
-  right: 15px;
+  right: 20px;
 }
 header #logo {
   margin-left: -90px;
@@ -77,6 +81,7 @@ header #userIcon {
   width: 275px;
   display: inline-block;
   margin-right: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   background-color: #e2e4e6;
 }
@@ -129,15 +134,47 @@ header #userIcon {
 }
 #addList {
   display: inline-block;
-  height: 40px;
-  width: 275px;
-  padding: 10px;
+}
+#addList div {
+  padding: 5px;
   border-radius: 5px;
+  width: 275px;
+}
+#addList div:first-of-type {
+  display: none;
+  position: absolute;
+  height: 80px;
+  background-color: #e2e4e6;
+}
+#addList div:first-of-type input[type="text"] {
+  height: 36px;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #333;
+}
+#addList div:first-of-type .btn {
+  color: #fff;
+  background-color: #61bd4f;
+  font-weight: bold;
+  margin-right: 10px;
+}
+#addList div:first-of-type a {
+  position: relative;
+  top: 3px;
+  color: #999;
+  font-size: 22px;
+}
+#addList div:last-of-type {
+  height: 40px;
+  padding: 12px 10px;
   color: rgba(255,255,255,0.6);
   background-color: rgba(0,0,0,0.15);
   cursor: pointer;
 }
-#addList:hover {
+#addList div:last-of-type:hover {
   background-color: rgba(0,0,0,0.4);
   color: rgba(255,255,255,0.85);
 }
@@ -149,6 +186,13 @@ header #userIcon {
 }
 .clear {
   clear: both;
+}
+.btn {
+  height: 30px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  cursor: pointer;
 }
 .green {
   background: #61bd4f;

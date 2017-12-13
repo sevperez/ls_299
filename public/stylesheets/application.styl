@@ -25,9 +25,13 @@ header
     input
       height: 100%
       width: 180px
+      padding: 5px
+      border-radius: 5px
+      font: 14px fonts.default, Arial, Helvetica, sans-serif
+      color: colors.txt.main
       & + span
         position: relative
-        right: 15px
+        right: 20px
   #logo
     margin-left: -90px
     h2
@@ -67,6 +71,7 @@ header
     width: 275px
     display: inline-block
     margin-right: 10px
+    margin-bottom: 10px
     border-radius: 5px
     background-color: colors.bg.secondary
     h4
@@ -109,16 +114,42 @@ header
         text-decoration: underline
 #addList
   display: inline-block
-  height: 40px
-  width: 275px
-  padding: 10px
-  border-radius: 5px
-  color: colors.shaded.medWht
-  background-color: colors.shaded.lowBlk
-  cursor:  pointer
-  &:hover
-    background-color: colors.shaded.medBlk
-    color: colors.shaded.highWht
+  div
+    padding: 5px
+    border-radius: 5px
+    width: 275px
+    &:first-of-type
+      display: none
+      position: absolute
+      height: 80px
+      background-color: colors.bg.secondary
+      input[type="text"]
+        height: 36px
+        width: 100%
+        padding: 5px
+        margin-bottom: 3px
+        border-radius: 5px
+        font: 14px fonts.default, Arial, Helvetica, sans-serif
+        color: colors.txt.main
+      .btn
+        color: #ffffff
+        background-color: colors.bg.green
+        font-weight: bold
+        margin-right: 10px
+      a
+        position: relative
+        top: 3px
+        color: colors.txt.tertiary
+        font-size: 22px
+    &:last-of-type
+      height: 40px
+      padding: 12px 10px
+      color: colors.shaded.medWht
+      background-color: colors.shaded.lowBlk
+      cursor:  pointer
+      &:hover
+        background-color: colors.shaded.medBlk
+        color: colors.shaded.highWht
   
 
 .left
@@ -127,6 +158,13 @@ header
   float: right
 .clear
   clear: both
+
+.btn
+  height: 30px
+  border-radius: 5px
+  padding: 5px 15px
+  font: 14px fonts.default, Arial, Helvetica, sans-serif
+  cursor: pointer
 
 .green
   background: colors.bg.green

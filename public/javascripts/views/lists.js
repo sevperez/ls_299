@@ -5,7 +5,7 @@ var ListsView = Backbone.View.extend({
   
   addListView: function(model, collection) {
     var view = new ListView({ model: model });
-    this.$el.append(view.render().el);
+    this.$el.children().last().before(view.render().el);
   },
   
   bindEvents: function() {
