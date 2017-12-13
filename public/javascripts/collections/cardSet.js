@@ -6,8 +6,6 @@ var CardSet = Backbone.Collection.extend({
   setup: function(listId) {
     this.fetch({
       success: function(collection, response) {
-        console.log("Collection fetched: ", collection);
-        
         // trigger cardSetLoaded event, passing associated list ID
         App.trigger("cardSetLoaded", listId);
       },

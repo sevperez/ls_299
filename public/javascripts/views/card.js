@@ -13,16 +13,9 @@ var CardView = Backbone.View.extend({
     var self = this;
     
     this.model.toJSON().labels.forEach(function(id) {
-      $.ajax({
-        url: "/labels/" + String(id),
-        method: "GET",
-        dataType: "json",
-        
-        success: function(data) {
-          self.$("[data-label='" + id + "']").addClass(data.color);
-        },
-      });
+      var color = App.labels.get(id).toJSON().color;
       
+      self.$("[data-label='" + id + "']").addClass(color);
     });
   },
   

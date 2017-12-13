@@ -32,9 +32,6 @@ var App = {
   attachCardSetView: function(listId) {
     var collection = this.cardSets[String(listId)];
     var view = new CardSetView({ collection: collection, listId: listId });
-    
-    console.log("el: ", view.el);
-    console.log("collection: ", view.collection.toJSON());
   },
   
   bindEvents: function() {
@@ -49,6 +46,9 @@ var App = {
   init: function(data) {
     // initialize cardSets object
     this.cardSets = {};
+    
+    // store labels
+    this.labels = new Labels();
     
     this.bindEvents();
     this.setupBoard();

@@ -7,6 +7,7 @@ var Board = Backbone.Model.extend({
     this.fetch({
       success: function() {
         // broadcast message to App on successful setup
+        console.log("board fetched");
         App.trigger("boardLoaded");
       },
     });
