@@ -4,7 +4,8 @@ var List = Backbone.Model.extend({
   setup: function() {
     this.fetch({
       success: function(model, response) {
-        console.log(response);
+        // broadcast message to App on successful setup
+        App.trigger("listLoaded", model);
       },
     });
   },

@@ -12,11 +12,15 @@ var App = {
   setupLists: function() {
     var self = this;
     
-    // create new list collections and add to App.lists array
+    // create new list models and add to App.lists array
     this.lists = [];
     this.board.toJSON().lists.forEach(function(listId) {
       self.lists.push(new List({ id: listId }));
     });
+  },
+  
+  createListView: function(listModel) {
+    new ListView({ model: listModel });
   },
   
   bindEvents: function() {
@@ -24,6 +28,7 @@ var App = {
     _.extend(this, Backbone.Events);
     
     this.on("boardLoaded", this.setupLists);
+    this.on("listLoaded", this.createListView);
   },
   
   init: function(data) {
