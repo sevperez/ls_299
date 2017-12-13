@@ -1,15 +1,13 @@
-<li class="card" data-id="{{id}}">
-  {{#if labels}}
-    <ul class="labels">
-      {{#each labels}}
-        <li class="{{color}}"></li>
-      {{/each}}
-    </ul>
-  {{/if}}
-  <p>{{title}}</p>
-  {{#if icons}}
-    <li>
-      <span class="{{classes}}"></span> {{text}}
-    </li>
-  {{/if}}
-</li>
+{{#if labels}}
+  <ul class="labels">
+    {{#each labels}}
+      <li data-label={{this}}></li>
+    {{/each}}
+  </ul>
+{{/if}}
+<p>{{title}}</p>
+{{#if icons}}
+  <li>
+    <span class="{{classes}}"></span> {{text}}
+  </li>
+{{/if}}

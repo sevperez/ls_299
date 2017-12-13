@@ -30,4 +30,8 @@ module.exports = function(router) {
   router.route("/lists/:id/cards").get(function(req, res, next) {
     res.json(_.where(Interface.get().cards, { list_id: +req.params.id }));
   });
+  
+  router.route("/labels/:id").get(function(req, res, next) {
+    res.json(_.where(Interface.get().labels, { id: +req.params.id })[0]);
+  });
 };
