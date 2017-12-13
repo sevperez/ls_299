@@ -1,5 +1,9 @@
 this["JST"] = this["JST"] || {};
 
+this["JST"]["addNewList"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div><form method=\"post\" action=\"#\"><input type=\"text\" id=\"newListName\" name=\"newListName\" placeholder=\"Add a list...\" autofocus /><button class=\"btn\" type=\"submit\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div><div>Add a list...</div>";
+},"useData":true});
+
 this["JST"]["boardHeader"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 

@@ -34,18 +34,6 @@ var App = {
     var view = new CardSetView({ collection: collection, listId: listId });
   },
   
-  openAddListDrawer: function(e) {
-    e.preventDefault();
-    
-    $("#addList div:first-of-type").slideDown(100);
-  },
-  
-  closeAddListDrawer: function(e) {
-    e.preventDefault();
-    
-    $("#addList div:first-of-type").slideUp(100);
-  },
-  
   getNextId: function(collection) {
     return _.max(collection.toJSON(), function(item) {
       return item.id;
@@ -62,14 +50,8 @@ var App = {
     };
   },
   
-  addList: function(e) {
-    e.preventDefault();
-    var newName = $(this).serializeArray()[0].value;
-    
-    App.lists.add(App.buildNewList(newName));
-    
-    $(this).find("input").val("");
-    $(this).find("a").trigger("click");
+  addList: function(name) {
+    this.lists.add(this.buildNewList(name));
   },
   
   bindEvents: function() {
@@ -79,10 +61,7 @@ var App = {
     this.on("boardLoaded", this.setupLists);
     this.on("listLoaded", this.setupCardSet);
     this.on("cardSetLoaded", this.attachCardSetView);
-    
-    $("#addList div:last-of-type").on("click", this.openAddListDrawer);
-    $("#addList div:first-of-type a").on("click", this.closeAddListDrawer);
-    $("#addList div:first-of-type form").on("submit", this.addList);
+    this.on("addList", this.addList);
   },
   
   init: function(data) {
