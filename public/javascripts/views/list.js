@@ -20,7 +20,7 @@ var ListView = Backbone.View.extend({
   },
   
   initialize: function() {
-    this.$el.data("id", this.model.id);
+    this.$el.attr("data-id", this.model.id);
     this.bindEvents();
   },
 });
