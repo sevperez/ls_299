@@ -4,7 +4,7 @@
 var fs = require ("fs");
 var _ = require("underscore");
 var path = require("path");
-var filePath = path.resolve(path.dirname(__dirname), "data/boardData.json");
+var filePath = path.resolve(path.dirname(__dirname), "data/data.json");
 
 // module functions on a singleton object
 module.exports = {

@@ -53,19 +53,19 @@ header #userIcon {
 #board {
   padding: 7px 10px;
 }
-#brdHeader {
+#boardHeader {
   height: 40px;
 }
-#brdHeader h3 {
+#boardHeader h3 {
   font-size: 20px;
   font-weight: bold;
   color: #f6f6f6;
 }
-#brdHeader a {
+#boardHeader a {
   color: #fff;
   text-decoration: underline;
 }
-#brdHeader a span {
+#boardHeader a span {
   padding-right: 5px;
 }
 #lists {

@@ -3,15 +3,14 @@
 var path = require("path");
 
 // include board module
-var Board = require(path.resolve(path.dirname(__dirname), "modules/boardCRUD"));
+var Interface = require(path.resolve(path.dirname(__dirname), "modules/dataInterface"));
 
 module.exports = function(router) {
   router.get("/", function(req, res, next) {
     res.render("index", { 
       // load data and send to index view
       title: "Trello Clone",
-      data: Board.get()
+      // data: Interface.get()
     });
-    
   });
 };
