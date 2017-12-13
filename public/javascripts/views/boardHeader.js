@@ -9,8 +9,8 @@ var BoardHeaderView = Backbone.View.extend({
   },
   
   bindEvents: function() {
-    // render on board change
-    this.listenTo(this.model, "change", this.render);
+    // render on board title change
+    this.listenTo(this.model, "change:title", this.render);
   },
   
   initialize: function() {

@@ -13,7 +13,8 @@ html
     block content
     
     +javascriptIncludeTag("application")
-    +javascriptIncludeTag("models/board")
+    +javascriptIncludeTag("models/board", "models/card", "models/list")
+    +javascriptIncludeTag("collections/cards")
     +javascriptIncludeTag("views/boardHeader")
     script(type="text/javascript").
       App.init(!{JSON.stringify(data)});
