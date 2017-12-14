@@ -7,6 +7,7 @@ var Lists = Backbone.Collection.extend({
     this.fetch({
       success: function() {
         console.log("lists fetched");
+        App.trigger("listsLoaded");
       },
     });
   },

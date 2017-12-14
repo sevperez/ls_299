@@ -13,30 +13,27 @@ module.exports = function(router) {
 
   router.route("/boards/:board_id/lists").get(function(req, res, next) {
     res.json(_.where(Interface.get().lists, { board_id: +req.params.board_id }));
+  }).post(function(req, res, next) {
+    var list = req.body;
+    var data = Interface.get();
+    var board = _.where(data.boards, { id: +req.params.board_id })[0];
+    
+    // set list id and push new list to data
+    list.id = Interface.getNextId(data.lists);
+    data.lists.push(list);
+    
+    // push list id to board's array of lists
+    board.lists.push(req.body.id);
+    
+    // write new data
+    Interface.write(data);
+    
+    // send back the new list
+    res.json(list);
   });
   
-  // .post(function(req, res, next) {
-  //   var list = req.body;
-  //   var data = Interface.get();
-    
-  //   list.id = Interface.getNextId(data.lists);
-    
-  //   console.log(list);
-  //   // push new list to data
-  //   data.lists.push(req.body);
-    
-  //   // push list id to board's array of lists
-  //   data.board.lists.push(req.body.id);
-    
-  //   // write new data
-  //   Interface.write(data);
-    
-  //   // send back the new list
-  //   res.json(req.body);
-  // });
-  
-  router.route("/lists/:list_id").get(function(req, res, next) {
-    res.json(_.where(Interface.get().lists, { id: +req.params.list_id })[0]);
+  router.route("/boards/:board_id/lists/:list_id").get(function(req, res, next) {
+    res.json(_.where(Interface.get().lists, { id: +req.params.list_id, board_id: +req.params.board_id })[0]);
   });
   
   router.route("/cards").get(function(req, res, next) {
@@ -47,7 +44,7 @@ module.exports = function(router) {
     res.json(_.where(Interface.get().cards, { id: +req.params.card_id })[0]);
   });
   
-  router.route("/lists/:list_id/cards").get(function(req, res, next) {
+  router.route("/boards/:board_id/lists/:list_id/cards").get(function(req, res, next) {
     res.json(_.where(Interface.get().cards, { list_id: +req.params.list_id }));
   });
   

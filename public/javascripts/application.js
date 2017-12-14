@@ -10,16 +10,18 @@ var App = {
   },
   
   setupLists: function() {
-    var self = this;
-    
     // create new lists collection and view
     this.lists = new Lists([], { comparator: "position" });
     this.listsView = new ListsView({ collection: this.lists });
   },
   
-  setupCardSet: function(listId) {
-    // instantiates a new CardSet collection and stores on App object with listId as key
-    this.cardSets[String(listId)] = new CardSet([], { id: listId });
+  setupCardSets: function(listId) {
+    var self = this;
+    
+    // instantiates CardSet collections, storing on App object with the listId as its key
+    this.lists.pluck("id").forEach(function(listId) {
+      self.cardSets[String(listId)] = new CardSet([], { id: listId });
+    });
   },
   
   attachCardSetView: function(listId) {
@@ -53,7 +55,7 @@ var App = {
     _.extend(this, Backbone.Events);
     
     this.on("boardLoaded", this.setupLists);
-    this.on("listLoaded", this.setupCardSet);
+    this.on("listsLoaded", this.setupCardSets);
     this.on("cardSetLoaded", this.attachCardSetView);
     this.on("addList", this.addList);
   },

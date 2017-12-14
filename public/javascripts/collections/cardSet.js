@@ -6,14 +6,14 @@ var CardSet = Backbone.Collection.extend({
   setup: function(listId) {
     this.fetch({
       success: function(collection, response) {
-        // trigger cardSetLoaded event, passing associated list ID
+        console.log("card set " + String(listId) + " fetched");
         App.trigger("cardSetLoaded", listId);
       },
     });
   },
   
   initialize: function(models, options) {
-    this.url = "/lists/" + String(options.id) + "/cards";
+    this.url = "/boards/" + String(App.board.id) + "/lists/" + String(options.id) + "/cards";
     this.setup(options.id);
   },
 });
