@@ -45,7 +45,7 @@ header #logo h2 {
 header #logo h2:hover {
   color: rgba(255,255,255,0.85);
 }
-header #userIcon {
+.userIcon {
   height: 26px;
   width: 26px;
   padding-top: 4px;
@@ -188,9 +188,122 @@ header #userIcon {
   border-top-left-radius: 0;
 }
 #addCard div:last-of-type:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.08);
   color: rgba(0,0,0,0.85);
   text-decoration: underline;
+}
+#cardInfo .overlay {
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#cardInfo #cardInfoModal {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  min-height: 600px;
+  width: 760px;
+  padding: 15px;
+  margin-left: -380px;
+  border-radius: 5px;
+  background-color: #e2e4e6;
+  font-size: 14px;
+}
+#cardInfo #cardInfoModal h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#cardInfo #cardInfoModal #details {
+  width: 580px;
+}
+#cardInfo #cardInfoModal #details div span,
+#cardInfo #cardInfoModal #details div > div {
+  display: inline-block;
+  vertical-align: top;
+}
+#cardInfo #cardInfoModal #details div span {
+  padding-right: 20px;
+  font-size: 22px;
+  color: rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal #details div span .userIcon {
+  margin-top: 10px;
+  font-size: 14px;
+  background-color: rgba(0,0,0,0.15);
+  padding-top: 5px;
+}
+#cardInfo #cardInfoModal #details div > div {
+  width: 90%;
+  padding-bottom: 20px;
+}
+#cardInfo #cardInfoModal #details div > div h2 {
+  font-size: 20px;
+}
+#cardInfo #cardInfoModal #details div > div p {
+  margin-bottom: 10px;
+  color: rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal #details div > div p a {
+  padding-left: 10px;
+}
+#cardInfo #cardInfoModal #details div > div #cardDescription {
+  color: #333;
+}
+#cardInfo #cardInfoModal #details #cardComments textarea,
+#cardInfo #cardInfoModal #details #cardComments button {
+  display: block;
+}
+#cardInfo #cardInfoModal #details #cardComments textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  resize: none;
+  outline: none;
+  border: none;
+  box-shadow: 3px 3px 10px 0px #ada8ad;
+}
+#cardInfo #cardInfoModal #actions {
+  width: 150px;
+}
+#cardInfo #cardInfoModal #actions a {
+  text-decoration: none;
+  font-size: 22px;
+  padding-bottom: 40px;
+}
+#cardInfo #cardInfoModal #actions div {
+  padding-left: 15px;
+}
+#cardInfo #cardInfoModal #actions div li {
+  height: 30px;
+  width: 100%;
+  padding: 6px 15px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: rgba(0,0,0,0.08);
+  font-weight: bold;
+}
+#cardInfo #cardInfoModal #actions div li:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.15);
+}
+#cardInfo #cardInfoModal #actions div li span {
+  padding-right: 10px;
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+}
+#cardInfo #cardInfoModal a {
+  text-decoration: underline;
+  color: rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal a:hover {
+  color: rgba(0,0,0,0.85);
 }
 .left {
   float: left;
@@ -207,6 +320,13 @@ header #userIcon {
   padding: 5px 15px;
   font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   cursor: pointer;
+  color: #fff;
+  background-color: #61bd4f;
+}
+.btn:disabled {
+  color: rgba(0,0,0,0.4);
+  background-color: rgba(255,255,255,0.6);
+  cursor: default;
 }
 .green {
   background: #61bd4f;

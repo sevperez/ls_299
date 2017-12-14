@@ -40,14 +40,14 @@ header
       color: colors.shaded.medWht
       &:hover
         color: colors.shaded.highWht
-  #userIcon
-    height: 26px
-    width: 26px
-    padding-top: 4px
-    text-align: center
-    font-weight: bold
-    background-color: colors.bg.tertiary
-    border-radius: 100%
+.userIcon
+  height: 26px
+  width: 26px
+  padding-top: 4px
+  text-align: center
+  font-weight: bold
+  background-color: colors.bg.tertiary
+  border-radius: 100%
 
 #board
   padding: 7px 10px
@@ -104,14 +104,6 @@ header
             color: colors.shaded.medBlk
             span
               padding-right: 5px
-    // a
-    //   display: block
-    //   padding: 10px
-    //   color: colors.shaded.medBlk
-    //   &:hover
-    //     background-color: colors.shaded.vLowBlk
-    //     color: colors.shaded.highBlk
-    //     text-decoration: underline
 #addList,
 #addCard
   display: inline-block
@@ -166,6 +158,101 @@ header
       color: colors.shaded.highBlk
       text-decoration: underline
 
+#cardInfo
+  .overlay
+    background-color: colors.shaded.medBlk
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+  #cardInfoModal
+    position: fixed
+    top: 50px
+    left: 50%
+    min-height: 600px
+    width: 760px
+    padding: 15px
+    margin-left: -380px
+    border-radius: 5px
+    background-color: colors.bg.secondary
+    font-size: 14px
+    h3
+      font-size: 18px
+      margin-bottom: 10px
+    #details
+      width: 580px
+      div
+        span
+        & > div
+          display: inline-block
+          vertical-align: top
+        span
+          padding-right: 20px
+          font-size: 22px
+          color: colors.shaded.medBlk
+          .userIcon
+            margin-top: 10px
+            font-size: 14px
+            background-color: colors.shaded.lowBlk
+            padding-top: 5px
+        & > div
+          width: 90%
+          padding-bottom: 20px
+          h2
+            font-size: 20px
+          p
+            margin-bottom: 10px
+            color: colors.shaded.medBlk
+            a
+              padding-left: 10px
+          #cardDescription
+            color: colors.txt.main
+      #cardComments
+        textarea,
+        button
+          display: block
+        textarea
+          width: 100%
+          min-height: 80px
+          padding: 10px
+          border-radius: 3px
+          margin-bottom: 10px
+          font: 14px fonts.default, Arial, Helvetica, sans-serif
+          resize: none
+          outline: none
+          border: none
+          box-shadow: 3px 3px 10px 0px rgba(173,168,173,1)
+    #actions
+      width: 150px
+      a
+        text-decoration: none
+        font-size: 22px
+        padding-bottom: 40px
+      div
+        padding-left: 15px
+        li
+          height: 30px
+          width: 100%
+          padding: 6px 15px
+          margin-bottom: 10px
+          border-radius: 3px
+          background-color: colors.shaded.vLowBlk
+          font-weight: bold
+          &:hover
+            cursor: pointer
+            background-color: colors.shaded.lowBlk
+          span
+            padding-right: 10px
+            font-size: 18px
+            position: relative
+            top: 2px
+    a
+      text-decoration: underline
+      color: colors.shaded.medBlk
+      &:hover
+        color: colors.shaded.highBlk
+
 .left
   float: left
 .right
@@ -179,6 +266,12 @@ header
   padding: 5px 15px
   font: 14px fonts.default, Arial, Helvetica, sans-serif
   cursor: pointer
+  color: #ffffff
+  background-color: colors.bg.green
+  &:disabled
+    color: colors.shaded.medBlk
+    background-color: colors.shaded.medWht
+    cursor: default
 
 .green
   background: colors.bg.green

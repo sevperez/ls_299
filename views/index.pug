@@ -6,7 +6,7 @@ block content
       input(id="searchBar")
       span.fa.fa-search
     div.right
-      #userIcon LS
+      .userIcon LS
     #logo
       h2
         i.fa.fa-trello
@@ -15,3 +15,43 @@ block content
     #boardHeader
     #boardMain
       ul(id="lists")
+  #cardInfo
+    .overlay
+    #cardInfoModal
+      div.left(id="details")
+        div(id="cardData")
+          span(class="fa fa-tasks")
+          div
+            h2 Sample Card
+            p in list List One
+            p Description <a href="#"> Edit </a>
+            p(id="cardDescription") A description of my card
+        div(id="cardComments")
+          span(class="fa fa-comment-o")
+            .userIcon LS
+          div
+            h3 Add Comment
+            form(method="post" action="#")
+              textarea(id="newComment" name="newComment" placeholder="Write a comment...")
+              button(type="submit" class="btn" disabled) Save
+        div(id="activity")
+          span(class="fa fa-sticky-note-o")
+          div
+            h3.left Activity
+            a.right(href="#") Show Details
+      div.right(id="actions")
+        a(class="fa fa-times right" href="#")
+        div.clear
+          h3 Add
+          ul
+            li
+              span.fa.fa-tags
+              | Labels
+            li
+              span.fa.fa-check-square-o
+              | Checklist
+            li
+              span.fa.fa-clock-o
+              | Due Date
+              
+            
