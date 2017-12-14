@@ -71,6 +71,11 @@ var App = {
     }
   },
   
+  openCardModal: function(card) {
+    var view = new CardInfoView({ model: card });
+    $(document.body).append(view.render().el);
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -79,6 +84,7 @@ var App = {
     this.on("addList", this.addList);
     this.on("addCard", this.addCard);
     this.on("addCardSet", this.addCardSet);
+    this.on("cardClick", this.openCardModal);
   },
   
   init: function(data) {

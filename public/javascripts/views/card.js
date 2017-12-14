@@ -7,7 +7,15 @@ var CardView = Backbone.View.extend({
     class: "card",
   },
   
+  events: {
+    "click": "broadcastCardClick",
+  },
+  
   template: App.templates.card,
+  
+  broadcastCardClick: function() {
+    App.trigger("cardClick", this.model);
+  },
   
   registerHelpers: function() {
     Handlebars.registerHelper("hasDueDate", function(dueDate) {
