@@ -104,15 +104,16 @@ header
             color: colors.shaded.medBlk
             span
               padding-right: 5px
-    a
-      display: block
-      padding: 10px
-      color: colors.shaded.medBlk
-      &:hover
-        background-color: colors.shaded.vLowBlk
-        color: colors.shaded.highBlk
-        text-decoration: underline
-#addList
+    // a
+    //   display: block
+    //   padding: 10px
+    //   color: colors.shaded.medBlk
+    //   &:hover
+    //     background-color: colors.shaded.vLowBlk
+    //     color: colors.shaded.highBlk
+    //     text-decoration: underline
+#addList,
+#addCard
   display: inline-block
   div
     padding: 5px
@@ -150,7 +151,20 @@ header
       &:hover
         background-color: colors.shaded.medBlk
         color: colors.shaded.highWht
-  
+#addCard
+  div:first-of-type
+    border-top-right-radius: 0
+    border-top-left-radius: 0
+  div:last-of-type
+    display: block
+    padding: 10px
+    color: colors.shaded.medBlk
+    border-top-right-radius: 0
+    border-top-left-radius: 0
+    &:hover
+      background-color: colors.shaded.vLowBlk
+      color: colors.shaded.highBlk
+      text-decoration: underline
 
 .left
   float: left

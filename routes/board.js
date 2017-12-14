@@ -45,7 +45,25 @@ module.exports = function(router) {
   });
   
   router.route("/boards/:board_id/lists/:list_id/cards").get(function(req, res, next) {
-    res.json(_.where(Interface.get().cards, { list_id: +req.params.list_id }));
+    var cardSet = _.where(Interface.get().cards, { list_id: +req.params.list_id });
+    res.json(cardSet);
+  }).post(function(req, res, next) {
+    var card = req.body;
+    var data = Interface.get();
+    var list = _.where(data.lists, { id: +req.params.list_id })[0];
+    
+    // set card id and push new card to data
+    card.id = Interface.getNextId(data.cards);
+    data.cards.push(card);
+    
+    // push card id to board's array of cards
+    list.cards.push(card.id);
+    
+    // write new data
+    Interface.write(data);
+    
+    // send back the new list
+    res.json(card);
   });
   
   router.route("/labels").get(function(req, res, next) {

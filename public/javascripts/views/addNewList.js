@@ -22,6 +22,7 @@ var AddNewListView = Backbone.View.extend({
   
   closeDrawer: function() {
     this.$("div:first-of-type").slideUp(100);
+    this.$("input[type='text']").val("");
   },
   
   broadcastAddList: function(e) {

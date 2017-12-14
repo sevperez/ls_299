@@ -15,18 +15,19 @@ var App = {
     this.listsView = new ListsView({ collection: this.lists });
   },
   
-  setupCardSets: function(listId) {
-    var self = this;
-    
-    // instantiates CardSet collections, storing on App object with the listId as its key
-    this.lists.pluck("id").forEach(function(listId) {
-      self.cardSets[String(listId)] = new CardSet([], { id: listId });
-    });
-  },
-  
   attachCardSetView: function(listId) {
     var collection = this.cardSets[String(listId)];
     var view = new CardSetView({ collection: collection, listId: listId });
+  },
+  
+  addCardSet: function(listId) {
+    this.cardSets[String(listId)] = new CardSet([], { id: listId });
+    this.attachCardSetView(listId);
+    
+    // if the list has cards, retrieve them
+    if (this.lists.get(listId).toJSON().cards.length !== 0) {
+      this.cardSets[String(listId)].getCards(listId);
+    }
   },
   
   getNextId: function(collection) {
@@ -45,7 +46,29 @@ var App = {
   },
   
   addList: function(name) {
-    this.lists.create(this.buildNewList(name));
+    if (name) {
+      this.lists.create(this.buildNewList(name), { wait: true });
+    }
+  },
+  
+  buildNewCard: function(name, setId) {
+    return {
+      title: name,
+      position: this.lists.get(setId).toJSON().cards.length,
+      description: "",
+      labels: [],
+      comments: [],
+      due_date: "",
+      assigned_users: [],
+      list_id: setId,
+      checklists: [],
+    };
+  },
+  
+  addCard: function(name, setId) {
+    if (name) {
+      this.cardSets[setId].create(this.buildNewCard(name, setId), { wait: true });
+    }
   },
   
   bindEvents: function() {
@@ -53,9 +76,9 @@ var App = {
     _.extend(this, Backbone.Events);
     
     this.on("boardLoaded", this.setupLists);
-    this.on("listsLoaded", this.setupCardSets);
-    this.on("cardSetLoaded", this.attachCardSetView);
     this.on("addList", this.addList);
+    this.on("addCard", this.addCard);
+    this.on("addCardSet", this.addCardSet);
   },
   
   init: function(data) {

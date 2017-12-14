@@ -5,7 +5,7 @@ var CardSetView = Backbone.View.extend({
     return $(".list[data-id='" + listId + "']").find('.cardList');
   },
   
-  render: function() {
+  fullRender: function() {
     var self = this;
     
     this.collection.each(function(card) {
@@ -14,12 +14,18 @@ var CardSetView = Backbone.View.extend({
     });
   },
   
+  partialRender: function(model) {
+    var view = new CardView({ model: model });
+    this.$el.append(view.render().el);
+  },
+  
   bindEvents: function() {
-    this.listenTo(this.collection, "all", this.render);
+    this.listenTo(this.collection, "add", this.partialRender);
   },
   
   initialize: function(options) {
     this.$el = this.findParent(String(options.listId));
     this.bindEvents();
+    this.fullRender();
   },
 });
