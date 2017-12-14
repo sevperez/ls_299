@@ -37,7 +37,6 @@ var App = {
   
   buildNewList: function(name) {
     return {
-      // id: this.getNextId(this.lists),
       title: name,
       position: this.lists.length,
       board_id: this.board.toJSON().id,
@@ -47,7 +46,6 @@ var App = {
   
   addList: function(name) {
     this.lists.create(this.buildNewList(name));
-    // this.lists.sync();
   },
   
   bindEvents: function() {
@@ -66,6 +64,9 @@ var App = {
     
     // store labels
     this.labels = new Labels();
+    
+    // store checklists
+    this.checklists = new Checklists();
     
     this.bindEvents();
     this.setupBoard();

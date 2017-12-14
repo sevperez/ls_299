@@ -6,8 +6,27 @@
   </ul>
 {{/if}}
 <p>{{title}}</p>
-{{#if icons}}
-  <li>
-    <span class="{{classes}}"></span> {{text}}
-  </li>
+{{#if (hasIcons)}}
+  <ul class="icons">
+    {{#if (hasDueDate due_date)}}
+      <li>
+        <span class="fa fa-clock-o"></span> {{shortDate due_date}}
+      </li>
+    {{/if}}
+    {{#if (hasDescription description)}}
+      <li>
+        <span class="fa fa-bars"></span>
+      </li>
+    {{/if}}
+    {{#if (hasComments comments)}}
+      <li>
+        <span class="fa fa-comment-o"></span>{{countArr comments}}
+      </li>
+    {{/if}}
+    {{#if (hasChecklists checklists)}}
+      <li>
+        <span class="fa fa-check-square-o"></span>{{checklistStatus checklists}}
+      </li>
+    {{/if}}
+  </ul>
 {{/if}}

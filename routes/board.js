@@ -55,4 +55,12 @@ module.exports = function(router) {
   router.route("/labels/:label_id").get(function(req, res, next) {
     res.json(_.where(Interface.get().labels, { id: +req.params.label_id })[0]);
   });
+  
+  router.route("/checklists").get(function(req, res, next) {
+    res.json(Interface.get().checklists);
+  });
+  
+  router.route("/checklists/:checklist_id").get(function(req, res, next) {
+    res.json(_.where(Interface.get().checklists, { id: +req.params.checklist_id })[0]);
+  });
 };
