@@ -5,6 +5,7 @@ var List = Backbone.Model.extend({
     this.fetch({
       success: function(model, response) {
         // broadcast message to App on successful setup
+        console.log("list loaded");
         App.trigger("listLoaded", model.id);
       },
     });
@@ -12,6 +13,6 @@ var List = Backbone.Model.extend({
   
   initialize: function() {
     this.url = "/lists/" + String(this.id);
-    this.setup();
+    // this.setup();
   },
 });

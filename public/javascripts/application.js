@@ -5,7 +5,7 @@ var App = {
   
   setupBoard: function() {
     // add Board model and view to App
-    this.board = new Board();
+    this.board = new Board({ id: 1 });
     this.boardHeader = new BoardHeaderView({ model: this.board });
   },
   
@@ -15,17 +15,10 @@ var App = {
     // create new lists collection and view
     this.lists = new Lists([], { comparator: "position" });
     this.listsView = new ListsView({ collection: this.lists });
-    
-    // iterate over board list IDs, creating a new List for each
-    this.board.toJSON().lists.forEach(function(listId) {
-      self.lists.add(new List({ id: listId }));
-    });
   },
   
   setupCardSet: function(listId) {
-    // fires on "listLoaded" event
-    // instantiates a new CardSet collection
-    // stores on the cardSets object using the associated listId as the key
+    // instantiates a new CardSet collection and stores on App object with listId as key
     this.cardSets[String(listId)] = new CardSet([], { id: listId });
   },
   
@@ -42,7 +35,7 @@ var App = {
   
   buildNewList: function(name) {
     return {
-      id: this.getNextId(this.lists),
+      // id: this.getNextId(this.lists),
       title: name,
       position: this.lists.length,
       board_id: this.board.toJSON().id,
@@ -51,7 +44,8 @@ var App = {
   },
   
   addList: function(name) {
-    this.lists.add(this.buildNewList(name));
+    this.lists.create(this.buildNewList(name));
+    // this.lists.sync();
   },
   
   bindEvents: function() {

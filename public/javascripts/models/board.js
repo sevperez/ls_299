@@ -1,8 +1,6 @@
 // BACKBONE - MODELS - board.js
 
 var Board = Backbone.Model.extend({
-  url: "/board",
-  
   setup: function() {
     this.fetch({
       success: function() {
@@ -14,6 +12,7 @@ var Board = Backbone.Model.extend({
   },
   
   initialize: function() {
+    this.url = "/boards/" + String(this.id);
     this.setup();
   },
 });

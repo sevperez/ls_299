@@ -20,4 +20,10 @@ module.exports = {
     // write with file system object method
     fs.writeFileSync(filePath, JSON.stringify(data), "utf8");
   },
+  
+  getNextId: function(coll) {
+    return _.max(coll, function(item) {
+      return item.id;
+    }).id + 1;
+  },
 };
