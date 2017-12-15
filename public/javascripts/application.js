@@ -80,8 +80,9 @@ var App = {
   },
   
   openCardModal: function(card) {
-    var view = new CardInfoView({ model: card });
-    $(document.body).append(view.render().el);
+    // create new card modal view and store
+    this.currentCardView = new CardInfoView({ model: card });
+    $(document.body).append(this.currentCardView.render().el);
   },
   
   openBoardNameForm: function() {
@@ -106,6 +107,23 @@ var App = {
     view.markChecked(checkedIds);
   },
   
+  adjustCardLabel: function(id) {
+    var card = App.currentCardView.model;
+    var labels = card.get("labels");
+    var idx = labels.indexOf(id);
+    
+    // add/remove label id from card model, as necessary
+    if (idx !== -1) {
+      labels.splice(idx, 1);
+    } else {
+      labels.push(id);
+    }
+    
+    // update card model and save to the server
+    card.set("labels", labels);
+    card.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -118,6 +136,7 @@ var App = {
     this.on("boardNameChangeClick", this.openBoardNameForm);
     this.on("boardNameChangeSubmit", this.changeBoardName);
     this.on("openLabelSelector", this.openLabelSelector);
+    this.on("labelSelection", this.adjustCardLabel);
   },
   
   init: function(data) {

@@ -79,6 +79,21 @@ module.exports = function(router) {
     res.json(card);
   });
   
+  router.route("/boards/:board_id/lists/:list_id/cards/:card_id").put(function(req, res, next) {
+    var card = req.body;
+    var data = Interface.get();
+    var dbCard = _.find(data.cards, { id: card.id });
+    
+    // update labels on database copy of card
+    dbCard.labels = card.labels;
+    
+    // write new data
+    Interface.write(data);
+    
+    // send card back to client
+    res.json(card);
+  });
+  
   router.route("/labels").get(function(req, res, next) {
     res.json(Interface.get().labels);
   });

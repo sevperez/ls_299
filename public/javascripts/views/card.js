@@ -81,8 +81,13 @@ var CardView = Backbone.View.extend({
     return this;
   },
   
+  bindEvents: function() {
+    this.listenTo(this.model, "sync", this.render);
+  },
+  
   initialize: function() {
     this.$el.attr("data-id", this.model.id);
     this.registerHelpers();
+    this.bindEvents();
   },
 });

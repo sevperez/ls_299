@@ -21,7 +21,9 @@ var CardInfoView = Backbone.View.extend({
   },
   
   close: function() {
+    // remove view from DOM, and from storage on App object
     this.remove();
+    App.currentCardView = undefined;
   },
   
   setLabels: function() {
@@ -57,7 +59,7 @@ var CardInfoView = Backbone.View.extend({
   },
   
   bindEvents: function() {
-    
+    this.listenTo(this.model, "sync", this.render);
   },
   
   initialize: function() {

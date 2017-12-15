@@ -11,6 +11,14 @@ var LabelSelectorView = Backbone.View.extend({
   
   events: {
     "click .fa-times": "close",
+    "click #labelOptions li div": "broadcastLabelSelection",
+  },
+  
+  broadcastLabelSelection: function(e) {
+    e.preventDefault();
+    
+    var id = $(e.currentTarget).closest("li").data("label");
+    App.trigger("labelSelection", id);
   },
   
   close: function() {
