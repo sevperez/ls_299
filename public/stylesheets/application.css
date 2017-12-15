@@ -199,6 +199,9 @@ header #logo h2:hover {
   color: rgba(0,0,0,0.85);
   text-decoration: underline;
 }
+#cardInfo .overlay {
+  background-color: rgba(0,0,0,0.4);
+}
 #cardInfo #cardInfoModal {
   position: fixed;
   top: 50px;
@@ -440,11 +443,81 @@ header #logo h2:hover {
 #changeBoardName form .btn:hover {
   background-color: #47a236;
 }
-#changeBoardName .overlay {
-  background-color: rgba(0,0,0,0);
+#labelSelector {
+  position: relative;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 5px;
+  padding: 10px;
+}
+#labelSelector a {
+  color: rgba(0,0,0,0.4);
+  display: inline-block;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#labelSelector a:hover {
+  color: rgba(0,0,0,0.85);
+}
+#labelSelector > div:first-of-type {
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+#labelSelector > div:first-of-type p {
+  color: rgba(0,0,0,0.4);
+}
+#labelSelector > div:first-of-type a {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-decoration: none;
+  color: rgba(0,0,0,0.15);
+}
+#labelSelector > div:first-of-type a:hover {
+  color: rgba(0,0,0,0.4);
+}
+#labelSelector #labelOptions {
+  margin-bottom: 15px;
+}
+#labelSelector #labelOptions li {
+  margin-bottom: 8px;
+}
+#labelSelector #labelOptions li div {
+  display: inline-block;
+  height: 33px;
+  width: 240px;
+  border-radius: 3px;
+  text-align: center;
+  padding-top: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+#labelSelector #labelOptions li div:hover {
+  background-color: rgba(0,0,0,0.15);
+  color: #333;
+}
+#labelSelector #labelOptions li a {
+  padding: 6px 10px;
+  vertical-align: top;
+  font-size: 18px;
+  text-decoration: none;
+}
+#labelSelector > a:last-of-type {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  height: 33px;
+  padding: 10px;
+  cursor: pointer;
+}
+#labelSelector > a:last-of-type:hover {
+  background-color: rgba(0,0,0,0.15);
 }
 .overlay {
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0);
   position: fixed;
   top: 0;
   right: 0;

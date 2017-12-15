@@ -165,6 +165,8 @@ header
       text-decoration: underline
 
 #cardInfo
+  .overlay
+    background-color: colors.shaded.medBlk
   #cardInfoModal
     position: fixed
     top: 50px
@@ -368,11 +370,69 @@ header
       font-weight: bold
       &:hover
         background-color: #47a236
-  .overlay
-    background-color: rgba(0, 0, 0, 0)
+
+#labelSelector
+  position: relative
+  width: 300px
+  background-color: #ffffff
+  border: 1px solid colors.shaded.vLowBlk
+  border-radius: 5px
+  padding: 10px
+  a
+    color: colors.shaded.medBlk
+    display: inline-block
+    text-decoration: underline
+    cursor: pointer
+    &:hover
+      color: colors.shaded.highBlk
+  & > div:first-of-type
+    text-align: center
+    padding-bottom: 10px
+    margin-bottom: 10px
+    border-bottom: 1px solid colors.shaded.medBlk
+    p
+      color: colors.shaded.medBlk
+    a
+      position: absolute
+      top: 5px
+      right: 5px
+      text-decoration: none
+      color: colors.shaded.lowBlk
+      &:hover
+        color: colors.shaded.medBlk
+  #labelOptions
+    margin-bottom: 15px
+    li
+      margin-bottom: 8px
+      div
+        display: inline-block
+        height: 33px
+        width: 240px
+        border-radius: 3px
+        text-align: center
+        padding-top: 10px
+        color: #ffffff
+        cursor: pointer
+        &:hover
+          background-color: colors.shaded.lowBlk
+          color: colors.txt.main
+      a
+        padding: 6px 10px
+        vertical-align: top
+        font-size: 18px
+        text-decoration: none
+  & > a:last-of-type
+    display: block
+    width: 100%
+    border-radius: 3px
+    height: 33px
+    padding: 10px
+    cursor: pointer
+    &:hover
+      background-color: colors.shaded.lowBlk
 
 .overlay
-  background-color: colors.shaded.medBlk
+  background-color: rgba(0, 0, 0, 0)
   position: fixed
   top: 0
   right: 0

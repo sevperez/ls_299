@@ -138,7 +138,7 @@
   "labels": [
     {
       "id": 1,
-      "title": "work",
+      "title": "design",
       "color": "blue"
     }, {
       "id": 2,
@@ -150,8 +150,20 @@
       "color": "sky"
     }, {
       "id": 4,
-      "title": "sad",
+      "title": "work",
       "color": "orange"
+    }, {
+      "id": 5,
+      "title": "customers",
+      "color": "yellow"
+    }, {
+      "id": 6,
+      "title": "marketing",
+      "color": "purple"
+    }, {
+      "id": 7,
+      "title": "finances",
+      "color": "green"
     }
   ],
   "checklists": [
