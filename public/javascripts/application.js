@@ -84,6 +84,16 @@ var App = {
     $(document.body).append(view.render().el);
   },
   
+  openBoardNameForm: function() {
+    var view = new BoardNameChangeView();
+    $(document.body).append(view.render().el);
+    $("#changeBoardName input[type='text']").focus();
+  },
+  
+  changeBoardName: function(name) {
+    console.log("changing board to :", name);
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -93,6 +103,8 @@ var App = {
     this.on("addCard", this.addCard);
     this.on("addCardSet", this.addCardSet);
     this.on("cardClick", this.openCardModal);
+    this.on("boardNameChangeClick", this.openBoardNameForm);
+    this.on("boardNameChangeSubmit", this.changeBoardName);
   },
   
   init: function(data) {

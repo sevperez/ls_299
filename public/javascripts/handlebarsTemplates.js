@@ -102,6 +102,14 @@ this["JST"]["cardInfo"] = Handlebars.template({"1":function(container,depth0,hel
     + "</div></div></div><div id=\"actions\" class=\"right\"><a class=\"fa fa-times right\" href=\"#\"></a><div class=\"clear\"><h3>Add</h3><ul><li><span class=\"fa fa-tags\"></span> Labels</li><li><span class=\"fa fa-check-square-o\"></span> Checklist</li><li><span class=\"fa fa-clock-o\"></span> Due Date</li></ul></div></div></div>";
 },"useData":true});
 
+this["JST"]["changeBoardName"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div class=\"overlay\"></div><div><form action=\"#\" method=\"post\"><div><p>Rename Board</p><a class=\"fa fa-times\" href=\"#\"></a></div><h3>Name</h3><input type=\"text\" id=\"newBoardName\" name=\"newBoardName\" value=\""
+    + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data}) : helper)))
+    + "\" autofocus /><button class=\"btn\" type=\"submit\">Rename</button></form></div>";
+},"useData":true});
+
 this["JST"]["list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 

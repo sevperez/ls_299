@@ -4,6 +4,14 @@ var BoardHeaderView = Backbone.View.extend({
   el: "#boardHeader",
   template: App.templates.boardHeader,
   
+  events: {
+    "click h3": "broadcastNameChangeClick",
+  },
+  
+  broadcastNameChangeClick: function() {
+    App.trigger("boardNameChangeClick");
+  },
+  
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
   },

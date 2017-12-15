@@ -57,6 +57,12 @@ header
     font-size: 20px
     font-weight: bold
     color: colors.txt.secondary
+    display: inline-block
+    padding: 5px 7px
+    border-radius: 5px
+    &:hover
+      background-color: colors.shaded.lowBlk
+      cursor: pointer
   a
     color: #ffffff
     text-decoration: underline
@@ -159,13 +165,6 @@ header
       text-decoration: underline
 
 #cardInfo
-  .overlay
-    background-color: colors.shaded.medBlk
-    position: fixed
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
   #cardInfoModal
     position: fixed
     top: 50px
@@ -329,6 +328,56 @@ header
   float: right
 .clear
   clear: both
+
+#changeBoardName
+  position: absolute
+  top: 87px
+  left: 10px
+  width: 300px
+  height: 165px
+  padding: 10px
+  background-color: #ffffff
+  border: 1px solid colors.shaded.lowBlk
+  border-radius: 3px
+  form
+    position: relative
+    & > div
+      text-align: center
+      padding-bottom: 10px
+      margin-bottom: 10px
+      border-bottom: 1px solid colors.shaded.medBlk
+      p
+        color: colors.shaded.medBlk
+      a
+        position: absolute
+        top: 3px
+        right: 3px
+        color: colors.shaded.lowBlk
+        cursor: pointer
+        &:hover
+          color: colors.shaded.medBlk
+    input
+      height: 30px
+      width: 100%
+      padding: 5px
+      margin: 10px 0
+      border-radius: 3px
+      font: 14px fonts.default, Arial, Helvetica, sans-serif
+    .btn
+      width: 120px
+      font-weight: bold
+      &:hover
+        background-color: #47a236
+  .overlay
+    background-color: rgba(0, 0, 0, 0)
+
+.overlay
+  background-color: colors.shaded.medBlk
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
 
 .btn
   height: 30px

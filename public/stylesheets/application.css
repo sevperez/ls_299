@@ -64,6 +64,13 @@ header #logo h2:hover {
   font-size: 20px;
   font-weight: bold;
   color: #f6f6f6;
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+#boardHeader h3:hover {
+  background-color: rgba(0,0,0,0.15);
+  cursor: pointer;
 }
 #boardHeader a {
   color: #fff;
@@ -191,14 +198,6 @@ header #logo h2:hover {
   background-color: rgba(0,0,0,0.08);
   color: rgba(0,0,0,0.85);
   text-decoration: underline;
-}
-#cardInfo .overlay {
-  background-color: rgba(0,0,0,0.4);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 #cardInfo #cardInfoModal {
   position: fixed;
@@ -392,6 +391,65 @@ header #logo h2:hover {
 }
 .clear {
   clear: both;
+}
+#changeBoardName {
+  position: absolute;
+  top: 87px;
+  left: 10px;
+  width: 300px;
+  height: 165px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 3px;
+}
+#changeBoardName form {
+  position: relative;
+}
+#changeBoardName form > div {
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+#changeBoardName form > div p {
+  color: rgba(0,0,0,0.4);
+}
+#changeBoardName form > div a {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+#changeBoardName form > div a:hover {
+  color: rgba(0,0,0,0.4);
+}
+#changeBoardName form input {
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 3px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+#changeBoardName form .btn {
+  width: 120px;
+  font-weight: bold;
+}
+#changeBoardName form .btn:hover {
+  background-color: #47a236;
+}
+#changeBoardName .overlay {
+  background-color: rgba(0,0,0,0);
+}
+.overlay {
+  background-color: rgba(0,0,0,0.4);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .btn {
   height: 30px;
