@@ -242,6 +242,37 @@ header
           outline: none
           border: none
           box-shadow: 3px 3px 10px 0px rgba(173,168,173,1)
+      #activity
+        #commentList
+          li
+            h4,
+            .userIcon
+              position: relative
+            h4
+              font-size: 14px
+              font-weight: bold
+              display: inline-block
+              padding-left: 10px
+              margin-bottom: 10px
+              right: 35px
+            .userIcon
+              display: inline-block
+              font-size: 14px
+              background-color: colors.shaded.lowBlk
+              color: colors.shaded.medBlk
+              right: 40px
+            .comment
+              width: 100%
+              min-height: 40px
+              padding: 10px
+              border-radius: 3px
+              margin-bottom: 10px
+              font: 14px fonts.default, Arial, Helvetica, sans-serif
+              background-color: #ffffff
+              box-shadow: 3px 3px 10px 0px rgba(173,168,173,1)
+              & + p
+                font-size: 12px
+          
     #actions
       width: 150px
       a

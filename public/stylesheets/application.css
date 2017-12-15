@@ -289,6 +289,38 @@ header #logo h2:hover {
   border: none;
   box-shadow: 3px 3px 10px 0px #ada8ad;
 }
+#cardInfo #cardInfoModal #details #activity #commentList li h4,
+#cardInfo #cardInfoModal #details #activity #commentList li .userIcon {
+  position: relative;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li h4 {
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  right: 35px;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .userIcon {
+  display: inline-block;
+  font-size: 14px;
+  background-color: rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.4);
+  right: 40px;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .comment {
+  width: 100%;
+  min-height: 40px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  box-shadow: 3px 3px 10px 0px #ada8ad;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .comment + p {
+  font-size: 12px;
+}
 #cardInfo #cardInfoModal #actions {
   width: 150px;
 }

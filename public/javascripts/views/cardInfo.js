@@ -28,6 +28,18 @@ var CardInfoView = Backbone.View.extend({
     });
   },
   
+  registerHelpers: function() {
+    Handlebars.registerHelper("formatDate", function(datetime) {
+      var date = new Date(datetime);
+      var dateParts = date.toString().split(" ");
+      var mon = dateParts[1];
+      var dt = dateParts[2];
+      var time = dateParts[4].slice(0, 5);
+      
+      return mon + " " + dt + " at " + time + " hrs"; 
+    });
+  },
+  
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     this.setLabels();
@@ -40,5 +52,6 @@ var CardInfoView = Backbone.View.extend({
   
   initialize: function() {
     this.bindEvents();
+    this.registerHelpers();
   },
 });
