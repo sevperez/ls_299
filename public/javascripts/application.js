@@ -92,6 +92,12 @@ var App = {
   
   changeBoardName: function(name) {
     console.log("changing board to :", name);
+    
+    // if board name is new, set it and save to the server
+    if (this.board.get("title") !== name) {
+      this.board.set("title", name);
+      this.board.save();
+    }
   },
   
   bindEvents: function() {

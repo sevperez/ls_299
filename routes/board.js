@@ -9,6 +9,19 @@ var Interface = require(path.resolve(path.dirname(__dirname), "modules/dataInter
 module.exports = function(router) {
   router.route("/boards/:board_id").get(function(req, res, next) {
     res.json(_.where(Interface.get().boards, { id: +req.params.board_id })[0]);
+  }).put(function(req, res, next) {
+    var newName = req.body.title;
+    var data = Interface.get();
+    var board = _.where(data.boards, { id: +req.params.board_id })[0];
+    
+    // change board name
+    board.title = newName;
+    
+    // write new data
+    Interface.write(data);
+    
+    // send back the new list
+    res.json(board);
   });
 
   router.route("/boards/:board_id/lists").get(function(req, res, next) {
