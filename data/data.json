@@ -45,7 +45,7 @@
           "datetime": "2017-12-15T08:56:23"
         }
       ],
-      "due_date": "2017-12-24",
+      "due_date": "2017-11-22T09:52:00",
       "assigned_users": [1],
       "list_id": 1,
       "checklists": []
@@ -67,7 +67,7 @@
           "datetime": "2017-12-12T10:32:23"
         }
       ],
-      "due_date": "2018-02-10",
+      "due_date": "2017-12-12T10:32:23",
       "assigned_users": [],
       "list_id": 1,
       "checklists": [1]
@@ -95,7 +95,7 @@
           "datetime": "2017-10-30T14:27:53"
         }
       ],
-      "due_date": "2018-01-11",
+      "due_date": "2018-01-28T14:27:53",
       "assigned_users": [1],
       "list_id": 2,
       "checklists": [2, 3]

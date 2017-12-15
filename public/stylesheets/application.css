@@ -252,7 +252,14 @@ header #logo h2:hover {
 #cardInfo #cardInfoModal #details div > div #cardDescription {
   color: #333;
 }
-#cardInfo #cardInfoModal #details #cardData #labelList li {
+#cardInfo #cardInfoModal #details #cardData #lblCtnr {
+  width: auto;
+  display: inline-block;
+}
+#cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList {
+  display: inline-block;
+}
+#cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList li {
   display: inline-block;
   height: 30px;
   min-width: 40px;
@@ -262,16 +269,35 @@ header #logo h2:hover {
   margin-bottom: 10px;
   vertical-align: top;
 }
-#cardInfo #cardInfoModal #details #cardData #labelList #addLabelBtn {
+#cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList #addLabelBtn {
   background-color: rgba(0,0,0,0.08);
   padding-top: 5px;
 }
-#cardInfo #cardInfoModal #details #cardData #labelList #addLabelBtn span {
+#cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList #addLabelBtn span {
   padding: 0 12px;
 }
-#cardInfo #cardInfoModal #details #cardData #labelList #addLabelBtn:hover {
+#cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList #addLabelBtn:hover {
   background-color: rgba(0,0,0,0.15);
   cursor: pointer;
+}
+#cardInfo #cardInfoModal #details #cardData #dueCtnr {
+  width: auto;
+  display: inline-block;
+  margin-left: 15px;
+}
+#cardInfo #cardInfoModal #details #cardData #dueCtnr #dueDate {
+  display: inline-block;
+  height: 30px;
+  width: 170px;
+  border-radius: 3px;
+  background-color: rgba(0,0,0,0.08);
+  font-size: 15px;
+  padding: 5px;
+  text-align: center;
+}
+#cardInfo #cardInfoModal #details #cardData #dueCtnr #dueDate:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.15);
 }
 #cardInfo #cardInfoModal #details #cardComments textarea,
 #cardInfo #cardInfoModal #details #cardComments button {

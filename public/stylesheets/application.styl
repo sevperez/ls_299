@@ -209,24 +209,44 @@ header
           #cardDescription
             color: colors.txt.main
       #cardData
-        #labelList
-          li
+        #lblCtnr
+          width: auto
+          display: inline-block
+          #labelList
+            display: inline-block
+            li
+              display: inline-block
+              height: 30px
+              min-width: 40px
+              color: #ffffff
+              border-radius: 3px
+              margin-right: 5px
+              margin-bottom: 10px
+              vertical-align: top
+            #addLabelBtn
+              background-color: colors.shaded.vLowBlk
+              padding-top: 5px
+              span
+                padding: 0 12px
+              &:hover
+                background-color: colors.shaded.lowBlk
+                cursor: pointer
+        #dueCtnr
+          width: auto
+          display: inline-block
+          margin-left: 15px
+          #dueDate
             display: inline-block
             height: 30px
-            min-width: 40px
-            color: #ffffff
+            width: 170px
             border-radius: 3px
-            margin-right: 5px
-            margin-bottom: 10px
-            vertical-align: top
-          #addLabelBtn
             background-color: colors.shaded.vLowBlk
-            padding-top: 5px
-            span
-              padding: 0 12px
+            font-size: 15px
+            padding: 5px
+            text-align: center
             &:hover
-              background-color: colors.shaded.lowBlk
               cursor: pointer
+              background-color: colors.shaded.lowBlk
       #cardComments
         textarea,
         button

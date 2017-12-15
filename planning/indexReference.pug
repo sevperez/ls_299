@@ -111,12 +111,17 @@ block content
           div
             h2 Sample Card
             p in list List One
-            p Labels
-            ul(id="labelList")
-              li.green
-              li.yellow
-              li(id="addLabelBtn")
-                span.fa.fa-plus
+            #lblCtnr
+              p Labels
+              ul(id="labelList")
+                li.green
+                li.yellow
+                li(id="addLabelBtn")
+                  span.fa.fa-plus
+            #dueCtnr
+              p Due Date
+              #dueDate
+                a(href="#") Dec 31 at 12:00 hrs
             p Description <a href="#"> Edit </a>
             p(id="cardDescription") A description of my card
         div(id="cardComments")

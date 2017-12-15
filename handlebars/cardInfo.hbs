@@ -7,15 +7,25 @@
         <h2>{{title}}</h2>
         <p>in list {{list_id}}</p>
         {{#if labels}}
-          <p>Labels</p>
-          <ul id="labelList">
-            {{#each labels}}
-              <li data-label={{this}}></li>
-            {{/each}}
-            <li id="addLabelBtn">
-              <span class="fa fa-plus"></span>
-            </li>
-          </ul>
+          <div id="lblCtnr">
+            <p>Labels</p>
+            <ul id="labelList">
+              {{#each labels}}
+                <li data-label={{this}}></li>
+              {{/each}}
+              <li id="addLabelBtn">
+                <span class="fa fa-plus"></span>
+              </li>
+            </ul>
+          </div>
+        {{/if}}
+        {{#if due_date}}
+          <div id="dueCtnr">
+            <p>Due Date</p>
+            <div id="dueDate">
+              <a href="#">{{formatDate due_date}}</a>
+            </div>
+          </div>
         {{/if}}
         <p>Description <a href="#"> Edit </a></p>
         <p id="cardDescription">{{description}}</p>
