@@ -43,7 +43,7 @@ var ListView = Backbone.View.extend({
   },
   
   bindEvents: function() {
-    this.listenTo(this.model, "all", this.render);
+    this.listenTo(this.model, "add", this.render);
   },
   
   initialize: function() {

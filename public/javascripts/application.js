@@ -66,8 +66,16 @@ var App = {
   },
   
   addCard: function(name, setId) {
+    var self = this;
+    
     if (name) {
-      this.cardSets[setId].create(this.buildNewCard(name, setId), { wait: true });
+      this.cardSets[setId].create(this.buildNewCard(name, setId), {
+        success: function(response) {
+          // add card ID to corresponding List model's "cards" attribute
+          var currentList = self.lists.get(setId);
+          currentList.get("cards").push(response.id);
+        },
+      });
     }
   },
   
