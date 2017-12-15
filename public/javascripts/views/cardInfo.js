@@ -12,6 +12,12 @@ var CardInfoView = Backbone.View.extend({
   events: {
     "click #actions > a": "close",
     "click .overlay": "close",
+    "click #addLabelBtn": "broadcastLabelClick",
+    "click #actions li:first-of-type": "broadcastLabelClick",
+  },
+  
+  broadcastLabelClick: function() {
+    App.trigger("openLabelSelector", this.model.toJSON().labels);
   },
   
   close: function() {
@@ -22,9 +28,13 @@ var CardInfoView = Backbone.View.extend({
     var self = this;
     
     this.model.toJSON().labels.forEach(function(id) {
-      var color = App.labels.get(id).toJSON().color;
+      var $li = self.$("[data-label='" + id + "']");
+      var label = App.labels.get(id).toJSON();
+      var color = label.color;
+      var title = label.title;
       
-      self.$("[data-label='" + id + "']").addClass(color);
+      $li.addClass(color);
+      $li.text(title);
     });
   },
   

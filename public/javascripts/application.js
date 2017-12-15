@@ -100,6 +100,12 @@ var App = {
     }
   },
   
+  openLabelSelector: function(checkedIds) {
+    var view = new LabelSelectorView({ collection: this.labels });
+    $("#cardInfoModal").append(view.render().el);
+    view.markChecked(checkedIds);
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -111,6 +117,7 @@ var App = {
     this.on("cardClick", this.openCardModal);
     this.on("boardNameChangeClick", this.openBoardNameForm);
     this.on("boardNameChangeSubmit", this.changeBoardName);
+    this.on("openLabelSelector", this.openLabelSelector);
   },
   
   init: function(data) {

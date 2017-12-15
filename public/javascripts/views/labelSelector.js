@@ -17,6 +17,14 @@ var LabelSelectorView = Backbone.View.extend({
     this.remove();
   },
   
+  markChecked: function(ids) {
+    var self = this;
+    
+    ids.forEach(function(id) {
+      self.$("#labelOptions [data-label='" + String(id) + "'] > div").addClass("checked");
+    });
+  },
+  
   render: function() {
     this.$el.html(this.template({ labels: this.collection.toJSON() }));
     return this;
