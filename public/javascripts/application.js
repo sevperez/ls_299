@@ -83,6 +83,12 @@ var App = {
     // create new card modal view and store
     this.currentCardView = new CardInfoView({ model: card });
     $(document.body).append(this.currentCardView.render().el);
+    this.currentLabelsListView = new LabelListView({ model: card });
+    
+    // if current card has labels, create a vew and render
+    if (card.toJSON().labels.length !== 0) {
+      this.currentLabelsListView.render();
+    }
   },
   
   openBoardNameForm: function() {

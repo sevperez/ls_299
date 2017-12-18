@@ -139,19 +139,31 @@
     {
       "id": 1,
       "title": "work",
-      "color": "blue"
+      "color": "green"
     }, {
       "id": 2,
       "title": "coding",
-      "color": "red"
+      "color": "yellow"
     }, {
       "id": 3,
       "title": "fun",
-      "color": "sky"
+      "color": "orange"
     }, {
       "id": 4,
-      "title": "sad",
-      "color": "orange"
+      "title": "marketing",
+      "color": "red"
+    }, {
+      "id": 5,
+      "title": "finance",
+      "color": "purple"
+    }, {
+      "id": 6,
+      "title": "support",
+      "color": "blue"
+    }, {
+      "id": 7,
+      "title": "community",
+      "color": "sky"
     }
   ],
   "checklists": [

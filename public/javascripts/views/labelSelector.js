@@ -19,6 +19,7 @@ var LabelSelectorView = Backbone.View.extend({
     
     var id = $(e.currentTarget).closest("li").data("label");
     App.trigger("labelSelection", id);
+    this.toggleChecked(id);
   },
   
   close: function() {
@@ -31,6 +32,10 @@ var LabelSelectorView = Backbone.View.extend({
     ids.forEach(function(id) {
       self.$("#labelOptions [data-label='" + String(id) + "'] > div").addClass("checked");
     });
+  },
+  
+  toggleChecked: function(id) {
+    this.$("#labelOptions [data-label='" + String(id) + "'] > div").toggleClass("checked");
   },
   
   render: function() {

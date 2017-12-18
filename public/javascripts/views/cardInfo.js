@@ -24,20 +24,7 @@ var CardInfoView = Backbone.View.extend({
     // remove view from DOM, and from storage on App object
     this.remove();
     App.currentCardView = undefined;
-  },
-  
-  setLabels: function() {
-    var self = this;
-    
-    this.model.toJSON().labels.forEach(function(id) {
-      var $li = self.$("[data-label='" + id + "']");
-      var label = App.labels.get(id).toJSON();
-      var color = label.color;
-      var title = label.title;
-      
-      $li.addClass(color);
-      $li.text(title);
-    });
+    App.currentLabelsListView = undefined;
   },
   
   registerHelpers: function() {
@@ -54,12 +41,12 @@ var CardInfoView = Backbone.View.extend({
   
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
-    this.setLabels();
+    
     return this;
   },
   
   bindEvents: function() {
-    this.listenTo(this.model, "sync", this.render);
+    // TEMP
   },
   
   initialize: function() {
