@@ -41,8 +41,11 @@ var DueDateSelectView = Backbone.View.extend({
   broadcastDueDateRemove: function(e) {
     e.preventDefault();
     
-    console.log("removing!");
-    console.log(e);
+    // broadcast event to App
+    App.trigger("removeDueDate");
+    
+    // close form
+    this.close();
   },
   
   getDateData: function() {

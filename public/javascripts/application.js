@@ -83,11 +83,18 @@ var App = {
     // create new card modal view and store
     this.currentCardView = new CardInfoView({ model: card });
     $(document.body).append(this.currentCardView.render().el);
-    this.currentLabelsListView = new LabelListView({ model: card });
     
-    // if current card has labels, create a vew and render
+    // create and store partial views
+    this.currentLabelsListView = new LabelListView({ model: card });
+    this.currentDueDateView = new DueDateView({ model: card });
+    
+    // conditional rendering
     if (card.toJSON().labels.length !== 0) {
       this.currentLabelsListView.render();
+    }
+    
+    if (card.toJSON().due_date) {
+      this.currentDueDateView.render();
     }
   },
   
@@ -141,6 +148,12 @@ var App = {
     card.save();
   },
   
+  removeDueDate: function() {
+    var card = this.currentCardView.model;
+    card.set("due_date", "");
+    card.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -156,6 +169,7 @@ var App = {
     this.on("labelSelection", this.adjustCardLabel);
     this.on("openDueDateSelector", this.openDueDateSelector);
     this.on("changeDueDate", this.changeDueDate);
+    this.on("removeDueDate", this.removeDueDate);
   },
   
   init: function(data) {
