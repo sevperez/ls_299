@@ -107,6 +107,11 @@ var App = {
     }
   },
   
+  openDueDateSelector: function() {
+    var view = new DueDateSelectView();
+    $("#cardInfoModal").append(view.render().el);
+  },
+  
   openLabelSelector: function(checkedIds) {
     var view = new LabelSelectorView({ collection: this.labels });
     $("#cardInfoModal").append(view.render().el);
@@ -114,7 +119,7 @@ var App = {
   },
   
   adjustCardLabel: function(id) {
-    var card = App.currentCardView.model;
+    var card = this.currentCardView.model;
     var labels = card.get("labels");
     var idx = labels.indexOf(id);
     
@@ -127,6 +132,12 @@ var App = {
     
     // update card model and save to the server
     card.set("labels", labels);
+    card.save();
+  },
+  
+  changeDueDate: function(datetime) {
+    var card = this.currentCardView.model;
+    card.set("due_date", datetime);
     card.save();
   },
   
@@ -143,6 +154,8 @@ var App = {
     this.on("boardNameChangeSubmit", this.changeBoardName);
     this.on("openLabelSelector", this.openLabelSelector);
     this.on("labelSelection", this.adjustCardLabel);
+    this.on("openDueDateSelector", this.openDueDateSelector);
+    this.on("changeDueDate", this.changeDueDate);
   },
   
   init: function(data) {

@@ -88,7 +88,7 @@ this["JST"]["cardInfo"] = Handlebars.template({"1":function(container,depth0,hel
     + alias4(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"description","hash":{},"data":data}) : helper)))
     + "</p></div></div><div id=\"cardComments\"><span class=\"fa fa-comment-o\"><div class=\"userIcon\">LS</div></span><div><h3>Add Comment</h3><form method=\"post\" action=\"#\"><textarea id=\"newComment\" name=\"newComment\" placeholder=\"Write a comment...\"></textarea><button type=\"submit\" class=\"btn\" disabled>Save</button></form></div></div><div id=\"activity\"><span class=\"fa fa-sticky-note-o\"></span><div><h3 class=\"left\">Activity</h3><a class=\"right\" href=\"#\">Show Details</a>"
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.comments : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</div></div></div><div id=\"actions\" class=\"right\"><a class=\"fa fa-times right\" href=\"#\"></a><div class=\"clear\"><h3>Add</h3><ul><li><span class=\"fa fa-tags\"></span> Labels</li><li><span class=\"fa fa-check-square-o\"></span> Checklist</li><li><span class=\"fa fa-clock-o\"></span> Due Date</li></ul></div></div></div>";
+    + "</div></div></div><div id=\"actions\" class=\"right\"><a class=\"fa fa-times right\" href=\"#\"></a><div class=\"clear\"><h3>Add</h3><ul><li id=\"labelAction\"><span class=\"fa fa-tags\"></span> Labels</li><li id=\"checklistAction\"><span class=\"fa fa-check-square-o\"></span> Checklist</li><li id=\"dueDateAction\"><span class=\"fa fa-clock-o\"></span> Due Date</li></ul></div></div></div>";
 },"useData":true});
 
 this["JST"]["changeBoardName"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -97,6 +97,16 @@ this["JST"]["changeBoardName"] = Handlebars.template({"compiler":[7,">= 4.0.0"],
   return "<div class=\"overlay\"></div><div><form action=\"#\" method=\"post\"><div><p>Rename Board</p><a class=\"fa fa-times\" href=\"#\"></a></div><h3>Name</h3><input type=\"text\" id=\"newBoardName\" name=\"newBoardName\" value=\""
     + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data}) : helper)))
     + "\" autofocus /><button class=\"btn\" type=\"submit\">Rename</button></form></div>";
+},"useData":true});
+
+this["JST"]["dueDateSelect"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<form action=\"#\" method=\"post\"><div><p>Due Date</p><a class=\"fa fa-times\" href=\"#\"></a></div><dl><dt><label for=\"dateSelection\">Date</label></dt><dd><input type=\"date\" id=\"dateSelection\" name=\"dateSelection\" value=\""
+    + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
+    + "\" /></dd></dl><dl><dt><label for=\"timeSelection\">Time</label></dt><dd><input type=\"time\" id=\"timeSelection\" name=\"timeSelection\" value=\""
+    + alias4(((helper = (helper = helpers.time || (depth0 != null ? depth0.time : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"time","hash":{},"data":data}) : helper)))
+    + "\" /></dd></dl><button class=\"btn\" type=\"submit\">Save</button><button class=\"btn cancel\" type=\"button\">Remove</button></form>";
 },"useData":true});
 
 this["JST"]["labelContainer"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

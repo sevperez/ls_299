@@ -83,9 +83,11 @@ module.exports = function(router) {
     var card = req.body;
     var data = Interface.get();
     var dbCard = _.find(data.cards, { id: card.id });
-    
-    // update labels on database copy of card
-    dbCard.labels = card.labels;
+
+    // update dbCard
+    for (key in dbCard) {
+      dbCard[key] = card[key];
+    }
     
     // write new data
     Interface.write(data);

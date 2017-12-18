@@ -434,6 +434,84 @@ header #logo h2:hover {
 #cardInfo #cardInfoModal #labelSelector > a:last-of-type:hover {
   background-color: rgba(0,0,0,0.15);
 }
+#cardInfo #cardInfoModal #dueDateSelect {
+  position: absolute;
+  top: 225px;
+  right: 15px;
+  width: 300px;
+  height: 160px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 5px;
+}
+#cardInfo #cardInfoModal #dueDateSelect form > div {
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal #dueDateSelect form > div p {
+  color: rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal #dueDateSelect form > div a {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  color: rgba(0,0,0,0.15);
+  cursor: pointer;
+  text-decoration: none;
+}
+#cardInfo #cardInfoModal #dueDateSelect form > div a:hover {
+  color: rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal #dueDateSelect form dl {
+  display: inline-block;
+}
+#cardInfo #cardInfoModal #dueDateSelect form dl:first-of-type {
+  padding-right: 5px;
+  width: 55%;
+}
+#cardInfo #cardInfoModal #dueDateSelect form dl:last-of-type {
+  padding-left: 5px;
+  width: 45%;
+}
+#cardInfo #cardInfoModal #dueDateSelect form dl dt {
+  font-weight: bold;
+}
+#cardInfo #cardInfoModal #dueDateSelect form input[type="time"],
+#cardInfo #cardInfoModal #dueDateSelect form input[type="date"] {
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 3px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+#cardInfo #cardInfoModal #dueDateSelect form .btn {
+  width: 120px;
+  font-weight: bold;
+}
+#cardInfo #cardInfoModal #dueDateSelect form .btn:hover {
+  background-color: #47a236;
+}
+#cardInfo #cardInfoModal #dueDateSelect form .btn:first-of-type {
+  float: left;
+}
+#cardInfo #cardInfoModal #dueDateSelect form .btn:last-of-type {
+  float: right;
+}
+#cardInfo #cardInfoModal #dueDateSelect form .cancel {
+  background-color: #eb5a46;
+}
+#cardInfo #cardInfoModal #dueDateSelect form .cancel:hover {
+  background-color: #b93220;
+}
+#cardInfo #cardInfoModal #dueDateSelect form:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 #cardInfo #cardInfoModal #actions {
   width: 150px;
 }

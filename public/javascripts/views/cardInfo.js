@@ -13,11 +13,17 @@ var CardInfoView = Backbone.View.extend({
     "click #actions > a": "close",
     "click .overlay": "close",
     "click #addLabelBtn": "broadcastLabelClick",
-    "click #actions li:first-of-type": "broadcastLabelClick",
+    "click #labelAction": "broadcastLabelClick",
+    "click #dueDateAction": "broadcastDueDateClick",
+    "click #dueDate": "broadcastDueDateClick",
   },
   
   broadcastLabelClick: function() {
     App.trigger("openLabelSelector", this.model.toJSON().labels);
+  },
+  
+  broadcastDueDateClick: function() {
+    App.trigger("openDueDateSelector");
   },
   
   close: function() {
