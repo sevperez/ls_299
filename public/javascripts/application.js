@@ -154,6 +154,20 @@ var App = {
     card.save();
   },
   
+  changeDescription: function(newDescription) {
+    var self = this;
+    
+    var card = this.currentCardView.model;
+    // card.set("description", newDescription);
+    card.save({
+      "description": newDescription,
+    }, {
+      success: function() {
+        self.currentCardView.render();
+      },
+    });
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -170,6 +184,7 @@ var App = {
     this.on("openDueDateSelector", this.openDueDateSelector);
     this.on("changeDueDate", this.changeDueDate);
     this.on("removeDueDate", this.removeDueDate);
+    this.on("changeDescription", this.changeDescription);
   },
   
   init: function(data) {

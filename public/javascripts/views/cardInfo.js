@@ -16,6 +16,9 @@ var CardInfoView = Backbone.View.extend({
     "click #labelAction": "broadcastLabelClick",
     "click #dueDateAction": "broadcastDueDateClick",
     "click #dueDate": "broadcastDueDateClick",
+    "click #openEditDescription": "openEditDescription",
+    "click #closeEditDescription": "closeEditDescription",
+    "submit #editDescription form": "broadcastNewDescription",
   },
   
   broadcastLabelClick: function() {
@@ -24,6 +27,38 @@ var CardInfoView = Backbone.View.extend({
   
   broadcastDueDateClick: function() {
     App.trigger("openDueDateSelector");
+  },
+  
+  openEditDescription: function() {
+    $("#openEditDescription").hide();
+    $("#cardDescription").hide();
+    $("#newDescription").val(this.model.toJSON().description);
+    $("#editDescription").show();
+    $("#newDescription").select();
+  },
+  
+  closeEditDescription: function(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    
+    $("#editDescription").hide();
+    $("#newDescription").val("");
+    $("#openEditDescription").show();
+    $("#cardDescription").show();
+  },
+  
+  broadcastNewDescription: function(e) {
+    e.preventDefault();
+    
+    var newDescription = this.$("#editDescription form").serializeArray()[0].value;
+    
+    // broadcast "changeDescription" event to App and send newDescription
+    if (newDescription !== this.model.toJSON().description) {
+      App.trigger("changeDescription", newDescription);
+    }
+    
+    this.closeEditDescription();
   },
   
   close: function() {
@@ -52,11 +87,11 @@ var CardInfoView = Backbone.View.extend({
   },
   
   bindEvents: function() {
-    // TEMP
+    // this.on("reRender", this.render());
   },
   
   initialize: function() {
-    this.bindEvents();
     this.registerHelpers();
+    this.bindEvents();
   },
 });

@@ -303,6 +303,32 @@ header #logo h2:hover {
   cursor: pointer;
   background-color: rgba(0,0,0,0.15);
 }
+#cardInfo #cardInfoModal #details #cardData div #editDescription {
+  display: none;
+  width: 100%;
+}
+#cardInfo #cardInfoModal #details #cardData div #editDescription textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  resize: none;
+  outline: none;
+  background-color: rgba(0,0,0,0.04);
+  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.4);
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.4);
+}
+#cardInfo #cardInfoModal #details #cardData div #editDescription button {
+  margin-right: 15px;
+}
+#cardInfo #cardInfoModal #details #cardData div #editDescription a {
+  text-decoration: none;
+  font-size: 20px;
+}
 #cardInfo #cardInfoModal #details #cardComments textarea,
 #cardInfo #cardInfoModal #details #cardComments button {
   display: block;
