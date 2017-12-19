@@ -1,0 +1,17 @@
+<span class="fa fa-sticky-note-o"></span>
+<div>
+  <h3 class="left">Activity</h3>
+  <a class="right" href="#">Show Details</a>
+  {{#if comments}}
+    <ul class="clear" id="commentList">
+      {{#each comments}}
+        <li data-comment={{id}}>
+          <div class="userIcon">LS</div>
+          <h4>Launch School Student</h4>
+          <div class="comment">{{content}}</div>
+          <p>{{formatDate datetime}} - <a href="#">Edit</a> - <a href="#">Delete</a></p>
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</div>

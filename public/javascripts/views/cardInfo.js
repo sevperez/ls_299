@@ -16,9 +16,32 @@ var CardInfoView = Backbone.View.extend({
     "click #labelAction": "broadcastLabelClick",
     "click #dueDateAction": "broadcastDueDateClick",
     "click #dueDate": "broadcastDueDateClick",
-    "click #openEditDescription": "openEditDescription",
-    "click #closeEditDescription": "closeEditDescription",
-    "submit #editDescription form": "broadcastNewDescription",
+    "submit #cardComments form": "broadcastNewComment",
+    "keyup #newComment": "checkCommentReady",
+  },
+  
+  broadcastNewComment: function(e) {
+    e.preventDefault();
+    
+    var text = this.$("#cardComments form").serializeArray()[0].value;
+    
+    // broadcast "addComment" event to App and send comment value
+    App.trigger("addComment", text);
+    
+    // reset comment form to empty
+    this.$("#newComment").val("");
+    this.checkCommentReady();
+  },
+  
+  checkCommentReady: function() {
+    var val = this.$("#newComment").val();
+    var $btn = this.$("#cardComments form button");
+    
+    if (val.length > 0) {
+      $btn.removeAttr("disabled");
+    } else {
+      $btn.attr("disabled", "disabled");
+    }
   },
   
   broadcastLabelClick: function() {
@@ -29,43 +52,14 @@ var CardInfoView = Backbone.View.extend({
     App.trigger("openDueDateSelector");
   },
   
-  openEditDescription: function() {
-    $("#openEditDescription").hide();
-    $("#cardDescription").hide();
-    $("#newDescription").val(this.model.toJSON().description);
-    $("#editDescription").show();
-    $("#newDescription").select();
-  },
-  
-  closeEditDescription: function(e) {
-    if (e) {
-      e.preventDefault();
-    }
-    
-    $("#editDescription").hide();
-    $("#newDescription").val("");
-    $("#openEditDescription").show();
-    $("#cardDescription").show();
-  },
-  
-  broadcastNewDescription: function(e) {
-    e.preventDefault();
-    
-    var newDescription = this.$("#editDescription form").serializeArray()[0].value;
-    
-    // broadcast "changeDescription" event to App and send newDescription
-    if (newDescription !== this.model.toJSON().description) {
-      App.trigger("changeDescription", newDescription);
-    }
-    
-    this.closeEditDescription();
-  },
-  
   close: function() {
-    // remove view from DOM, and from storage on App object
+    // remove view from DOM, and subviews App object storage
     this.remove();
     App.currentCardView = undefined;
+    App.currentDescriptionView = undefined;
     App.currentLabelsListView = undefined;
+    App.currentDueDateView = undefined;
+    App.currentActivityView = undefined;
   },
   
   registerHelpers: function() {
@@ -86,12 +80,7 @@ var CardInfoView = Backbone.View.extend({
     return this;
   },
   
-  bindEvents: function() {
-    // this.on("reRender", this.render());
-  },
-  
   initialize: function() {
     this.registerHelpers();
-    this.bindEvents();
   },
 });

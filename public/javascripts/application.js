@@ -88,9 +88,11 @@ var App = {
     this.currentDescriptionView = new CardDescriptionView({ model: card });
     this.currentLabelsListView = new LabelListView({ model: card });
     this.currentDueDateView = new DueDateView({ model: card });
+    this.currentActivityView = new CardActivityView({ model: card });
     
     // rendering of partial views (conditional where appropriate)
     this.currentDescriptionView.render();
+    this.currentActivityView.render();
     
     if (card.toJSON().labels.length !== 0) {
       this.currentLabelsListView.render();
@@ -158,10 +160,50 @@ var App = {
   },
   
   changeDescription: function(newDescription) {
-    var self = this;
-    
     var card = this.currentCardView.model;
     card.set("description", newDescription);
+    card.save();
+  },
+  
+  getNextCommentId: function() {
+    var allComments = [];
+    
+    // retrieve and push each comment to allComments array
+    _.each(this.cardSets, function(element) {
+      var currentComments = element.pluck("comments");
+      allComments.push(currentComments);
+    });
+    
+    // flatten allComments array
+    allComments = _.flatten(allComments);
+    
+    // return current max ID + 1
+    return _.max(allComments, function(comment) {
+      return comment.id;
+    }).id + 1;
+  },
+  
+  buildNewComment: function(newCommentText) {
+    var d = new Date();
+    var newDateTime = d.toISOString().slice(0, 19);
+    
+    return {
+      id: this.getNextCommentId(),
+      user_id: 1,
+      content: newCommentText,
+      datetime: newDateTime,
+    };
+  },
+  
+  addComment: function(newCommentText) {
+    var card = this.currentCardView.model;
+    var newComment = this.buildNewComment(newCommentText);
+    var comments = card.get("comments");
+    
+    // update comment array
+    comments.push(newComment);
+    card.set("comments", comments);
+    
     card.save();
   },
   
@@ -182,6 +224,7 @@ var App = {
     this.on("changeDueDate", this.changeDueDate);
     this.on("removeDueDate", this.removeDueDate);
     this.on("changeDescription", this.changeDescription);
+    this.on("addComment", this.addComment);
   },
   
   init: function(data) {
