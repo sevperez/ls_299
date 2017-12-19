@@ -92,13 +92,19 @@ this["JST"]["cardDescription"] = Handlebars.template({"compiler":[7,">= 4.0.0"],
 },"useData":true});
 
 this["JST"]["cardInfo"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div class=\"overlay\"></div><div id=\"cardInfoModal\"><div id=\"details\" class=\"left\"><div id=\"cardData\"><span class=\"fa fa-tasks\"></span><div><div id=\"titleCtnr\"></div><div id=\"lblCtnr\"></div><div id=\"dueCtnr\"></div><div id=\"descCtnr\"></div></div></div><div id=\"cardComments\"><span class=\"fa fa-comment-o\"><div class=\"userIcon\">LS</div></span><div><h3>Add Comment</h3><form method=\"post\" action=\"#\"><textarea id=\"newComment\" name=\"newComment\" placeholder=\"Write a comment...\"></textarea><button type=\"submit\" class=\"btn\" disabled>Save</button></form></div></div><div id=\"activity\"></div></div><div id=\"actions\" class=\"right\"><a class=\"fa fa-times right\" href=\"#\"></a><div class=\"clear\"><h3>Add</h3><ul><li id=\"labelAction\"><span class=\"fa fa-tags\"></span> Labels</li><li id=\"checklistAction\"><span class=\"fa fa-check-square-o\"></span> Checklist</li><li id=\"dueDateAction\"><span class=\"fa fa-clock-o\"></span> Due Date</li></ul></div></div></div>";
+},"useData":true});
+
+this["JST"]["cardTitle"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<div class=\"overlay\"></div><div id=\"cardInfoModal\"><div id=\"details\" class=\"left\"><div id=\"cardData\"><span class=\"fa fa-tasks\"></span><div><h2>"
+  return "<h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h2><p>in list "
+    + "</h2><div id=\"cardTitleEdit\"><div class=\"editOverlay\"></div><input name=\"cardTitleEdit\" value=\""
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "\" /></div><p>in list "
     + alias4(((helper = (helper = helpers.list_id || (depth0 != null ? depth0.list_id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"list_id","hash":{},"data":data}) : helper)))
-    + "</p><div id=\"lblCtnr\"></div><div id=\"dueCtnr\"></div><div id=\"descCtnr\"></div></div></div><div id=\"cardComments\"><span class=\"fa fa-comment-o\"><div class=\"userIcon\">LS</div></span><div><h3>Add Comment</h3><form method=\"post\" action=\"#\"><textarea id=\"newComment\" name=\"newComment\" placeholder=\"Write a comment...\"></textarea><button type=\"submit\" class=\"btn\" disabled>Save</button></form></div></div><div id=\"activity\"></div></div><div id=\"actions\" class=\"right\"><a class=\"fa fa-times right\" href=\"#\"></a><div class=\"clear\"><h3>Add</h3><ul><li id=\"labelAction\"><span class=\"fa fa-tags\"></span> Labels</li><li id=\"checklistAction\"><span class=\"fa fa-check-square-o\"></span> Checklist</li><li id=\"dueDateAction\"><span class=\"fa fa-clock-o\"></span> Due Date</li></ul></div></div></div>";
+    + "</p>";
 },"useData":true});
 
 this["JST"]["changeBoardName"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

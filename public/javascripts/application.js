@@ -89,8 +89,10 @@ var App = {
     this.currentLabelsListView = new LabelListView({ model: card });
     this.currentDueDateView = new DueDateView({ model: card });
     this.currentActivityView = new CardActivityView({ model: card });
+    this.currentTitleView = new CardTitleView({ model: card });
     
     // rendering of partial views (conditional where appropriate)
+    this.currentTitleView.render();
     this.currentDescriptionView.render();
     this.currentActivityView.render();
     
@@ -236,6 +238,16 @@ var App = {
     card.save();
   },
   
+  editCardTitle: function(newTitle) {
+    var card = this.currentCardView.model;
+    
+    // set new title to relevant card
+    card.set("title", newTitle);
+    
+    // save card to server
+    card.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -256,6 +268,7 @@ var App = {
     this.on("addComment", this.addComment);
     this.on("deleteComment", this.deleteComment);
     this.on("editComment", this.editComment);
+    this.on("editCardTitle", this.editCardTitle);
   },
   
   init: function(data) {

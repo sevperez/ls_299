@@ -239,20 +239,40 @@ header #logo h2:hover {
 }
 #cardInfo #cardInfoModal #details div > div {
   width: 90%;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 #cardInfo #cardInfoModal #details div > div h2 {
   font-size: 20px;
 }
 #cardInfo #cardInfoModal #details div > div p {
-  margin-bottom: 10px;
   color: rgba(0,0,0,0.4);
 }
 #cardInfo #cardInfoModal #details div > div p a {
   padding-left: 10px;
 }
-#cardInfo #cardInfoModal #details div > div #cardDescription {
+#cardInfo #cardInfoModal #details #cardData #titleCtnr #cardTitleEdit {
+  display: none;
+  width: 100%;
+}
+#cardInfo #cardInfoModal #details #cardData #titleCtnr #cardTitleEdit .editOverlay {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0);
+}
+#cardInfo #cardInfoModal #details #cardData #titleCtnr #cardTitleEdit input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 3px;
+  padding: 0 3px;
+  font: 20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
   color: #333;
+  background-color: #e2e4e6;
 }
 #cardInfo #cardInfoModal #details #cardData #lblCtnr {
   width: auto;
@@ -303,11 +323,17 @@ header #logo h2:hover {
   cursor: pointer;
   background-color: rgba(0,0,0,0.15);
 }
-#cardInfo #cardInfoModal #details #cardData div #editDescription {
+#cardInfo #cardInfoModal #details #cardData #descCtnr p {
+  margin-bottom: 10px;
+}
+#cardInfo #cardInfoModal #details #cardData #descCtnr #cardDescription {
+  color: #333;
+}
+#cardInfo #cardInfoModal #details #cardData #descCtnr #editDescription {
   display: none;
   width: 100%;
 }
-#cardInfo #cardInfoModal #details #cardData div #editDescription textarea {
+#cardInfo #cardInfoModal #details #cardData #descCtnr #editDescription textarea {
   width: 100%;
   min-height: 100px;
   padding: 10px;
@@ -322,10 +348,10 @@ header #logo h2:hover {
   -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.4);
   box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.4);
 }
-#cardInfo #cardInfoModal #details #cardData div #editDescription button {
+#cardInfo #cardInfoModal #details #cardData #descCtnr #editDescription button {
   margin-right: 15px;
 }
-#cardInfo #cardInfoModal #details #cardData div #editDescription a {
+#cardInfo #cardInfoModal #details #cardData #descCtnr #editDescription a {
   text-decoration: none;
   font-size: 20px;
 }

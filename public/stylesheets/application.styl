@@ -199,17 +199,36 @@ header
             padding-top: 5px
         & > div
           width: 90%
-          padding-bottom: 20px
+          padding-bottom: 10px
           h2
             font-size: 20px
           p
-            margin-bottom: 10px
             color: colors.shaded.medBlk
             a
               padding-left: 10px
-          #cardDescription
-            color: colors.txt.main
       #cardData
+        #titleCtnr
+          #cardTitleEdit
+            display: none
+            width: 100%
+            .editOverlay
+              width: 100%
+              position: fixed
+              top: 0
+              right: 0
+              bottom: 0
+              left: 0
+              background-color: rgba(0, 0, 0, 0)
+            input
+              position: relative
+              z-index: 1
+              width: 100%
+              border-radius: 3px
+              padding: 0 3px
+              font: 20px fonts.default, Arial, Helvetica, sans-serif
+              font-weight: bold
+              color: colors.txt.main
+              background-color: colors.bg.secondary
         #lblCtnr
           width: auto
           display: inline-block
@@ -250,7 +269,11 @@ header
             &:hover
               cursor: pointer
               background-color: colors.shaded.lowBlk
-        div
+        #descCtnr
+          p
+            margin-bottom: 10px
+          #cardDescription
+            color: colors.txt.main
           #editDescription
             display: none
             width: 100%
