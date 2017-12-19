@@ -260,6 +260,7 @@ header #logo h2:hover {
 }
 #cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList {
   display: inline-block;
+  padding-right: 15px;
 }
 #cardInfo #cardInfoModal #details #cardData #lblCtnr #labelList li {
   display: inline-block;
@@ -287,7 +288,6 @@ header #logo h2:hover {
 #cardInfo #cardInfoModal #details #cardData #dueCtnr {
   width: auto;
   display: inline-block;
-  margin-left: 15px;
 }
 #cardInfo #cardInfoModal #details #cardData #dueCtnr #dueDate {
   display: inline-block;

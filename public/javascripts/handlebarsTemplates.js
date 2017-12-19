@@ -128,6 +128,12 @@ this["JST"]["dueDateSelect"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"m
 },"useData":true});
 
 this["JST"]["labelContainer"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<p>Labels</p><ul id=\"labelList\">"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.labels : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "<li id=\"addLabelBtn\"><span class=\"fa fa-plus\"></span></li></ul>";
+},"2":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<li data-label=\""
@@ -140,9 +146,7 @@ this["JST"]["labelContainer"] = Handlebars.template({"1":function(container,dept
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "<p>Labels</p><ul id=\"labelList\">"
-    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.labels : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "<li id=\"addLabelBtn\"><span class=\"fa fa-plus\"></span></li></ul>";
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.labels : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 
 this["JST"]["labelSelector"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
