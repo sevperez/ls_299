@@ -18,6 +18,7 @@ var CardInfoView = Backbone.View.extend({
     "click #dueDate": "broadcastDueDateClick",
     "submit #cardComments form": "broadcastNewComment",
     "keyup #newComment": "checkCommentReady",
+    "click [data-anchor='delete']": "broadcastDeleteComment",
   },
   
   broadcastNewComment: function(e) {
@@ -31,6 +32,12 @@ var CardInfoView = Backbone.View.extend({
     // reset comment form to empty
     this.$("#newComment").val("");
     this.checkCommentReady();
+  },
+  
+  broadcastDeleteComment: function(e) {
+    var commentId = $(e.target).closest("li").data("comment");
+    
+    App.trigger("deleteComment", commentId);
   },
   
   checkCommentReady: function() {

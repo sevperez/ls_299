@@ -207,6 +207,19 @@ var App = {
     card.save();
   },
   
+  deleteComment: function(commentId) {
+    var card = this.currentCardView.model;
+    var comments = card.get("comments");
+    
+    // filter comment array
+    var updatedComments = _.reject(comments, function(comment) {
+      return comment.id === commentId;
+    });
+    
+    card.set("comments", updatedComments);
+    card.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -225,6 +238,7 @@ var App = {
     this.on("removeDueDate", this.removeDueDate);
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);
+    this.on("deleteComment", this.deleteComment);
   },
   
   init: function(data) {

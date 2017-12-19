@@ -70,7 +70,7 @@ this["JST"]["cardActivity"] = Handlebars.template({"1":function(container,depth0
     + alias4(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"content","hash":{},"data":data}) : helper)))
     + "</div><p>"
     + alias4((helpers.formatDate || (depth0 && depth0.formatDate) || alias2).call(alias1,(depth0 != null ? depth0.datetime : depth0),{"name":"formatDate","hash":{},"data":data}))
-    + " - <a href=\"#\">Edit</a> - <a href=\"#\">Delete</a></p></li>";
+    + " - <a data-anchor=\"edit\" href=\"#\">Edit</a> - <a data-anchor=\"delete\" href=\"#\">Delete</a></p></li>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
