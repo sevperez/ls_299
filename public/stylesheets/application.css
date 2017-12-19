@@ -345,6 +345,13 @@ header #logo h2:hover {
   border: none;
   box-shadow: 3px 3px 10px 0px #ada8ad;
 }
+#cardInfo #cardInfoModal #details #activity #commentList li {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+#cardInfo #cardInfoModal #details #activity #commentList li:last-of-type {
+  border-bottom: none;
+}
 #cardInfo #cardInfoModal #details #activity #commentList li h4,
 #cardInfo #cardInfoModal #details #activity #commentList li .userIcon {
   position: relative;
@@ -360,6 +367,7 @@ header #logo h2:hover {
 #cardInfo #cardInfoModal #details #activity #commentList li .userIcon {
   display: inline-block;
   font-size: 14px;
+  width: 26px;
   background-color: rgba(0,0,0,0.15);
   color: rgba(0,0,0,0.4);
   right: 40px;
@@ -376,6 +384,29 @@ header #logo h2:hover {
 }
 #cardInfo #cardInfoModal #details #activity #commentList li .comment + p {
   font-size: 12px;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .editCommentForm {
+  display: none;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .editCommentForm textarea {
+  display: block;
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  resize: none;
+  outline: none;
+  border: none;
+  box-shadow: 3px 3px 10px 0px #ada8ad;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .editCommentForm .btn {
+  margin-right: 15px;
+}
+#cardInfo #cardInfoModal #details #activity #commentList li .editCommentForm a {
+  text-decoration: none;
+  font-size: 18px;
 }
 #cardInfo #cardInfoModal #labelSelector {
   position: absolute;

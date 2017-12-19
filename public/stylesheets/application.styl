@@ -291,6 +291,10 @@ header
       #activity
         #commentList
           li
+            padding: 15px 0
+            border-bottom: 1px solid colors.shaded.lowBlk
+            &:last-of-type
+              border-bottom: none
             h4,
             .userIcon
               position: relative
@@ -304,6 +308,7 @@ header
             .userIcon
               display: inline-block
               font-size: 14px
+              width: 26px
               background-color: colors.shaded.lowBlk
               color: colors.shaded.medBlk
               right: 40px
@@ -318,6 +323,25 @@ header
               box-shadow: 3px 3px 10px 0px rgba(173,168,173,1)
               & + p
                 font-size: 12px
+            .editCommentForm
+              display: none
+              textarea
+                display: block
+                width: 100%
+                min-height: 80px
+                padding: 10px
+                border-radius: 3px
+                margin-bottom: 10px
+                font: 14px fonts.default, Arial, Helvetica, sans-serif
+                resize: none
+                outline: none
+                border: none
+                box-shadow: 3px 3px 10px 0px rgba(173,168,173,1)
+              .btn
+                margin-right: 15px
+              a
+                text-decoration: none
+                font-size: 18px
     #labelSelector
       position: absolute
       top: 145px

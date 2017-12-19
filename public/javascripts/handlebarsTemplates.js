@@ -66,11 +66,13 @@ this["JST"]["cardActivity"] = Handlebars.template({"1":function(container,depth0
 
   return "<li data-comment="
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "><div class=\"userIcon\">LS</div><h4>Launch School Student</h4><div class=\"comment\">"
+    + "><div class=\"userIcon\">LS</div><h4>Launch School Student</h4><div class=\"commentArea\"><div class=\"comment\">"
     + alias4(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"content","hash":{},"data":data}) : helper)))
     + "</div><p>"
     + alias4((helpers.formatDate || (depth0 && depth0.formatDate) || alias2).call(alias1,(depth0 != null ? depth0.datetime : depth0),{"name":"formatDate","hash":{},"data":data}))
-    + " - <a data-anchor=\"edit\" href=\"#\">Edit</a> - <a data-anchor=\"delete\" href=\"#\">Delete</a></p></li>";
+    + " - <a data-anchor=\"edit\" href=\"#\">Edit</a> - <a data-anchor=\"delete\" href=\"#\">Delete</a></p></div><div class=\"editCommentForm\"><form method=\"post\" action=\"#\"><textarea id=\"editComment\" name=\"editComment\">"
+    + alias4(((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"content","hash":{},"data":data}) : helper)))
+    + "</textarea><button type=\"submit\" class=\"btn\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div></li>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

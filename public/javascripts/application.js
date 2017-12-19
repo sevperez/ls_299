@@ -220,6 +220,22 @@ var App = {
     card.save();
   },
   
+  editComment: function(commentId, newText) {
+    var card = this.currentCardView.model;
+    var comments = card.get("comments");
+    
+    // retrieve comment to edit
+    var commentToEdit = _.find(comments, function(comment) {
+      return comment.id === commentId;
+    });
+    
+    // set content of relevant comment
+    commentToEdit.content = newText;
+    
+    // save card to server
+    card.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -239,6 +255,7 @@ var App = {
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);
     this.on("deleteComment", this.deleteComment);
+    this.on("editComment", this.editComment);
   },
   
   init: function(data) {

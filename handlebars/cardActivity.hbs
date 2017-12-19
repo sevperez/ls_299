@@ -8,8 +8,17 @@
         <li data-comment={{id}}>
           <div class="userIcon">LS</div>
           <h4>Launch School Student</h4>
-          <div class="comment">{{content}}</div>
-          <p>{{formatDate datetime}} - <a data-anchor="edit" href="#">Edit</a> - <a data-anchor="delete" href="#">Delete</a></p>
+          <div class="commentArea">
+            <div class="comment">{{content}}</div>
+            <p>{{formatDate datetime}} - <a data-anchor="edit" href="#">Edit</a> - <a data-anchor="delete" href="#">Delete</a></p>
+          </div>
+          <div class="editCommentForm">
+            <form method="post" action="#">
+              <textarea id="editComment" name="editComment">{{content}}</textarea>
+              <button type="submit" class="btn">Save</button>
+              <a class="fa fa-times" href="#"></a>
+            </form>
+          </div>
         </li>
       {{/each}}
     </ul>
