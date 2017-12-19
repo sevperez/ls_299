@@ -12,7 +12,7 @@ var DueDateView = Backbone.View.extend({
   },
   
   bindEvents: function() {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "change", this.render);
   },
   
   initialize: function() {

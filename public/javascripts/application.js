@@ -85,10 +85,13 @@ var App = {
     $(document.body).append(this.currentCardView.render().el);
     
     // create and store partial views
+    this.currentDescriptionView = new CardDescriptionView({ model: card });
     this.currentLabelsListView = new LabelListView({ model: card });
     this.currentDueDateView = new DueDateView({ model: card });
     
-    // conditional rendering
+    // rendering of partial views (conditional where appropriate)
+    this.currentDescriptionView.render();
+    
     if (card.toJSON().labels.length !== 0) {
       this.currentLabelsListView.render();
     }
@@ -158,14 +161,8 @@ var App = {
     var self = this;
     
     var card = this.currentCardView.model;
-    // card.set("description", newDescription);
-    card.save({
-      "description": newDescription,
-    }, {
-      success: function() {
-        self.currentCardView.render();
-      },
-    });
+    card.set("description", newDescription);
+    card.save();
   },
   
   bindEvents: function() {
