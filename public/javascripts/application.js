@@ -271,6 +271,36 @@ var App = {
     list.save();
   },
   
+  openNewChecklist: function() {
+    var view = new NewChecklistView();
+    $("#cardInfoModal").append(view.render().el);
+    $("#newChecklistTitle").focus();
+  },
+  
+  addChecklist: function(title) {
+    var self = this;
+    var card = this.currentCardView.model;
+    
+    var newChecklist = {
+      "title": title,
+      "items": []
+    };
+    
+    // add new checklist to checklists collection and save
+    this.checklists.create(newChecklist, {
+      success: function(model) {
+        // on success, add checklist id to card and save
+        var cardChecklists = card.get("checklists");
+        cardChecklists.push(model.id);
+        
+        // TODO TODO TODO -- save to card and rerender
+        
+        
+        // card.save();
+      },
+    });
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -287,6 +317,8 @@ var App = {
     this.on("openDueDateSelector", this.openDueDateSelector);
     this.on("changeDueDate", this.changeDueDate);
     this.on("removeDueDate", this.removeDueDate);
+    this.on("openNewChecklist", this.openNewChecklist);
+    this.on("addChecklist", this.addChecklist);
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);
     this.on("deleteComment", this.deleteComment);

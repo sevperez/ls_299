@@ -129,6 +129,19 @@ module.exports = function(router) {
   
   router.route("/checklists").get(function(req, res, next) {
     res.json(Interface.get().checklists);
+  }).post(function(req, res, next) {
+    var newChecklist = req.body;
+    var data = Interface.get();
+    
+    // complete checklist object and add to data
+    newChecklist.id = Interface.getNextId(data.checklists);
+    data.checklists.push(newChecklist);
+    
+    // write new data
+    Interface.write(data);
+    
+    // send new checklist back to client
+    res.json(newChecklist);
   });
   
   router.route("/checklists/:checklist_id").get(function(req, res, next) {

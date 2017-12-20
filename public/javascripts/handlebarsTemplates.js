@@ -218,3 +218,7 @@ this["JST"]["listTitle"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "\" /></div>";
 },"useData":true});
+
+this["JST"]["newChecklist"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<form action=\"#\" method=\"post\"><div><p>Add Checklist</p><a class=\"fa fa-times\" href=\"#\"></a></div><dl><dt><label for=\"newChecklistTitle\">Title</label></dt><dd><input type=\"text\" id=\"newChecklistTitle\" name=\"newChecklistTitle\" /></dd></dl><button class=\"btn\" type=\"submit\">Save</button></form>";
+},"useData":true});

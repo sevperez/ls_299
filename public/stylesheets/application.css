@@ -601,7 +601,8 @@ h4
 #cardInfo #cardInfoModal #labelSelector > a:last-of-type:hover {
   background-color: rgba(0,0,0,0.15);
 }
-#cardInfo #cardInfoModal #dueDateSelect {
+#cardInfo #cardInfoModal #dueDateSelect,
+#cardInfo #cardInfoModal #newChecklist {
   position: absolute;
   top: 225px;
   right: 15px;
@@ -612,42 +613,55 @@ h4
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 5px;
 }
-#cardInfo #cardInfoModal #dueDateSelect form > div {
+#cardInfo #cardInfoModal #dueDateSelect form > div,
+#cardInfo #cardInfoModal #newChecklist form > div {
   text-align: center;
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px solid rgba(0,0,0,0.4);
 }
-#cardInfo #cardInfoModal #dueDateSelect form > div p {
+#cardInfo #cardInfoModal #dueDateSelect form > div p,
+#cardInfo #cardInfoModal #newChecklist form > div p {
   color: rgba(0,0,0,0.4);
 }
-#cardInfo #cardInfoModal #dueDateSelect form > div a {
+#cardInfo #cardInfoModal #dueDateSelect form > div a,
+#cardInfo #cardInfoModal #newChecklist form > div a {
   position: absolute;
   top: 3px;
   right: 3px;
+  font-size: 16px;
   color: rgba(0,0,0,0.15);
   cursor: pointer;
   text-decoration: none;
 }
-#cardInfo #cardInfoModal #dueDateSelect form > div a:hover {
+#cardInfo #cardInfoModal #dueDateSelect form > div a:hover,
+#cardInfo #cardInfoModal #newChecklist form > div a:hover {
   color: rgba(0,0,0,0.4);
 }
-#cardInfo #cardInfoModal #dueDateSelect form dl {
+#cardInfo #cardInfoModal #dueDateSelect form dl,
+#cardInfo #cardInfoModal #newChecklist form dl {
   display: inline-block;
 }
-#cardInfo #cardInfoModal #dueDateSelect form dl:first-of-type {
+#cardInfo #cardInfoModal #dueDateSelect form dl:first-of-type,
+#cardInfo #cardInfoModal #newChecklist form dl:first-of-type {
   padding-right: 5px;
   width: 55%;
 }
-#cardInfo #cardInfoModal #dueDateSelect form dl:last-of-type {
+#cardInfo #cardInfoModal #dueDateSelect form dl:last-of-type,
+#cardInfo #cardInfoModal #newChecklist form dl:last-of-type {
   padding-left: 5px;
   width: 45%;
 }
-#cardInfo #cardInfoModal #dueDateSelect form dl dt {
+#cardInfo #cardInfoModal #dueDateSelect form dl dt,
+#cardInfo #cardInfoModal #newChecklist form dl dt {
   font-weight: bold;
 }
 #cardInfo #cardInfoModal #dueDateSelect form input[type="time"],
-#cardInfo #cardInfoModal #dueDateSelect form input[type="date"] {
+#cardInfo #cardInfoModal #newChecklist form input[type="time"],
+#cardInfo #cardInfoModal #dueDateSelect form input[type="date"],
+#cardInfo #cardInfoModal #newChecklist form input[type="date"],
+#cardInfo #cardInfoModal #dueDateSelect form input[type="text"],
+#cardInfo #cardInfoModal #newChecklist form input[type="text"] {
   height: 30px;
   width: 100%;
   padding: 5px;
@@ -655,29 +669,50 @@ h4
   border-radius: 3px;
   font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
-#cardInfo #cardInfoModal #dueDateSelect form .btn {
+#cardInfo #cardInfoModal #dueDateSelect form .btn,
+#cardInfo #cardInfoModal #newChecklist form .btn {
   width: 120px;
   font-weight: bold;
 }
-#cardInfo #cardInfoModal #dueDateSelect form .btn:hover {
+#cardInfo #cardInfoModal #dueDateSelect form .btn:hover,
+#cardInfo #cardInfoModal #newChecklist form .btn:hover {
   background-color: #47a236;
 }
-#cardInfo #cardInfoModal #dueDateSelect form .btn:first-of-type {
+#cardInfo #cardInfoModal #dueDateSelect form .btn:first-of-type,
+#cardInfo #cardInfoModal #newChecklist form .btn:first-of-type {
   float: left;
 }
-#cardInfo #cardInfoModal #dueDateSelect form .btn:last-of-type {
+#cardInfo #cardInfoModal #dueDateSelect form .btn:last-of-type,
+#cardInfo #cardInfoModal #newChecklist form .btn:last-of-type {
   float: right;
 }
-#cardInfo #cardInfoModal #dueDateSelect form .cancel {
+#cardInfo #cardInfoModal #dueDateSelect form .cancel,
+#cardInfo #cardInfoModal #newChecklist form .cancel {
   background-color: #eb5a46;
 }
-#cardInfo #cardInfoModal #dueDateSelect form .cancel:hover {
+#cardInfo #cardInfoModal #dueDateSelect form .cancel:hover,
+#cardInfo #cardInfoModal #newChecklist form .cancel:hover {
   background-color: #b93220;
 }
-#cardInfo #cardInfoModal #dueDateSelect form:after {
+#cardInfo #cardInfoModal #dueDateSelect form:after,
+#cardInfo #cardInfoModal #newChecklist form:after {
   content: "";
   display: table;
   clear: both;
+}
+#cardInfo #cardInfoModal #newChecklist {
+  top: 185px;
+}
+#cardInfo #cardInfoModal #newChecklist form dd,
+#cardInfo #cardInfoModal #newChecklist form dt,
+#cardInfo #cardInfoModal #newChecklist form dl,
+#cardInfo #cardInfoModal #newChecklist form dl:last-of-type {
+  width: 100%;
+}
+#cardInfo #cardInfoModal #newChecklist form .btn:first-of-type,
+#cardInfo #cardInfoModal #newChecklist form .btn:last-of-type {
+  float: none;
+  margin-left: 5px;
 }
 #cardInfo #cardInfoModal #actions {
   width: 150px;

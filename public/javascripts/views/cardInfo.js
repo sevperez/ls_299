@@ -16,6 +16,7 @@ var CardInfoView = Backbone.View.extend({
     "click #labelAction": "broadcastLabelClick",
     "click #dueDateAction": "broadcastDueDateClick",
     "click #dueDate": "broadcastDueDateClick",
+    "click #checklistAction": "braodcastChecklistClick",
     "submit #cardComments form": "broadcastNewComment",
     "keyup #newComment": "checkCommentReady",
   },
@@ -50,6 +51,10 @@ var CardInfoView = Backbone.View.extend({
   
   broadcastDueDateClick: function() {
     App.trigger("openDueDateSelector");
+  },
+  
+  braodcastChecklistClick: function() {
+    App.trigger("openNewChecklist");
   },
   
   close: function() {

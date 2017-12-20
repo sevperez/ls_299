@@ -169,7 +169,7 @@
   "checklists": [
     {
       "id": 1,
-      "list_title": "First Checklist",
+      "title": "First Checklist",
       "items": [
         {
           "id": 1,
@@ -187,7 +187,7 @@
       ]
     }, {
       "id": 2,
-      "list_title": "Second Checklist",
+      "title": "Second Checklist",
       "items": [
         {
           "id": 4,
@@ -197,7 +197,7 @@
       ]
     }, {
       "id": 3,
-      "list_title": "Third Checklist",
+      "title": "Third Checklist",
       "items": [
         {
           "id": 5,
