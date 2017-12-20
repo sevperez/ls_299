@@ -100,7 +100,7 @@ this["JST"]["cardTitle"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main"
 
   return "<h2>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h2><div id=\"cardTitleEdit\"><div class=\"editOverlay\"></div><input name=\"cardTitleEdit\" value=\""
+    + "</h2><div id=\"cardTitleEdit\"><div class=\"editOverlay\"></div><input name=\"cardTitleEditInput\" value=\""
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "\" /></div><p>in list "
     + alias4(((helper = (helper = helpers.list_id || (depth0 != null ? depth0.list_id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"list_id","hash":{},"data":data}) : helper)))
@@ -176,9 +176,15 @@ this["JST"]["labelSelector"] = Handlebars.template({"1":function(container,depth
 },"useData":true});
 
 this["JST"]["list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var helper;
+    return "<div class=\"listTitleCtnr\"></div><ul class=\"cardList\"></ul><div id=\"addCard\"><div><form method=\"post\" action=\"#\"><input type=\"text\" id=\"newCardName\" name=\"newCardName\" placeholder=\"Add a card...\" autofocus /><button class=\"btn\" type=\"submit\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div><div>Add a card...</div></div>";
+},"useData":true});
+
+this["JST"]["listTitle"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<h4>"
-    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h4><ul class=\"cardList\"></ul><div id=\"addCard\"><div><form method=\"post\" action=\"#\"><input type=\"text\" id=\"newCardName\" name=\"newCardName\" placeholder=\"Add a card...\" autofocus /><button class=\"btn\" type=\"submit\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div><div>Add a card...</div></div>";
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</h4><div class=\"listTitleEdit\"><div class=\"editOverlay\"></div><input name=\"listTitleEditInput\" value=\""
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "\" /></div>";
 },"useData":true});

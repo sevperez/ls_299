@@ -43,6 +43,21 @@ module.exports = function(router) {
     
     // send back the new list
     res.json(list);
+  }).put(function(req, res, next) {
+    var list = req.body;
+    var data = Interface.get();
+    var dbList = _.find(data.lists, { id: list.id });
+    
+     // update dbList
+    for (key in dbList) {
+      dbList[key] = list[key];
+    }
+    
+    // write new data
+    Interface.write(data);
+    
+    // send card back to client
+    res.json(list);
   });
   
   router.route("/boards/:board_id/lists/:list_id").get(function(req, res, next) {

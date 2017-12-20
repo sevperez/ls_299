@@ -248,6 +248,14 @@ var App = {
     card.save();
   },
   
+  editListTitle: function(list, newTitle) {
+    // set new title to list
+    list.set("title", newTitle);
+    
+    // save list to server
+    list.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -269,6 +277,7 @@ var App = {
     this.on("deleteComment", this.deleteComment);
     this.on("editComment", this.editComment);
     this.on("editCardTitle", this.editCardTitle);
+    this.on("editListTitle", this.editListTitle);
   },
   
   init: function(data) {

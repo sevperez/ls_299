@@ -92,10 +92,6 @@ header #logo h2:hover {
   border-radius: 5px;
   background-color: #e2e4e6;
 }
-#lists .list h4 {
-  margin: 10px;
-  cursor: pointer;
-}
 #lists .list .cardList .card {
   height: 75px;
   padding: 8px;
@@ -128,6 +124,34 @@ header #logo h2:hover {
 }
 #lists .list .cardList .card .icons li span {
   padding-right: 5px;
+}
+#lists .list .listTitleCtnr {
+  padding: 10px 10px 0 10px;
+h4
+  margin: 10px 0;
+  cursor: pointer;
+}
+#lists .list .listTitleCtnr .listTitleEdit {
+  display: none;
+}
+#lists .list .listTitleCtnr .listTitleEdit .editOverlay {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0);
+}
+#lists .list .listTitleCtnr .listTitleEdit input {
+  position: relative;
+  z-index: 1;
+  padding: 3px;
+  border-radius: 3px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #333;
+  width: 80%;
 }
 #addList,
 #addCard {

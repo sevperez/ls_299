@@ -10,8 +10,8 @@ var ListView = Backbone.View.extend({
   template: App.templates.list,
   
   events: {
-    "click div:last-of-type": "openDrawer",
-    "click div:first-of-type a": "closeDrawer",
+    "click #addCard div:last-of-type": "openDrawer",
+    "click #addCard div:first-of-type a": "closeDrawer",
     "submit form": "broadcastAddCard"
   },
   

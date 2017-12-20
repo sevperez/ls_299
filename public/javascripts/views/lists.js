@@ -9,9 +9,13 @@ var ListsView = Backbone.View.extend({
       this.addNewListView.remove();
     }
     
-    // add the new ListView and re-add an AddNewListView
+    // add the new ListView and title subview
     var view = new ListView({ model: model });
     this.$el.append(view.render().el);
+    var subview = new ListTitleView({ model: model });
+    subview.render();
+    
+    // re-add an AddNewListView
     this.addNewListView = new AddNewListView();
     
     // trigger new cardSet and cardSet view
