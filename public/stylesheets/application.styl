@@ -317,6 +317,51 @@ header
             a
               text-decoration: none
               font-size: 20px
+      #cardChecklists
+        width: 100%
+        padding-bottom: 10px
+        & > div
+          width: 100%
+          padding-bottom: 10px
+          & > div
+            width: 91%
+            border-bottom: 1px solid colors.shaded.lowBlk
+            margin-bottom: 10px
+            padding-bottom: 20px
+            & > div
+              width: 100%
+              padding-bottom: 0
+              div
+                width: auto
+                padding-bottom: 0
+                a
+                  padding-bottom: 0
+                  &:first-of-type
+                    padding-right: 15px
+            ul
+              padding-bottom: 10px
+              li
+                display: block
+                width: 100%
+                padding: 10px
+                &:hover
+                  background-color: colors.shaded.vLowBlk
+                  cursor: pointer
+                span
+                  position: relative
+                  font-size: 17px
+                p
+                  display: inline-block
+                  font: 14px fonts.default, Arial, Helvetica, sans-serif
+                  color: colors.txt.main
+                a
+                  text-decoration: none
+                  font-size: 18px
+        & > div:last-of-type
+          padding-bottom: 0
+          & > div
+            padding-bottom: 0
+            border-bottom: 0
       #cardComments
         textarea,
         button

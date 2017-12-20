@@ -1,0 +1,28 @@
+<span class="fa fa-check-square-o"></span>
+<div>
+  <div>
+    <h3 class="left">{{title}}</h3>
+    <div class="right">
+      <a href="#" data-anchor="hideChecked">Hide completed items</a>
+      <a href="#" data-anchor="delete">Delete...</a>
+    </div>
+  </div>
+  <ul class="clear">
+    {{#each items}}
+      {{#if complete}}
+        <li data-item="{{id}}">
+          <span class="fa fa-check-square-o"></span>
+          <p class="complete">{{title}}</p>
+          <a class="fa fa-times right" href="#"></a>
+        </li>
+      {{else}}
+        <li data-item="{{id}}">
+          <span class="fa fa-square-o"></span>
+          <p>{{title}}</p>
+          <a class="fa fa-times right" href="#"></a>
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+  <a href="#" data-anchor="add">Add an item...</a>
+</div>

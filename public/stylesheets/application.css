@@ -379,6 +379,66 @@ h4
   text-decoration: none;
   font-size: 20px;
 }
+#cardInfo #cardInfoModal #details #cardChecklists {
+  width: 100%;
+  padding-bottom: 10px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div {
+  width: 100%;
+  padding-bottom: 10px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div {
+  width: 91%;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div > div {
+  width: 100%;
+  padding-bottom: 0;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div > div div {
+  width: auto;
+  padding-bottom: 0;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div > div div a {
+  padding-bottom: 0;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div > div div a:first-of-type {
+  padding-right: 15px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div ul {
+  padding-bottom: 10px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div ul li {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div ul li:hover {
+  background-color: rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div ul li span {
+  position: relative;
+  font-size: 17px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div ul li p {
+  display: inline-block;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #333;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div > div ul li a {
+  text-decoration: none;
+  font-size: 18px;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div:last-of-type {
+  padding-bottom: 0;
+}
+#cardInfo #cardInfoModal #details #cardChecklists > div:last-of-type > div {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
 #cardInfo #cardInfoModal #details #cardComments textarea,
 #cardInfo #cardInfoModal #details #cardComments button {
   display: block;

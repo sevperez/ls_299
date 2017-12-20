@@ -103,6 +103,21 @@ var App = {
     if (card.toJSON().due_date) {
       this.currentDueDateView.render();
     }
+    
+    if (card.toJSON().checklists.length > 0) {
+      this.setupChecklistViews(card.toJSON().checklists);
+    }
+  },
+  
+  setupChecklistViews: function(checklistIds) {
+    var self = this;
+    var $parent = $("#cardChecklists");
+    
+    checklistIds.forEach(function(id) {
+      var current = self.checklists.get(id);
+      var view = new ChecklistView({ model: current });
+      $parent.append(view.render().el);
+    });
   },
   
   openBoardNameForm: function() {
