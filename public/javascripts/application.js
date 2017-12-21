@@ -429,6 +429,10 @@ var App = {
     this.on("editListTitle", this.editListTitle);
   },
   
+  setupDragula: function() {
+    this.drake = dragula();
+  },
+  
   init: function(data) {
     // initialize cardSets object
     this.cardSets = {};
@@ -441,5 +445,6 @@ var App = {
     
     this.bindEvents();
     this.setupBoard();
+    this.setupDragula();
   },
 };
