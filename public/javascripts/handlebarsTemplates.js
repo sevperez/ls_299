@@ -142,7 +142,7 @@ this["JST"]["checklist"] = Handlebars.template({"1":function(container,depth0,he
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h3><div class=\"right\"><a href=\"#\" data-anchor=\"hideChecked\">Hide completed items</a><a href=\"#\" data-anchor=\"delete\">Delete...</a></div></div><ul class=\"clear\">"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</ul><a href=\"#\" data-anchor=\"add\">Add an item...</a></div>";
+    + "</ul><a href=\"#\" data-anchor=\"add\">Add an item...</a><div class=\"newItem\"><form method=\"post\" action=\"#\"><input type=\"text\" name=\"newItemInput\" placeholder=\"Add a list...\" autofocus /><button class=\"btn\" type=\"submit\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div></div>";
 },"useData":true});
 
 this["JST"]["dueDate"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

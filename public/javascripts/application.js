@@ -333,8 +333,47 @@ var App = {
     
     // remove checklist from collection after server is available
     setTimeout(function() {
-      self.checklists.get(checklistId).destroy({ wait: true });
+      self.checklists.get(checklistId).destroy();
     }, 1000);
+  },
+  
+  buildNewChecklistItem: function(title) {
+    var allItems = _.flatten(App.checklists.pluck("items"));
+    
+    if (allItems.length === 0) {
+      var id = 0;
+    } else {
+      var id = _.max(allItems, function(item) {
+        return item.id;
+      }).id;
+    }
+    
+    return {
+      "id": id + 1,
+      "title": title,
+      "complete": false,
+    };
+  },
+  
+  addChecklistItem: function(checklistId, itemTitle) {
+    var checklist = this.checklists.get(checklistId);
+    var items = checklist.get("items");
+    var newItem = this.buildNewChecklistItem(itemTitle);
+    items.push(newItem);
+    
+    checklist.set("items", items);
+    checklist.save();
+  },
+  
+  deleteChecklistItem: function(checklistId, itemId) {
+    var checklist = this.checklists.get(checklistId);
+    var items = checklist.get("items");
+    var updatedItems = items.filter(function(item) {
+      return item.id !== itemId;
+    });
+    
+    checklist.set("items", updatedItems);
+    checklist.save();
   },
   
   bindEvents: function() {
@@ -356,6 +395,8 @@ var App = {
     this.on("openNewChecklist", this.openNewChecklist);
     this.on("addChecklist", this.addChecklist);
     this.on("deleteChecklist", this.deleteChecklist);
+    this.on("addChecklistItem", this.addChecklistItem);
+    this.on("deleteChecklistItem", this.deleteChecklistItem);
     this.on("updateCardChecklistArr", this.updateCardChecklistArr);
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);

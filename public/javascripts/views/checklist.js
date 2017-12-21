@@ -8,9 +8,11 @@ var ChecklistView = Backbone.View.extend({
   events: {
     "click a[data-anchor='hideChecked']": "hideChecked",
     "click a[data-anchor='delete']": "delete",
-    "click a[data-anchor='add']": "broadcastAddItem",
+    "click a[data-anchor='add']": "openNewItemDrawer",
+    "click .newItem a.fa-times": "closeNewItemDrawer",
+    "submit .newItem form": "broadcastAddItem",
     "click ul li span": "broadcastItemStatusToggle",
-    "click ul li a.fa-times": "broadcastItemDelete",
+    "click ul li a.fa-times": "broadcastDeleteItem",
   },
   
   hideChecked: function(e) {
@@ -36,10 +38,32 @@ var ChecklistView = Backbone.View.extend({
     this.remove();
   },
   
-  broadcastAddItem: function(e) {
+  openNewItemDrawer: function(e) {
     e.preventDefault();
     
-    console.log("add an item!");
+    this.$("a[data-anchor='add']").hide();
+    this.$(".newItem").show();
+    this.$(".newItem input").focus();
+  },
+  
+  closeNewItemDrawer: function(e) {
+    e.preventDefault();
+    
+    this.$(".newItem").hide();
+    this.$("a[data-anchor='add']").show();
+  },
+  
+  broadcastAddItem: function(e) {
+    e.preventDefault();
+
+    var id = this.model.id;    
+    var title = this.$("form").serializeArray()[0].value;
+    
+    App.trigger("addChecklistItem", id, title);
+    
+    this.$("form input").val("");
+    this.$(".newItem").hide();
+    this.$("a[data-anchor='add']").show();
   },
   
   broadcastItemStatusToggle: function(e) {
@@ -48,10 +72,23 @@ var ChecklistView = Backbone.View.extend({
     console.log("toggle item!");
   },
   
-  broadcastItemDelete: function(e)  {
+  broadcastDeleteItem: function(e)  {
     e.preventDefault();
     
-    console.log("delete item!");
+    var checklistId = this.model.id;
+    var itemId = $(e.target).closest("li").data("item");
+    
+    App.trigger("deleteChecklistItem", checklistId, itemId);
+  },
+  
+  update: function() {
+    var card = App.currentCardView.model;
+    card.trigger("sync");
+    this.render();
+  },
+  
+  bindEvents: function() {
+    this.listenTo(this.model, "sync", this.update);
   },
   
   render: function() {
@@ -61,5 +98,6 @@ var ChecklistView = Backbone.View.extend({
   
   initialize: function() {
     this.$el.attr("data-check", this.model.id);
+    this.bindEvents();
   },
 });

@@ -159,5 +159,20 @@ module.exports = function(router) {
     Interface.write(data);
     
     res.end();
+  }).put(function(req, res, next) {
+    var data = Interface.get();
+    var checklist = req.body;
+    var dbChecklist = _.find(data.checklists, { id: checklist.id });
+
+    // update dbChecklist
+    for (key in dbChecklist) {
+      dbChecklist[key] = checklist[key];
+    }
+    
+    // write new data
+    Interface.write(data);
+    
+    // send card back to client
+    res.json(dbChecklist);
   });
 };
