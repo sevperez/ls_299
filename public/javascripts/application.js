@@ -430,7 +430,23 @@ var App = {
   },
   
   setupDragula: function() {
-    this.drake = dragula();
+    this.drake = dragula({
+      accepts: function(el, target, source, sibling) {
+        // allow cards to drop on cardlists and lists on overall list list
+        var $el = $(el);
+        var $target = $(target);
+        var elType = $el.hasClass("card") ? "card" : "list";
+        var targetType = $target.hasClass("cardList") ? "cardList" : "lists";
+        
+        if (elType === "card" && targetType === "cardList") {
+          return true;
+        } else if (elType === "list" && targetType === "lists") {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    });
   },
   
   init: function(data) {

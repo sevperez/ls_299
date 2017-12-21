@@ -1,4 +1,129 @@
 @import "whitespace-reset.css";
+.list.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.9;
+  vertical-align: top;
+  width: 275px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #e2e4e6;
+}
+.list.gu-mirror .cardList {
+  min-height: 20px;
+}
+.list.gu-mirror .cardList .card {
+  height: 75px;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.list.gu-mirror .cardList .card:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+.list.gu-mirror .cardList .card .labels {
+  margin-bottom: 5px;
+}
+.list.gu-mirror .cardList .card .labels li {
+  display: inline-block;
+  height: 8px;
+  width: 40px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.list.gu-mirror .cardList .card .icons {
+  margin-top: 8px;
+}
+.list.gu-mirror .cardList .card .icons li {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+  color: rgba(0,0,0,0.4);
+}
+.list.gu-mirror .cardList .card .icons li span {
+  padding-right: 5px;
+}
+.list.gu-mirror .listTitleCtnr {
+  padding: 10px 10px 0 10px;
+h4
+  margin: 10px 0;
+  cursor: pointer;
+}
+.list.gu-mirror .listTitleCtnr .listTitleEdit {
+  display: none;
+}
+.list.gu-mirror .listTitleCtnr .listTitleEdit .editOverlay {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0);
+}
+.list.gu-mirror .listTitleCtnr .listTitleEdit input {
+  position: relative;
+  z-index: 1;
+  padding: 3px;
+  border-radius: 3px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #333;
+  width: 80%;
+}
+.card.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.9;
+  height: 75px;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.card.gu-mirror:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+.card.gu-mirror .labels {
+  margin-bottom: 5px;
+  list-style: none;
+}
+.card.gu-mirror .labels li {
+  display: inline-block;
+  height: 8px;
+  width: 40px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.card.gu-mirror .icons {
+  margin-top: 8px;
+  list-style: none;
+}
+.card.gu-mirror .icons li {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+  color: rgba(0,0,0,0.4);
+}
+.card.gu-mirror .icons li span {
+  padding-right: 5px;
+}
+.gu-hide {
+  display: none !important;
+}
+.gu-unselectable {
+  user-select: none !important;
+}
+.gu-transit {
+  opacity: 0.5;
+}
 *,
 *:before,
 *:after {
@@ -91,6 +216,9 @@ header #logo h2:hover {
   margin-bottom: 20px;
   border-radius: 5px;
   background-color: #e2e4e6;
+}
+#lists .list .cardList {
+  min-height: 20px;
 }
 #lists .list .cardList .card {
   height: 75px;

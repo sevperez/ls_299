@@ -1,8 +1,100 @@
-.gu-mirror
+.list.gu-mirror
   position fixed !important
   margin 0 !important
   z-index 9999 !important
-  opacity 0.8
+  opacity 0.9
+  vertical-align: top
+  width: 275px
+  display: inline-block
+  margin-right: 10px
+  margin-bottom: 20px
+  border-radius: 5px
+  background-color: colors.bg.secondary
+  .cardList
+      min-height: 20px
+      .card
+        height: 75px
+        padding: 8px
+        margin: 10px
+        border-radius: 5px
+        background-color: #ffffff
+        cursor: pointer
+        &:hover
+          background-color: colors.shaded.medWht
+        .labels
+          margin-bottom: 5px
+          li
+            display: inline-block
+            height: 8px
+            width: 40px
+            margin-right: 5px
+            border-radius: 3px
+        .icons
+          margin-top: 8px
+          li
+            display: inline-block
+            margin-right: 20px
+            vertical-align: top
+            color: colors.shaded.medBlk
+            span
+              padding-right: 5px
+    .listTitleCtnr
+      padding: 10px 10px 0 10px
+      h4
+      margin: 10px 0
+      cursor: pointer
+      .listTitleEdit
+        display: none
+        .editOverlay
+          width: 100%
+          position: fixed
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+          background-color: rgba(0, 0, 0, 0)
+        input
+          position: relative
+          z-index: 1
+          padding: 3px
+          border-radius: 3px
+          font: 14px fonts.default, Arial, Helvetica, sans-serif
+          font-weight: bold
+          color: colors.txt.main
+          width: 80%
+
+.card.gu-mirror
+  position fixed !important
+  margin 0 !important
+  z-index 9999 !important
+  opacity 0.9
+  height: 75px
+  padding: 8px
+  margin: 10px
+  border-radius: 5px
+  background-color: #ffffff
+  cursor: pointer
+  &:hover
+    background-color: colors.shaded.medWht
+  .labels
+    margin-bottom: 5px
+    list-style: none
+    li
+      display: inline-block
+      height: 8px
+      width: 40px
+      margin-right: 5px
+      border-radius: 3px
+  .icons
+    margin-top: 8px
+    list-style: none
+    li
+      display: inline-block
+      margin-right: 20px
+      vertical-align: top
+      color: colors.shaded.medBlk
+      span
+        padding-right: 5px
 
 .gu-hide
   display none !important
@@ -11,4 +103,4 @@
   user-select none !important
 
 .gu-transit
-  opacity 0.2
+  opacity 0.5

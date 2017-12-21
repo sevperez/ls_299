@@ -18,6 +18,9 @@ var ListsView = Backbone.View.extend({
     // re-add an AddNewListView
     this.addNewListView = new AddNewListView();
     
+    // add view's ul.cardList item to dragula to enable drag/drop of cards
+    App.drake.containers.push(view.$(".cardList")[0]);
+    
     // trigger new cardSet and cardSet view
     App.trigger("addCardSet", model.id);
   },
@@ -28,5 +31,8 @@ var ListsView = Backbone.View.extend({
   
   initialize: function() {
     this.bindEvents();
+    
+    // add to dragula to enable list drag/drop
+    App.drake.containers.push(this.el);
   },
 });
