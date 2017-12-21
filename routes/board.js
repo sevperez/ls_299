@@ -90,7 +90,7 @@ module.exports = function(router) {
     // write new data
     Interface.write(data);
     
-    // send back the new list
+    // send back the new card
     res.json(card);
   });
   

@@ -90,6 +90,7 @@ var App = {
     this.currentDueDateView = new DueDateView({ model: card });
     this.currentActivityView = new CardActivityView({ model: card });
     this.currentTitleView = new CardTitleView({ model: card });
+    this.currentChecklistViews = [];
     
     // rendering of partial views (conditional where appropriate)
     this.currentTitleView.render();
@@ -113,9 +114,17 @@ var App = {
     var self = this;
     var $parent = $("#cardChecklists");
     
+    // if currentChecklistViews is populated, remove each
+    if (this.currentChecklistViews.length !== 0) {
+      this.currentChecklistViews.forEach(function(view) {
+        view.remove();
+      });
+    }
+    
     checklistIds.forEach(function(id) {
       var current = self.checklists.get(id);
       var view = new ChecklistView({ model: current });
+      self.currentChecklistViews.push(view);
       $parent.append(view.render().el);
     });
   },
@@ -279,7 +288,7 @@ var App = {
   
   addChecklist: function(title) {
     var self = this;
-    var card = this.currentCardView.model;
+    // var card = this.currentCardView.model;
     
     var newChecklist = {
       "title": title,
@@ -288,17 +297,24 @@ var App = {
     
     // add new checklist to checklists collection and save
     this.checklists.create(newChecklist, {
-      success: function(model) {
-        // on success, add checklist id to card and save
-        var cardChecklists = card.get("checklists");
-        cardChecklists.push(model.id);
-        
-        // TODO TODO TODO -- save to card and rerender
-        
-        
-        // card.save();
+      success: function(model, response, options) {
+        App.trigger("updateCardChecklistArr", model.id);
       },
     });
+  },
+  
+  updateCardChecklistArr: function(checklistId) {
+    var self = this;
+    
+    // delay card update to ensure that server is available on card PUT
+    setTimeout(function() {
+      var card = self.currentCardView.model;
+      var checklists = card.get("checklists");
+      checklists.push(checklistId);
+      card.set("checklists", checklists);
+      card.save();
+      self.setupChecklistViews(card.toJSON().checklists)
+    }, 500);
   },
   
   bindEvents: function() {
@@ -319,6 +335,7 @@ var App = {
     this.on("removeDueDate", this.removeDueDate);
     this.on("openNewChecklist", this.openNewChecklist);
     this.on("addChecklist", this.addChecklist);
+    this.on("updateCardChecklistArr", this.updateCardChecklistArr);
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);
     this.on("deleteComment", this.deleteComment);
