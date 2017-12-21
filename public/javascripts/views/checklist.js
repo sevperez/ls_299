@@ -30,7 +30,10 @@ var ChecklistView = Backbone.View.extend({
   delete: function(e) {
     e.preventDefault();
     
-    console.log("deleting list!");
+    var checklistId = this.$el.data("check");
+    
+    App.trigger("deleteChecklist", checklistId);
+    this.remove();
   },
   
   broadcastAddItem: function(e) {

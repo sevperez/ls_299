@@ -3,8 +3,6 @@
 var Checklists = Backbone.Collection.extend({
   model: Checklist,
   
-  url: "/checklists",
-  
   setup: function() {
     this.fetch({
       success: function() {
@@ -14,6 +12,7 @@ var Checklists = Backbone.Collection.extend({
   },
   
   initialize: function() {
+    this.url = "/checklists";
     this.setup();
   },
 });

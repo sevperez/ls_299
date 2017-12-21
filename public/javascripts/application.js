@@ -313,8 +313,28 @@ var App = {
       checklists.push(checklistId);
       card.set("checklists", checklists);
       card.save();
-      self.setupChecklistViews(card.toJSON().checklists)
+      self.setupChecklistViews(card.toJSON().checklists);
     }, 500);
+  },
+  
+  deleteChecklist: function(checklistId) {
+    var self = this;
+    var card = this.currentCardView.model;
+    var checklists = card.get("checklists");
+    
+    var newChecklists = checklists.filter(function(id) {
+      return id !== checklistId;
+    });
+    
+    // update and save card
+    card.set("checklists", newChecklists);
+    card.save();
+    this.setupChecklistViews(card.toJSON().checklists);
+    
+    // remove checklist from collection after server is available
+    setTimeout(function() {
+      self.checklists.get(checklistId).destroy({ wait: true });
+    }, 1000);
   },
   
   bindEvents: function() {
@@ -335,6 +355,7 @@ var App = {
     this.on("removeDueDate", this.removeDueDate);
     this.on("openNewChecklist", this.openNewChecklist);
     this.on("addChecklist", this.addChecklist);
+    this.on("deleteChecklist", this.deleteChecklist);
     this.on("updateCardChecklistArr", this.updateCardChecklistArr);
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);

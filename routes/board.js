@@ -146,5 +146,18 @@ module.exports = function(router) {
   
   router.route("/checklists/:checklist_id").get(function(req, res, next) {
     res.json(_.where(Interface.get().checklists, { id: +req.params.checklist_id })[0]);
+  }).delete(function(req, res, next) {
+    var id = +req.params.checklist_id;
+    var data = Interface.get();
+    
+    var filteredChecklists = _.reject(data.checklists, function(checklist) {
+      return checklist.id === id;
+    });
+    
+    data.checklists = filteredChecklists;
+    
+    Interface.write(data);
+    
+    res.end();
   });
 };
