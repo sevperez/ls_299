@@ -49,8 +49,5 @@ var ListView = Backbone.View.extend({
   initialize: function() {
     this.$el.attr("data-id", this.model.id);
     this.bindEvents();
-    
-    // push to dragula
-    // App.drake.containers.push(this.$el);
   },
 });
