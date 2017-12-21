@@ -22,8 +22,12 @@ module.exports = {
   },
   
   getNextId: function(coll) {
-    return _.max(coll, function(item) {
-      return item.id;
-    }).id + 1;
+    if (coll.length === 0) {
+      return 1;
+    } else {
+      return _.max(coll, function(item) {
+        return item.id;
+      }).id + 1;
+    }
   },
 };
