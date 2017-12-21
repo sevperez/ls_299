@@ -206,7 +206,11 @@ this["JST"]["labelSelector"] = Handlebars.template({"1":function(container,depth
 },"useData":true});
 
 this["JST"]["list"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"listTitleCtnr\"></div><ul class=\"cardList\"></ul><div id=\"addCard\"><div><form method=\"post\" action=\"#\"><input type=\"text\" id=\"newCardName\" name=\"newCardName\" placeholder=\"Add a card...\" autofocus /><button class=\"btn\" type=\"submit\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div><div>Add a card...</div></div>";
+    var helper;
+
+  return "<div class=\"listTitleCtnr\"></div><ul class=\"cardList\" data-cardList=\""
+    + container.escapeExpression(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"id","hash":{},"data":data}) : helper)))
+    + "\"></ul><div id=\"addCard\"><div><form method=\"post\" action=\"#\"><input type=\"text\" id=\"newCardName\" name=\"newCardName\" placeholder=\"Add a card...\" autofocus /><button class=\"btn\" type=\"submit\">Save</button><a class=\"fa fa-times\" href=\"#\"></a></form></div><div>Add a card...</div></div>";
 },"useData":true});
 
 this["JST"]["listTitle"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

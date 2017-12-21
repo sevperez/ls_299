@@ -123,6 +123,7 @@ h4
 }
 .gu-transit {
   opacity: 0.5;
+  list-style: none;
 }
 *,
 *:before,
@@ -136,6 +137,7 @@ body {
 body {
   font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   color: #333;
+  list-style: none;
 }
 header {
   height: 40px;

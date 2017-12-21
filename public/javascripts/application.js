@@ -446,6 +446,11 @@ var App = {
           return false;
         }
       },
+    }).on("drop", function(el, target, source) {
+      console.log("--- dropped! ---")
+      console.log("el: ", el);
+      console.log("target: ", target);
+      console.log("source: ", source);
     });
   },
   
