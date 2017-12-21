@@ -11,7 +11,7 @@ var ChecklistView = Backbone.View.extend({
     "click a[data-anchor='add']": "openNewItemDrawer",
     "click .newItem a.fa-times": "closeNewItemDrawer",
     "submit .newItem form": "broadcastAddItem",
-    "click ul li span": "broadcastItemStatusToggle",
+    "click ul li span": "broadcastToggleItem",
     "click ul li a.fa-times": "broadcastDeleteItem",
   },
   
@@ -66,10 +66,13 @@ var ChecklistView = Backbone.View.extend({
     this.$("a[data-anchor='add']").show();
   },
   
-  broadcastItemStatusToggle: function(e) {
+  broadcastToggleItem: function(e) {
     e.preventDefault();
     
-    console.log("toggle item!");
+    var checklistId = this.model.id;
+    var itemId = $(e.target).closest("li").data("item");
+    
+    App.trigger("toggleChecklistItem", checklistId, itemId);
   },
   
   broadcastDeleteItem: function(e)  {

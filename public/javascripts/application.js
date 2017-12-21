@@ -376,6 +376,28 @@ var App = {
     checklist.save();
   },
   
+  toggleChecklistItem: function(checklistId, itemId) {
+    var checklist = this.checklists.get(checklistId);
+    var items = checklist.get("items");
+    
+    var updatedItems = items.map(function(item) {
+      if (item.id === itemId) {
+        if (item.complete) {
+          item.complete = false;
+        } else {
+          item.complete = true;
+        }
+        
+        return item;
+      } else {
+        return item;
+      }
+    });
+    
+    checklist.set("items", updatedItems);
+    checklist.save();
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -397,6 +419,7 @@ var App = {
     this.on("deleteChecklist", this.deleteChecklist);
     this.on("addChecklistItem", this.addChecklistItem);
     this.on("deleteChecklistItem", this.deleteChecklistItem);
+    this.on("toggleChecklistItem", this.toggleChecklistItem);
     this.on("updateCardChecklistArr", this.updateCardChecklistArr);
     this.on("changeDescription", this.changeDescription);
     this.on("addComment", this.addComment);
