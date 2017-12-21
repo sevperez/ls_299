@@ -88,6 +88,5 @@ var CardInfoView = Backbone.View.extend({
   
   initialize: function() {
     this.registerHelpers();
-    this.bindEvents();
   },
 });
