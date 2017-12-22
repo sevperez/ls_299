@@ -110,7 +110,7 @@ var App = {
       this.setupChecklistViews(card.toJSON().checklists);
     }
     
-    this.router.navigate("/boards/" + String(this.board.id) + "/lists/" + String(card.toJSON().list_id) + "/cards/" + String(card.id));
+    this.router.navigate("/view/boards/" + String(this.board.id) + "/lists/" + String(card.toJSON().list_id) + "/cards/" + String(card.id));
   },
   
   setupChecklistViews: function(checklistIds) {
@@ -475,16 +475,7 @@ var App = {
     if (this.currentCardView) {
       this.currentCardView.close();
     } else {
-      this.router.navigate("/boards/" + String(this.board.id));
-    }
-  },
-  
-  displayCardInfo: function(boardId, listId, cardId) {
-    if (this.currentCardView) {
-      this.currentCardView.close();
-    } else {
-      var card = this.cardSets[listId].get(cardId);
-      this.openCardModal(card);
+      this.router.navigate("/view/boards/" + String(this.board.id));
     }
   },
   
@@ -555,9 +546,24 @@ var App = {
     this.on("editComment", this.editComment);
     this.on("editCardTitle", this.editCardTitle);
     this.on("editListTitle", this.editListTitle);
+    this.on("requestedCardFound", this.openCardModal);
   },
   
   init: function() {
+    // check for query string and store requested id data
+    if (window.location.search) {
+      var queryParams = new URLSearchParams(window.location.search);
+      var boardId = Number(queryParams.get("board_id"));
+      var listId = Number(queryParams.get("list_id"));
+      var cardId = Number(queryParams.get("card_id"));
+      
+      this.requestedCard = {
+        boardId: boardId,
+        listId: listId,
+        cardId: cardId,
+      };
+    }
+    
     // initialize cardSets object
     this.cardSets = {};
     

@@ -71,7 +71,7 @@ var CardInfoView = Backbone.View.extend({
     App.currentDueDateView = undefined;
     App.currentActivityView = undefined;
     
-    App.router.navigate("/boards/" + String(App.board.id), { trigger: true });
+    App.router.navigate("/view/boards/" + String(App.board.id), { trigger: true });
   },
   
   registerHelpers: function() {

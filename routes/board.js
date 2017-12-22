@@ -2,11 +2,28 @@
 
 var path = require("path");
 var _ = require("underscore");
+var url = require("url");
 
 // include data store interaction module
 var Interface = require(path.resolve(path.dirname(__dirname), "modules/dataInterface"));
 
 module.exports = function(router) {
+  router.get("/view/boards/:board_id", function(req, res, next) {
+    res.redirect("/");
+  });
+  
+  router.get("/view/boards/:board_id/lists/:list_id/cards/:card_id", function(req, res, next) {
+    // redirect to index, passing requested card data as query string
+    res.redirect(url.format({
+      pathname: "/",
+      query: {
+        "board_id": req.params.board_id,
+        "list_id": req.params.list_id,
+        "card_id": req.params.card_id
+      }
+    }));
+  });
+  
   router.route("/boards/:board_id").get(function(req, res, next) {
     res.json(_.where(Interface.get().boards, { id: +req.params.board_id })[0]);
   }).put(function(req, res, next) {

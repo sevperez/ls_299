@@ -2,8 +2,8 @@
 
 App.router = new (Backbone.Router.extend({
   routes: {
-    "boards/:board_id": "displayBoard",
-    "boards/:board_id/lists/:list_id/cards/:card_id": "displayCardInfo",
+    "view/boards/:board_id": "displayBoard",
+    "view/boards/:board_id/lists/:list_id/cards/:card_id": "displayCardInfo",
   },
   
   displayBoard: function() {
