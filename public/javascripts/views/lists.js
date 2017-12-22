@@ -15,7 +15,7 @@ var ListsView = Backbone.View.extend({
     listsOnDOM.each(function(idx) {
       var currentDistance = position - $closestPreviousSibling.data("pos");
       
-      if (position - $(this).data("pos") < currentDistance) {
+      if (position - $(this).data("pos") < currentDistance && position - $(this).data("pos") > 0) {
         $closestPreviousSibling = $(this);
       }
     });

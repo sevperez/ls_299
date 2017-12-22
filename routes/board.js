@@ -77,7 +77,9 @@ module.exports = function(router) {
     var data = Interface.get();
     
     data.cards = allCards;
-    
+
+    Interface.write(data);
+
     res.json(allCards);
   });
   

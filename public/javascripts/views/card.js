@@ -87,6 +87,7 @@ var CardView = Backbone.View.extend({
   
   initialize: function() {
     this.$el.attr("data-id", this.model.id);
+    this.$el.attr("data-pos", this.model.toJSON().position);
     this.registerHelpers();
     this.bindEvents();
   },

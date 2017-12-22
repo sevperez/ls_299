@@ -75,6 +75,7 @@ var App = {
           var currentList = self.lists.get(setId);
           currentList.get("cards").push(response.id);
         },
+        wait: true,
       });
     }
   },

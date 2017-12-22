@@ -5,6 +5,41 @@ var CardSetView = Backbone.View.extend({
     return $(".list[data-id='" + listId + "']").find('.cardList');
   },
   
+  findPreviousSibling: function(card) {
+    var newCardPosition = card.toJSON().position;
+    var cardsOnDOM = $("#lists li.list[data-id='" + card.toJSON().list_id + "'] .cardList li.card");
+    
+    if (cardsOnDOM.length === 0) {
+      return undefined;
+    }
+    
+    var $closestPreviousSibling = cardsOnDOM.eq(0);
+    
+    cardsOnDOM.each(function(idx) {
+      var closestPreviousSiblingPosition = $closestPreviousSibling.data("pos");
+      var closestDistance = newCardPosition - closestPreviousSiblingPosition;
+      var currentPosition = $(this).data("pos");
+      var currentDistance = newCardPosition - currentPosition;
+      
+      if (currentDistance < closestDistance && currentDistance > 0) {
+        $closestPreviousSibling = $(this);
+      }
+      
+      console.log("new card pos: ", newCardPosition);
+      console.log("closest sib pos: ", closestPreviousSiblingPosition);
+      console.log("closest sib dis: ", closestDistance);
+      console.log("current item pos: ", currentPosition);
+      console.log("current dis: ", currentDistance);
+      console.log("current closest prev sib: ", $closestPreviousSibling[0])
+    });
+    
+    if ($closestPreviousSibling.data("pos") > newCardPosition) {
+      return undefined;
+    } else {
+      return $closestPreviousSibling;
+    }
+  },
+  
   fullRender: function() {
     this.$el.html('');
     
@@ -17,8 +52,22 @@ var CardSetView = Backbone.View.extend({
   },
 
   render: function(model) {
+    var $previousSibling = this.findPreviousSibling(model);
+    console.log("card: ", model.toJSON());
+    console.log("prev: ", $previousSibling);
+    console.log("--------");
+    
     var view = new CardView({ model: model });
-    this.$el.append(view.render().el);
+    
+    
+    // if a previous sibling exists, insert new view after, else prepend to beginning
+    if ($previousSibling) {
+      view.render().$el.insertAfter($previousSibling);
+    } else {
+      this.$el.prepend(view.render().el);
+    }
+    
+    // this.$el.append(view.render().el);
   },
   
   bindEvents: function() {
