@@ -474,7 +474,7 @@ var App = {
     this.on("editListTitle", this.editListTitle);
   },
   
-  init: function(data) {
+  init: function() {
     // initialize cardSets object
     this.cardSets = {};
     
