@@ -407,6 +407,67 @@ var App = {
     Backbone.sync("update", this.lists);
   },
   
+  updateCardListAssociation: function(card, newId) {
+    var self = this;
+    
+    card.set("list_id", newId);
+    card.save();
+    
+    // update lists
+    setTimeout(function() {
+      self.lists.each(function(list) {
+        var newCards = App.cardSets[list.id].pluck("id");
+        list.set("cards", newCards);
+      });
+      
+      Backbone.sync("update", self.lists);
+    }, 750);
+  },
+  
+  saveCardPositions: function() {
+    // instantiate temporary AllCards collection
+    var allCards = new AllCards();
+    
+    // adjust each card's position and add to allCards collection
+    _.each(this.cardSets, function(cardSet) {
+      cardSet.each(function(card) {
+        var idx = $("#lists li.list[data-id='" + card.toJSON().list_id + "'] .cardList li.card[data-id='" + card.id + "']").index();
+        card.set("position", idx);
+        allCards.add(card);
+      });
+    });
+    
+    Backbone.sync("update", allCards);
+  },
+  
+  handleCardMove: function(el, source, target) {
+    var self = this;
+    
+    // collect relevant models/collections
+    var origList = this.lists.get($(source).data("cardlist"));
+    var origCardSet = this.cardSets[$(source).data("cardlist")];
+    var newList = this.lists.get($(target).data("cardlist"));
+    var newCardSet = this.cardSets[$(target).data("cardlist")];
+    var card = origCardSet.get($(el).data("id"));
+    
+    // adjust cardsets and card
+    if (origCardSet !== newCardSet) {
+      console.log("adjusting card sets");
+      
+      // switch card between card sets
+      origCardSet.remove(card, { silent: true });
+      newCardSet.add(card, { silent: true });
+      
+      // save card with new list_id
+      this.updateCardListAssociation(card, $(target).data("cardlist"));
+    }
+    
+    // adjust card positions
+    setTimeout(function() {
+      self.saveCardPositions();
+    }, 1500);
+  },
+  
   setupDragula: function() {
     var self = this;
     
@@ -427,18 +488,11 @@ var App = {
         }
       },
     }).on("drop", function(el, target, source) {
-      // LOGS
-      console.log("--- dropped! ---")
-      console.log("el: ", el);
-      console.log("target: ", target);
-      console.log("source: ", source);
-      
+      // save list and/or card positions
       if ($(el).hasClass("list")) {
-        console.log("TODO: re-adjust list order");
-        // trigger list order save
         self.saveListOrder();
       } else if ($(el).hasClass("card")) {
-        console.log("TODO: re-adjust card order");
+        self.handleCardMove(el, source, target);
       }
     });
   },

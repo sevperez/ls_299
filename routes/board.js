@@ -72,6 +72,13 @@ module.exports = function(router) {
   
   router.route("/cards").get(function(req, res, next) {
     res.json(Interface.get().cards);
+  }).put(function(req, res, next) {
+    var allCards = req.body;
+    var data = Interface.get();
+    
+    data.cards = allCards;
+    
+    res.json(allCards);
   });
   
   router.route("/cards/:card_id").get(function(req, res, next) {
