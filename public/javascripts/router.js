@@ -2,7 +2,12 @@
 
 App.router = new (Backbone.Router.extend({
   routes: {
-    
+    "boards/:board_id": "displayBoard",
+  },
+  
+  displayBoard: function() {
+    console.log("displaying board!");
+    App.displayBoard();
   },
   
   initialize: function() {

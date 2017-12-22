@@ -109,6 +109,8 @@ var App = {
     if (card.toJSON().checklists.length > 0) {
       this.setupChecklistViews(card.toJSON().checklists);
     }
+    
+    this.router.navigate("/boards/" + String(this.board.id) + "/lists/" + String(card.toJSON().list_id) + "/cards/" + String(card.id));
   },
   
   setupChecklistViews: function(checklistIds) {
@@ -469,6 +471,14 @@ var App = {
     }, 1500);
   },
   
+  displayBoard: function() {
+    if (this.currentCardView) {
+      this.currentCardView.close();
+    } else {
+      this.router.navigate("/boards/" + String(this.board.id));
+    }
+  },
+  
   setupDragula: function() {
     var self = this;
     
@@ -542,5 +552,6 @@ var App = {
     this.bindEvents();
     this.setupBoard();
     this.setupDragula();
+    this.displayBoard();
   },
 };

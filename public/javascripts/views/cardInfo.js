@@ -57,7 +57,11 @@ var CardInfoView = Backbone.View.extend({
     App.trigger("openNewChecklist");
   },
   
-  close: function() {
+  close: function(e) {
+    if (e) {
+      e.preventDefault();
+    }
+    
     // remove view from DOM, and subviews App object storage
     this.remove();
     App.currentCardView = undefined;
@@ -66,6 +70,8 @@ var CardInfoView = Backbone.View.extend({
     App.currentLabelsListView = undefined;
     App.currentDueDateView = undefined;
     App.currentActivityView = undefined;
+    
+    App.router.navigate("/boards/" + String(App.board.id), { trigger: true });
   },
   
   registerHelpers: function() {
