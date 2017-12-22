@@ -2,6 +2,7 @@
 
 @import "whitespace-reset.css"
 @import "mixins"
+@import "../../bower_components/dragula.js/dragula"
 
 *,
 *:before,
@@ -14,6 +15,7 @@ body
 body
   font: 14px fonts.default, Arial, Helvetica, sans-serif
   color: colors.txt.main
+  list-style: none
 header
   height: 40px
   padding: 7px
@@ -81,6 +83,7 @@ header
     border-radius: 5px
     background-color: colors.bg.secondary
     .cardList
+      min-height: 20px
       .card
         height: 75px
         padding: 8px
