@@ -483,6 +483,13 @@ var App = {
     var self = this;
     
     this.drake = dragula({
+      invalid: function(el, handle) {
+        if ($(el).attr("id") === "addList") {
+          return true;
+        } else {
+          return false;
+        }
+      },
       accepts: function(el, target, source, sibling) {
         // allow cards to drop on cardlists and lists on overall list list
         var $el = $(el);
@@ -492,6 +499,8 @@ var App = {
         
         if (elType === "card" && targetType === "cardList") {
           return true;
+        } else if (elType === "list" && sibling === null) {
+          return false;
         } else if (elType === "list" && targetType === "lists") {
           return true;
         } else {
