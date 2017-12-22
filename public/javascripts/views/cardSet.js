@@ -24,13 +24,6 @@ var CardSetView = Backbone.View.extend({
       if (currentDistance < closestDistance && currentDistance > 0) {
         $closestPreviousSibling = $(this);
       }
-      
-      console.log("new card pos: ", newCardPosition);
-      console.log("closest sib pos: ", closestPreviousSiblingPosition);
-      console.log("closest sib dis: ", closestDistance);
-      console.log("current item pos: ", currentPosition);
-      console.log("current dis: ", currentDistance);
-      console.log("current closest prev sib: ", $closestPreviousSibling[0])
     });
     
     if ($closestPreviousSibling.data("pos") > newCardPosition) {
@@ -53,12 +46,7 @@ var CardSetView = Backbone.View.extend({
 
   render: function(model) {
     var $previousSibling = this.findPreviousSibling(model);
-    console.log("card: ", model.toJSON());
-    console.log("prev: ", $previousSibling);
-    console.log("--------");
-    
-    var view = new CardView({ model: model });
-    
+   var view = new CardView({ model: model });
     
     // if a previous sibling exists, insert new view after, else prepend to beginning
     if ($previousSibling) {
@@ -66,8 +54,6 @@ var CardSetView = Backbone.View.extend({
     } else {
       this.$el.prepend(view.render().el);
     }
-    
-    // this.$el.append(view.render().el);
   },
   
   bindEvents: function() {
