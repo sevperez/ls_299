@@ -398,6 +398,51 @@ var App = {
     checklist.save();
   },
   
+  saveListOrder: function() {
+    this.lists.each(function(list) {
+      var idx = $("#lists li.list[data-id='" + list.id + "']").index();
+      list.set("position", idx);
+    });
+    
+    Backbone.sync("update", this.lists);
+  },
+  
+  setupDragula: function() {
+    var self = this;
+    
+    this.drake = dragula({
+      accepts: function(el, target, source, sibling) {
+        // allow cards to drop on cardlists and lists on overall list list
+        var $el = $(el);
+        var $target = $(target);
+        var elType = $el.hasClass("card") ? "card" : "list";
+        var targetType = $target.hasClass("cardList") ? "cardList" : "lists";
+        
+        if (elType === "card" && targetType === "cardList") {
+          return true;
+        } else if (elType === "list" && targetType === "lists") {
+          return true;
+        } else {
+          return false;
+        }
+      },
+    }).on("drop", function(el, target, source) {
+      // LOGS
+      console.log("--- dropped! ---")
+      console.log("el: ", el);
+      console.log("target: ", target);
+      console.log("source: ", source);
+      
+      if ($(el).hasClass("list")) {
+        console.log("TODO: re-adjust list order");
+        // trigger list order save
+        self.saveListOrder();
+      } else if ($(el).hasClass("card")) {
+        console.log("TODO: re-adjust card order");
+      }
+    });
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -427,31 +472,6 @@ var App = {
     this.on("editComment", this.editComment);
     this.on("editCardTitle", this.editCardTitle);
     this.on("editListTitle", this.editListTitle);
-  },
-  
-  setupDragula: function() {
-    this.drake = dragula({
-      accepts: function(el, target, source, sibling) {
-        // allow cards to drop on cardlists and lists on overall list list
-        var $el = $(el);
-        var $target = $(target);
-        var elType = $el.hasClass("card") ? "card" : "list";
-        var targetType = $target.hasClass("cardList") ? "cardList" : "lists";
-        
-        if (elType === "card" && targetType === "cardList") {
-          return true;
-        } else if (elType === "list" && targetType === "lists") {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    }).on("drop", function(el, target, source) {
-      console.log("--- dropped! ---")
-      console.log("el: ", el);
-      console.log("target: ", target);
-      console.log("source: ", source);
-    });
   },
   
   init: function(data) {

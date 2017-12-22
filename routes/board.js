@@ -44,13 +44,19 @@ module.exports = function(router) {
     // send back the new list
     res.json(list);
   }).put(function(req, res, next) {
-    var list = req.body;
     var data = Interface.get();
-    var dbList = _.find(data.lists, { id: list.id });
     
-     // update dbList
-    for (key in dbList) {
-      dbList[key] = list[key];
+    // check if req.body has multiple objects and update accordingly
+    if (_.isArray(req.body)) {
+      data.lists = req.body;
+    } else {
+      var list = req.body;
+      var dbList = _.find(data.lists, { id: list.id });
+      
+       // update dbList
+      for (key in dbList) {
+        dbList[key] = list[key];
+      }
     }
     
     // write new data
