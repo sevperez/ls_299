@@ -265,8 +265,10 @@ var App = {
     card.save();
   },
   
-  editCardTitle: function(newTitle) {
-    var card = this.currentCardView.model;
+  editCardTitle: function(newTitle, card) {
+    if (card === undefined) {
+      card = this.currentCardView.model;
+    }
     
     // set new title to relevant card
     card.set("title", newTitle);
@@ -484,7 +486,7 @@ var App = {
     
     this.drake = dragula({
       invalid: function(el, handle) {
-        if ($(el).attr("id") === "addList") {
+        if (($(el).attr("id") === "addList") || $(el).hasClass("editTitlePane")) {
           return true;
         } else {
           return false;

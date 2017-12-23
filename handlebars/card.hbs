@@ -1,32 +1,75 @@
-{{#if labels}}
-  <ul class="labels">
-    {{#each labels}}
-      <li data-label={{this}}></li>
-    {{/each}}
-  </ul>
-{{/if}}
-<p>{{title}}</p>
-{{#if (hasIcons)}}
-  <ul class="icons">
-    {{#if (hasDueDate due_date)}}
-      <li>
-        <span class="fa fa-clock-o"></span> {{shortDate due_date}}
-      </li>
+<div class="editTitlePane">
+  <div class="overlay"></div>
+  <div class="formCtnr">
+    {{#if labels}}
+      <ul class="labels">
+        {{#each labels}}
+          <li data-label={{this}}></li>
+        {{/each}}
+      </ul>
     {{/if}}
-    {{#if (hasDescription description)}}
-      <li>
-        <span class="fa fa-bars"></span>
-      </li>
-    {{/if}}
-    {{#if (hasComments comments)}}
-      <li>
-        <span class="fa fa-comment-o"></span>{{countArr comments}}
-      </li>
-    {{/if}}
-    {{#if (hasChecklists checklists)}}
-      <li>
-        <span class="fa fa-check-square-o"></span>{{checklistStatus checklists}}
-      </li>
-    {{/if}}
-  </ul>
-{{/if}}
+    <form action="#" method="post">
+      <textarea name="editTitle">{{title}}</textarea>
+      <button class="btn" type="submit">Save</button>
+    </form>
+    {{#if (hasIcons)}}
+    <ul class="icons">
+      {{#if (hasDueDate due_date)}}
+        <li>
+          <span class="fa fa-clock-o"></span> {{shortDate due_date}}
+        </li>
+      {{/if}}
+      {{#if (hasDescription description)}}
+        <li>
+          <span class="fa fa-bars"></span>
+        </li>
+      {{/if}}
+      {{#if (hasComments comments)}}
+        <li>
+          <span class="fa fa-comment-o"></span>{{countArr comments}}
+        </li>
+      {{/if}}
+      {{#if (hasChecklists checklists)}}
+        <li>
+          <span class="fa fa-check-square-o"></span>{{checklistStatus checklists}}
+        </li>
+      {{/if}}
+    </ul>
+  {{/if}}
+  </div>
+</div>
+<div class="editIcon"><span class="fa fa-pencil"></span></div>
+<div class="mainCardPane">
+  {{#if labels}}
+    <ul class="labels">
+      {{#each labels}}
+        <li data-label={{this}}></li>
+      {{/each}}
+    </ul>
+  {{/if}}
+  <p>{{title}}</p>
+  {{#if (hasIcons)}}
+    <ul class="icons">
+      {{#if (hasDueDate due_date)}}
+        <li>
+          <span class="fa fa-clock-o"></span> {{shortDate due_date}}
+        </li>
+      {{/if}}
+      {{#if (hasDescription description)}}
+        <li>
+          <span class="fa fa-bars"></span>
+        </li>
+      {{/if}}
+      {{#if (hasComments comments)}}
+        <li>
+          <span class="fa fa-comment-o"></span>{{countArr comments}}
+        </li>
+      {{/if}}
+      {{#if (hasChecklists checklists)}}
+        <li>
+          <span class="fa fa-check-square-o"></span>{{checklistStatus checklists}}
+        </li>
+      {{/if}}
+    </ul>
+  {{/if}}
+</div>

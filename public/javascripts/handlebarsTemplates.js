@@ -46,13 +46,21 @@ this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers
     + container.escapeExpression((helpers.checklistStatus || (depth0 && depth0.checklistStatus) || helpers.helperMissing).call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.checklists : depth0),{"name":"checklistStatus","hash":{},"data":data}))
     + "</li>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing;
+    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  return "<div class=\"editTitlePane\"><div class=\"overlay\"></div><div class=\"formCtnr\">"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "<form action=\"#\" method=\"post\"><textarea name=\"editTitle\">"
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</textarea><button class=\"btn\" type=\"submit\">Save</button></form>"
+    + ((stack1 = helpers["if"].call(alias1,(helpers.hasIcons || (depth0 && depth0.hasIcons) || alias2).call(alias1,{"name":"hasIcons","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</div></div><div class=\"editIcon\"><span class=\"fa fa-pencil\"></span></div><div class=\"mainCardPane\">"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.labels : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "<p>"
-    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</p>"
-    + ((stack1 = helpers["if"].call(alias1,(helpers.hasIcons || (depth0 && depth0.hasIcons) || alias2).call(alias1,{"name":"hasIcons","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+    + ((stack1 = helpers["if"].call(alias1,(helpers.hasIcons || (depth0 && depth0.hasIcons) || alias2).call(alias1,{"name":"hasIcons","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</div>";
 },"useData":true});
 
 this["JST"]["cardActivity"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

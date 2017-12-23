@@ -12,7 +12,7 @@ var ListView = Backbone.View.extend({
   events: {
     "click #addCard div:last-of-type": "openDrawer",
     "click #addCard div:first-of-type a": "closeDrawer",
-    "submit form": "broadcastAddCard"
+    "submit #addCard form": "broadcastAddCard"
   },
   
   openDrawer: function() {
@@ -29,7 +29,7 @@ var ListView = Backbone.View.extend({
   broadcastAddCard: function(e) {
     e.preventDefault();
     
-    var newName = this.$("form").serializeArray()[0].value;
+    var newName = this.$("#addCard form").serializeArray()[0].value;
     
     // broadcast "addList" event to App and send newName
     App.trigger("addCard", newName, this.model.id);
