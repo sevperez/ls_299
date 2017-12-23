@@ -186,6 +186,8 @@ header div {
   height: 100%;
 }
 header div input {
+  position: relative;
+  z-index: 2;
   height: 100%;
   width: 180px;
   padding: 5px;
@@ -194,6 +196,7 @@ header div input {
   color: #333;
 }
 header div input + span {
+  z-index: 2;
   position: relative;
   right: 20px;
 }
@@ -241,6 +244,95 @@ header #logo h2:hover {
 }
 #boardHeader a span {
   padding-right: 5px;
+}
+#searchPane {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 8px;
+}
+#searchPane .overlay {
+  z-index: 1;
+}
+#searchPane #searchResults {
+  position: relative;
+  display: block;
+  z-index: 2;
+  width: 600px;
+  min-height: 220px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background-color: #e2e4e6;
+}
+#searchPane #searchResults > p {
+  color: rgba(0,0,0,0.4);
+  text-align: center;
+  padding-top: 60px;
+}
+#searchPane #searchResults h2 {
+  display: inline-block;
+  width: 100%;
+  font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 10px;
+}
+#searchPane #searchResults .searchCard,
+#searchPane #searchResults .searchCardInfo {
+  display: inline-block;
+  vertical-align: top;
+}
+#searchPane #searchResults .searchCard {
+  display: inline-block;
+  width: 257px;
+  margin-bottom: 10px;
+  color: #333;
+}
+#searchPane #searchResults .searchCard div {
+  height: 75px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+#searchPane #searchResults .searchCard div .searchLabels {
+  margin-bottom: 5px;
+}
+#searchPane #searchResults .searchCard div .searchLabels li {
+  display: inline-block;
+  height: 8px;
+  width: 40px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+#searchPane #searchResults .searchCard div .searchIcons {
+  margin-top: 8px;
+}
+#searchPane #searchResults .searchCard div .searchIcons li {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+  color: rgba(0,0,0,0.4);
+}
+#searchPane #searchResults .searchCard div .searchIcons li span {
+  padding-right: 5px;
+}
+#searchPane #searchResults .searchCard div:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+#searchPane #searchResults .searchCardInfo {
+  padding-left: 20px;
+}
+#searchPane #searchResults .searchCardInfo a {
+  color: #333;
+  font-weight: bold;
+}
+#searchPane #searchResults .searchCardInfo a:hover {
+  text-decoration: underline;
+}
+#searchPane #searchResults .searchCardInfo p {
+  color: rgba(0,0,0,0.4);
 }
 #lists {
   display: inline-block;
@@ -323,7 +415,7 @@ header #logo h2:hover {
   padding: 8px;
   border-radius: 5px;
   background-color: #fff;
-  z-index: 2;
+  z-index: 3;
   position: relative;
 }
 #lists .list .cardList .card .editTitlePane .formCtnr form textarea {
@@ -346,7 +438,7 @@ header #logo h2:hover {
 }
 #lists .list .cardList .card .editTitlePane .overlay {
   background-color: rgba(0,0,0,0.4);
-  z-index: 1;
+  z-index: 2;
 }
 #lists .list .listTitleCtnr {
   padding: 10px 10px 0 10px;
@@ -358,6 +450,7 @@ h4
   display: none;
 }
 #lists .list .listTitleCtnr .listTitleEdit .editOverlay {
+  z-index: 2;
   width: 100%;
   position: fixed;
   top: 0;
@@ -368,7 +461,7 @@ h4
 }
 #lists .list .listTitleCtnr .listTitleEdit input {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding: 3px;
   border-radius: 3px;
   font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -447,9 +540,11 @@ h4
   text-decoration: underline;
 }
 #cardInfo .overlay {
+  z-index: 2;
   background-color: rgba(0,0,0,0.4);
 }
 #cardInfo #cardInfoModal {
+  z-index: 3;
   position: fixed;
   top: 50px;
   left: 50%;

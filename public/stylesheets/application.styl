@@ -25,6 +25,8 @@ header
     display: inline-block
     height: 100%
     input
+      position: relative
+      z-index: 2
       height: 100%
       width: 180px
       padding: 5px
@@ -32,6 +34,7 @@ header
       font: 14px fonts.default, Arial, Helvetica, sans-serif
       color: colors.txt.main
       & + span
+        z-index: 2
         position: relative
         right: 20px
   #logo
@@ -70,6 +73,78 @@ header
     text-decoration: underline
     span
       padding-right: 5px
+
+#searchPane
+  display: block
+  position: absolute
+  top: 40px
+  left: 8px
+  .overlay
+    z-index: 1
+  #searchResults
+    position: relative
+    display: block
+    z-index: 2
+    width: 600px
+    min-height: 220px
+    padding: 10px
+    border-radius: 5px
+    border: 1px solid colors.shaded.lowBlk
+    background-color: colors.bg.secondary
+    & > p
+      color: colors.shaded.medBlk
+      text-align: center
+      padding-top: 60px
+    h2
+      display: inline-block
+      width: 100%
+      font-size: 18px
+      padding-bottom: 5px
+      border-bottom: 1px solid colors.shaded.vLowBlk
+      margin-bottom: 10px
+    .searchCard,
+    .searchCardInfo
+      display: inline-block
+      vertical-align: top
+    .searchCard
+      display: inline-block
+      width: 257px
+      margin-bottom: 10px
+      color: colors.txt.main
+      div
+        height: 75px
+        width: 100%
+        padding: 8px
+        border-radius: 5px
+        background-color: #ffffff
+        .searchLabels
+          margin-bottom: 5px
+          li
+            display: inline-block
+            height: 8px
+            width: 40px
+            margin-right: 5px
+            border-radius: 3px
+        .searchIcons
+          margin-top: 8px
+          li
+            display: inline-block
+            margin-right: 20px
+            vertical-align: top
+            color: colors.shaded.medBlk
+            span
+              padding-right: 5px
+        &:hover
+          background-color: colors.shaded.medWht
+    .searchCardInfo
+      padding-left: 20px
+      a
+        color: colors.txt.main
+        font-weight: bold
+        &:hover
+          text-decoration: underline
+      p
+        color: colors.shaded.medBlk
 
 #lists
   display: inline-block
@@ -137,7 +212,7 @@ header
             padding: 8px
             border-radius: 5px
             background-color: #ffffff
-            z-index: 2
+            z-index: 3
             position: relative
             form
               textarea
@@ -157,7 +232,7 @@ header
                   background-color: #47a236
           .overlay
             background-color: colors.shaded.medBlk
-            z-index: 1
+            z-index: 2
     .listTitleCtnr
       padding: 10px 10px 0 10px
       h4
@@ -166,6 +241,7 @@ header
       .listTitleEdit
         display: none
         .editOverlay
+          z-index: 2
           width: 100%
           position: fixed
           top: 0
@@ -175,7 +251,7 @@ header
           background-color: rgba(0, 0, 0, 0)
         input
           position: relative
-          z-index: 1
+          z-index: 3
           padding: 3px
           border-radius: 3px
           font: 14px fonts.default, Arial, Helvetica, sans-serif
@@ -238,8 +314,10 @@ header
 
 #cardInfo
   .overlay
+    z-index: 2
     background-color: colors.shaded.medBlk
   #cardInfoModal
+    z-index: 3
     position: fixed
     top: 50px
     left: 50%

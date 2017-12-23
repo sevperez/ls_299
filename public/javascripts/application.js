@@ -457,8 +457,6 @@ var App = {
     
     // adjust cardsets and card
     if (origCardSet !== newCardSet) {
-      console.log("adjusting card sets");
-      
       // switch card between card sets
       origCardSet.remove(card, { silent: true });
       newCardSet.add(card, { silent: true });
@@ -528,6 +526,23 @@ var App = {
     });
   },
   
+  bindSearchBar: function() {
+    var self = this;
+    var $searchBar = $("#searchBar");
+    
+    $searchBar.on("focus", function() {
+      if (self.searchPaneView === undefined) {
+        self.searchPaneView = new SearchPaneView();
+      }
+    });
+    
+    $searchBar.on("keyup", function(e) {
+      var val = $searchBar.val();
+      
+      self.searchPaneView.search(val);
+    });
+  },
+  
   bindEvents: function() {
     // extend Backbone.Events to the App object
     _.extend(this, Backbone.Events);
@@ -558,6 +573,8 @@ var App = {
     this.on("editCardTitle", this.editCardTitle);
     this.on("editListTitle", this.editListTitle);
     this.on("requestedCardFound", this.openCardModal);
+    
+    this.bindSearchBar();
   },
   
   init: function() {

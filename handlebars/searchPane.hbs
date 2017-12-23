@@ -1,0 +1,54 @@
+<div class="overlay"></div>
+<div id="searchResults">
+  <h2>Search Results</h2>
+  {{#if cards}}
+    <ul>
+      {{#each cards}}
+        <li>
+          <a class="searchCard" href="/view/boards/{{getBoardId}}/lists/{{list_id}}/cards/{{id}}">
+            <div>
+              {{#if labels}}
+                <ul class="searchLabels">
+                  {{#each labels}}
+                    <li data-label={{this}}></li>
+                  {{/each}}
+                </ul>
+              {{/if}}
+              <p>{{title}}</p>
+              {{#if (hasIcons)}}
+                <ul class="searchIcons">
+                  {{#if (hasDueDate due_date)}}
+                    <li>
+                      <span class="fa fa-clock-o"></span> {{shortDate due_date}}
+                    </li>
+                  {{/if}}
+                  {{#if (hasDescription description)}}
+                    <li>
+                      <span class="fa fa-bars"></span>
+                    </li>
+                  {{/if}}
+                  {{#if (hasComments comments)}}
+                    <li>
+                      <span class="fa fa-comment-o"></span>{{countArr comments}}
+                    </li>
+                  {{/if}}
+                  {{#if (hasChecklists checklists)}}
+                    <li>
+                      <span class="fa fa-check-square-o"></span>{{checklistStatus checklists}}
+                    </li>
+                  {{/if}}
+                </ul>
+              {{/if}}
+            </div>
+          </a>
+          <div class="searchCardInfo">
+            <a href="/view/boards/{{getBoardId}}/lists/{{list_id}}/cards/{{id}}">{{title}}</a>
+            <p>in <b>{{getListName list_id}}</b></p>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>We couldn't find any cards or boards that matched your search.</p>
+  {{/if}}
+</div>
