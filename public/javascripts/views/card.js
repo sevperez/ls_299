@@ -8,13 +8,41 @@ var CardView = Backbone.View.extend({
   },
   
   events: {
-    "click": "broadcastCardClick",
+    "click .mainCardPane": "broadcastCardClick",
+    "click .editIcon": "openEditPane",
+    "click .editTitlePane .overlay": "closeEditPane",
+    "submit .editTitlePane form": "broadcastTitleChange",
   },
   
   template: App.templates.card,
   
-  broadcastCardClick: function() {
+  broadcastCardClick: function(e) {
+    e.preventDefault();
+
     App.trigger("cardClick", this.model);
+  },
+  
+  broadcastTitleChange: function(e) {
+    e.preventDefault();
+    
+    var newTitle = this.$("form").serializeArray()[0].value;
+    
+    // trigger "editCardTitle" on App and send newTitle
+    if (newTitle !== this.model.toJSON().title) {
+      App.trigger("editCardTitle", newTitle, this.model);
+    }
+    
+    this.closeEditPane();
+  },
+  
+  openEditPane: function(e) {
+    e.preventDefault();
+    
+    this.$(".editTitlePane").show();
+  },
+  
+  closeEditPane: function() {
+    this.$(".editTitlePane").hide();
   },
   
   registerHelpers: function() {

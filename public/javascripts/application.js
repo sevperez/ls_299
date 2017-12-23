@@ -109,6 +109,8 @@ var App = {
     if (card.toJSON().checklists.length > 0) {
       this.setupChecklistViews(card.toJSON().checklists);
     }
+    
+    this.router.navigate("/view/boards/" + String(this.board.id) + "/lists/" + String(card.toJSON().list_id) + "/cards/" + String(card.id));
   },
   
   setupChecklistViews: function(checklistIds) {
@@ -263,8 +265,10 @@ var App = {
     card.save();
   },
   
-  editCardTitle: function(newTitle) {
-    var card = this.currentCardView.model;
+  editCardTitle: function(newTitle, card) {
+    if (card === undefined) {
+      card = this.currentCardView.model;
+    }
     
     // set new title to relevant card
     card.set("title", newTitle);
@@ -469,10 +473,34 @@ var App = {
     }, 1500);
   },
   
+  displayBoard: function() {
+    if (this.currentCardView) {
+      this.currentCardView.close();
+    } else {
+      this.router.navigate("/view/boards/" + String(this.board.id));
+    }
+  },
+  
+  displayCardInfo: function(boardId, listId, cardId) {
+    if (this.currentCardView) {
+      this.currentCardView.close();
+    } else {
+      var card = this.cardSets[listId].get(cardId);
+      this.openCardModal(card);
+    }
+  },
+  
   setupDragula: function() {
     var self = this;
     
     this.drake = dragula({
+      invalid: function(el, handle) {
+        if (($(el).attr("id") === "addList") || $(el).hasClass("editTitlePane")) {
+          return true;
+        } else {
+          return false;
+        }
+      },
       accepts: function(el, target, source, sibling) {
         // allow cards to drop on cardlists and lists on overall list list
         var $el = $(el);
@@ -482,6 +510,8 @@ var App = {
         
         if (elType === "card" && targetType === "cardList") {
           return true;
+        } else if (elType === "list" && sibling === null) {
+          return false;
         } else if (elType === "list" && targetType === "lists") {
           return true;
         } else {
@@ -527,9 +557,24 @@ var App = {
     this.on("editComment", this.editComment);
     this.on("editCardTitle", this.editCardTitle);
     this.on("editListTitle", this.editListTitle);
+    this.on("requestedCardFound", this.openCardModal);
   },
   
   init: function() {
+    // check for query string and store requested id data
+    if (window.location.search) {
+      var queryParams = new URLSearchParams(window.location.search);
+      var boardId = Number(queryParams.get("board_id"));
+      var listId = Number(queryParams.get("list_id"));
+      var cardId = Number(queryParams.get("card_id"));
+      
+      this.requestedCard = {
+        boardId: boardId,
+        listId: listId,
+        cardId: cardId,
+      };
+    }
+    
     // initialize cardSets object
     this.cardSets = {};
     
@@ -542,5 +587,6 @@ var App = {
     this.bindEvents();
     this.setupBoard();
     this.setupDragula();
+    this.displayBoard();
   },
 };

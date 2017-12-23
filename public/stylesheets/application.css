@@ -22,9 +22,7 @@
   border-radius: 5px;
   background-color: #fff;
   cursor: pointer;
-}
-.list.gu-mirror .cardList .card:hover {
-  background-color: rgba(255,255,255,0.6);
+  position: relative;
 }
 .list.gu-mirror .cardList .card .labels {
   margin-bottom: 5px;
@@ -47,6 +45,27 @@
 }
 .list.gu-mirror .cardList .card .icons li span {
   padding-right: 5px;
+}
+.list.gu-mirror .cardList .card .editIcon {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 3px;
+  border-radius: 3px;
+  color: rgba(0,0,0,0.4);
+}
+.list.gu-mirror .cardList .card .editIcon:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+.list.gu-mirror .cardList .card:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+.list.gu-mirror .cardList .card:hover .editIcon {
+  display: block;
+}
+.list.gu-mirror .cardList .card .editTitlePane {
+  display: none;
 }
 .list.gu-mirror .listTitleCtnr {
   padding: 10px 10px 0 10px;
@@ -87,13 +106,10 @@ h4
   border-radius: 5px;
   background-color: #fff;
   cursor: pointer;
-}
-.card.gu-mirror:hover {
-  background-color: rgba(255,255,255,0.6);
+  position: relative;
 }
 .card.gu-mirror .labels {
   margin-bottom: 5px;
-  list-style: none;
 }
 .card.gu-mirror .labels li {
   display: inline-block;
@@ -104,7 +120,6 @@ h4
 }
 .card.gu-mirror .icons {
   margin-top: 8px;
-  list-style: none;
 }
 .card.gu-mirror .icons li {
   display: inline-block;
@@ -114,6 +129,27 @@ h4
 }
 .card.gu-mirror .icons li span {
   padding-right: 5px;
+}
+.card.gu-mirror .editIcon {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 3px;
+  border-radius: 3px;
+  color: rgba(0,0,0,0.4);
+}
+.card.gu-mirror .editIcon:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+.card.gu-mirror:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+.card.gu-mirror:hover .editIcon {
+  display: block;
+}
+.card.gu-mirror .editTitlePane {
+  display: none;
 }
 .gu-hide {
   display: none !important;
@@ -229,9 +265,11 @@ header #logo h2:hover {
   border-radius: 5px;
   background-color: #fff;
   cursor: pointer;
+  position: relative;
 }
-#lists .list .cardList .card:hover {
-  background-color: rgba(255,255,255,0.6);
+#lists .list .cardList .card .mainCardPane {
+  height: 100%;
+  width: 100%;
 }
 #lists .list .cardList .card .labels {
   margin-bottom: 5px;
@@ -254,6 +292,61 @@ header #logo h2:hover {
 }
 #lists .list .cardList .card .icons li span {
   padding-right: 5px;
+}
+#lists .list .cardList .card .editIcon {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 3px;
+  border-radius: 3px;
+  color: rgba(0,0,0,0.4);
+}
+#lists .list .cardList .card .editIcon:hover {
+  background-color: rgba(0,0,0,0.15);
+}
+#lists .list .cardList .card:hover {
+  background-color: rgba(255,255,255,0.6);
+}
+#lists .list .cardList .card:hover .editIcon {
+  display: block;
+}
+#lists .list .cardList .card .editTitlePane {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#lists .list .cardList .card .editTitlePane .formCtnr {
+  height: 150px;
+  width: 257px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #fff;
+  z-index: 2;
+  position: relative;
+}
+#lists .list .cardList .card .editTitlePane .formCtnr form textarea {
+  width: 100%;
+  height: 88px;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #333;
+  border: none;
+  outline: none;
+  resize: none;
+}
+#lists .list .cardList .card .editTitlePane .formCtnr form .btn {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  border: none;
+}
+#lists .list .cardList .card .editTitlePane .formCtnr form .btn:hover {
+  background-color: #47a236;
+}
+#lists .list .cardList .card .editTitlePane .overlay {
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
 }
 #lists .list .listTitleCtnr {
   padding: 10px 10px 0 10px;

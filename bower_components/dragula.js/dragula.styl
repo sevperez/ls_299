@@ -19,8 +19,7 @@
         border-radius: 5px
         background-color: #ffffff
         cursor: pointer
-        &:hover
-          background-color: colors.shaded.medWht
+        position: relative
         .labels
           margin-bottom: 5px
           li
@@ -38,6 +37,22 @@
             color: colors.shaded.medBlk
             span
               padding-right: 5px
+        .editIcon
+          display: none
+          position: absolute
+          top: 5px
+          right: 5px
+          padding: 3px
+          border-radius: 3px
+          color: colors.shaded.medBlk
+          &:hover
+            background-color: colors.shaded.lowBlk
+        &:hover
+          background-color: colors.shaded.medWht
+          .editIcon 
+            display: block
+        .editTitlePane
+          display: none
     .listTitleCtnr
       padding: 10px 10px 0 10px
       h4
@@ -74,11 +89,9 @@
   border-radius: 5px
   background-color: #ffffff
   cursor: pointer
-  &:hover
-    background-color: colors.shaded.medWht
+  position: relative
   .labels
     margin-bottom: 5px
-    list-style: none
     li
       display: inline-block
       height: 8px
@@ -87,7 +100,6 @@
       border-radius: 3px
   .icons
     margin-top: 8px
-    list-style: none
     li
       display: inline-block
       margin-right: 20px
@@ -95,6 +107,22 @@
       color: colors.shaded.medBlk
       span
         padding-right: 5px
+  .editIcon
+    display: none
+    position: absolute
+    top: 5px
+    right: 5px
+    padding: 3px
+    border-radius: 3px
+    color: colors.shaded.medBlk
+    &:hover
+      background-color: colors.shaded.lowBlk
+  &:hover
+    background-color: colors.shaded.medWht
+    .editIcon 
+      display: block
+  .editTitlePane
+    display: none
 
 .gu-hide
   display none !important
