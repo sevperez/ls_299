@@ -61,6 +61,14 @@ var SearchPaneView = Backbone.View.extend({
     Handlebars.registerHelper("getBoardId", function() {
       return App.board.id;
     });
+    
+    Handlebars.registerHelper("getPreview", function(description) {
+      if (description.length > 100) {
+        return description.slice(0, 100) + "...";
+      } else {
+        return description;
+      }
+    });
   },
   
   render: function() {

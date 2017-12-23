@@ -266,7 +266,9 @@ this["JST"]["searchPane"] = Handlebars.template({"1":function(container,depth0,h
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "</a><p>in <b>"
     + alias4((helpers.getListName || (depth0 && depth0.getListName) || alias2).call(alias1,(depth0 != null ? depth0.list_id : depth0),{"name":"getListName","hash":{},"data":data}))
-    + "</b></p></div></li>";
+    + "</b></p><p>"
+    + alias4((helpers.getPreview || (depth0 && depth0.getPreview) || alias2).call(alias1,(depth0 != null ? depth0.description : depth0),{"name":"getPreview","hash":{},"data":data}))
+    + "</p></div></li>";
 },"3":function(container,depth0,helpers,partials,data) {
     var stack1;
 
