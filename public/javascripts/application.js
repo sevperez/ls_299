@@ -481,6 +481,15 @@ var App = {
     }
   },
   
+  displayCardInfo: function(boardId, listId, cardId) {
+    if (this.currentCardView) {
+      this.currentCardView.close();
+    } else {
+      var card = this.cardSets[listId].get(cardId);
+      this.openCardModal(card);
+    }
+  },
+  
   setupDragula: function() {
     var self = this;
     
