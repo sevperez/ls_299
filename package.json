@@ -3,15 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "test": "jasmine-node spec --autotest --color --watch ."
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.15.5",
-    "jasmine-node": "^1.14.5",
     "morgan": "~1.9.0",
     "nib": "^1.1.2",
     "pug": "2.0.0-beta11",
