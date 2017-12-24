@@ -9,7 +9,7 @@ this["JST"]["boardHeader"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"mai
 
   return "<h3 class=\"left\">"
     + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h3><a class=\"right\" href=\"#\"><span class=\"fa fa-ellipsis-h\"></span> Show Menu</a>";
+    + "</h3>";
 },"useData":true});
 
 this["JST"]["card"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

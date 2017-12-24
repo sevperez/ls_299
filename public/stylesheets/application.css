@@ -365,6 +365,7 @@ header #logo h2:hover {
   position: relative;
 }
 #lists .list .cardList .card .mainCardPane {
+  min-height: 60px;
   height: 100%;
   width: 100%;
 }
