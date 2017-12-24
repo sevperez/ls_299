@@ -5,11 +5,6 @@
     "color": "#137BBD",
     "lists": [1, 2, 3]
   }],
-  "menu": {
-    "id": 1,
-    "board_id": 1,
-    "activities": []
-  },
   "lists": [
     {
       "id": 1,

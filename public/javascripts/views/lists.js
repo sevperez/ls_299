@@ -64,6 +64,7 @@ var ListsView = Backbone.View.extend({
   
   initialize: function() {
     this.bindEvents();
+    this.addNewListView = new AddNewListView();
     
     // add to dragula to enable list drag/drop
     App.drake.containers.push(this.el);
