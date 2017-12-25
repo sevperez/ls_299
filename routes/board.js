@@ -151,14 +151,6 @@ module.exports = function(router) {
     res.json(_.where(Interface.get().labels, { id: +req.params.label_id })[0]);
   });
   
-  router.route("/comments").get(function(req, res, next) {
-    res.json(Interface.get().comments);
-  });
-  
-  router.route("/comments/:comment_id").get(function(req, res, next) {
-    res.json(_.where(Interface.get().comments, { id: +req.params.comment_id })[0]);
-  });
-  
   router.route("/checklists").get(function(req, res, next) {
     res.json(Interface.get().checklists);
   }).post(function(req, res, next) {

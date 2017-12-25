@@ -356,7 +356,7 @@ header #logo h2:hover {
   min-height: 20px;
 }
 #lists .list .cardList .card {
-  height: 75px;
+  min-height: 75px;
   padding: 8px;
   margin: 10px;
   border-radius: 5px;
@@ -365,6 +365,7 @@ header #logo h2:hover {
   position: relative;
 }
 #lists .list .cardList .card .mainCardPane {
+  min-height: 60px;
   height: 100%;
   width: 100%;
 }

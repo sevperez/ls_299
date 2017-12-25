@@ -1,0 +1,48 @@
+{
+  "boards": [{
+    "id": 1,
+    "title": "Trello Board Clone",
+    "color": "#137BBD",
+    "lists": []
+  }],
+  "lists": [],
+  "cards": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "Launch School Student"
+    }
+  ],
+  "labels": [
+    {
+      "id": 1,
+      "title": "work",
+      "color": "green"
+    }, {
+      "id": 2,
+      "title": "coding",
+      "color": "yellow"
+    }, {
+      "id": 3,
+      "title": "fun",
+      "color": "orange"
+    }, {
+      "id": 4,
+      "title": "marketing",
+      "color": "red"
+    }, {
+      "id": 5,
+      "title": "finance",
+      "color": "purple"
+    }, {
+      "id": 6,
+      "title": "support",
+      "color": "blue"
+    }, {
+      "id": 7,
+      "title": "community",
+      "color": "sky"
+    }
+  ],
+  "checklists": []
+}

@@ -41,7 +41,7 @@ var CardActivityView = Backbone.View.extend({
     
     var $li = $(e.target).closest("li");
     var commentId = $li.data("comment");
-    var text = this.$(".editCommentForm form").serializeArray()[0].value;
+    var text = $li.find(".editCommentForm form").eq(0).serializeArray()[0].value;
     
     // broadcast "editComment" event to App and send comment value
     App.trigger("editComment", commentId, text);
