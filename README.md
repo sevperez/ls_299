@@ -1,24 +1,22 @@
-## Launch School - Assessment 299
-### Trello Clone
-
-#### Overview
+## Trello Clone
 
 This project is a clone of the productivity app [Trello](https://trello.com/). The project recreates a single Trello board and assumes use by a single user.
 
-#### Dependencies
+In current implementation, the persistence layer is limited to a local data.json file. No version of this app has yet been deployed to a hosting service.
 
-This project uses the following libraries which can be installed by running the "npm install" and "bower install" commands upon download.
+#### Stack
 
-- Node.js (server-side JavaScript runtime)
-- npm (package manager)
-- express.js (server-side web framework)
-- bower(package manager)
-- grunt (JavaScript task runner)
-- pug (templating engine and HTML preprocessor)
-- stylus (CSS preprocessor)
-- JavaScript libraries:
-  - Backbone (MVC framework)
+- Frontend Framework: Backbone.js
+- Additional Frontend Libraries:
   - Underscore (utility library)
-  - jQuery
   - Handlebars (templating)
   - Dragula (DOM element drag/drop library)
+  - jQuery (DOM manipulation)
+- Server-side JavaScript runtime: Node.js
+- Server-side web framework: Express.js
+- HTML Preprocessor: Pug
+- CSS Preprocessor: Stylus
+- Additional Tools:
+  - Package Management: Bower
+  - Package Management: npm
+  - Task Runner: Grunt.js
